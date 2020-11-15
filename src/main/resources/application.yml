@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: jdbc:mysql://47.107.72.240:3306/sise_test?serverTimezone=UTC
+    username: root
+    password: 1234,abcd
+    driver-class-name: com.mysql.cj.jdbc.Driver
