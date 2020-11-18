@@ -2,7 +2,7 @@ spring:
   datasource:
     # 如果存在多个数据源，监控的时候可以通过名字来区分开来
     name: mysql
-    url: jdbc:mysql://47.107.72.240:3306/sise_test?serverTimezone=UTC
+    url: jdbc:mysql://47.107.72.240:3306/siseoj_test?serverTimezone=UTC
     username: root
     password: 1234,abcd
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -44,5 +44,8 @@ mybatis:
   mapper-locations: classpath:mapper/*.xml
   configuration:
     map-underscore-to-camel-case: true
+
+logging:
+  config: classpath:config/logback-spring.xml
 
 # 自定义配置

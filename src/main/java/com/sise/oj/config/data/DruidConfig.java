@@ -1,3 +1,4 @@
+/*
 package com.sise.oj.config.data;
 
 import com.alibaba.druid.pool.DruidDataSource;
@@ -15,12 +16,14 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+*/
 /**
  * TODO
  *
  * @author CiJee
  * @version 1.0
- */
+ *//*
+
 @Configuration
 public class DruidConfig {
 
@@ -36,11 +39,13 @@ public class DruidConfig {
     @Value("${cf.config.druid.pwd}")
     private String pwd;
 
-    /**
+    */
+/**
      * 配置Druid的监控
      * 配置一个管理后台的servlet
-     */
-/*    @Bean
+     *//*
+
+    @Bean
     public ServletRegistrationBean statViewServlet() {
         ServletRegistrationBean<StatViewServlet> bean = new ServletRegistrationBean<>(new StatViewServlet(), "/druid/*");
         Map<String, String> initParams = new HashMap<>(10);
@@ -54,11 +59,13 @@ public class DruidConfig {
         initParams.put("deny", "");
         bean.setInitParameters(initParams);
         return bean;
-    }*/
+    }
 
-    /**
+    */
+/**
      * 配置一个监控的filter
-     */
+     *//*
+
     @Bean
     public FilterRegistrationBean webStatFilter() {
         FilterRegistrationBean<WebStatFilter> bean = new FilterRegistrationBean<>();
@@ -72,3 +79,4 @@ public class DruidConfig {
         return bean;
     }
 }
+*/

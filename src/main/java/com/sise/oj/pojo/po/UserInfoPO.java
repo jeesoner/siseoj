@@ -1,5 +1,6 @@
 package com.sise.oj.pojo.po;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -12,6 +13,7 @@ import java.util.Date;
  * @version 1.0
  */
 @Data
+@TableName(value = "user_info")
 public class UserInfoPO implements Serializable {
 
     private Long id;

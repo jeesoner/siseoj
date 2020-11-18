@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- 不分级别同步文件日志输出配置 -->
-<configuration>
+<configuration scan="true" debug="false" scanPeriod="60 seconds">
+    <conversionRule conversionWord="clr" converterClass="com.sise.oj.config.base.ProjectColorConverter"/>
     <!-- 日志级别 -->
     <property name="logLevel" value="INFO"/>
     <!-- 日志地址 -->
@@ -16,7 +17,7 @@
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <!-- 日志格式 -->
         <encoder>
-            <pattern>%yellow(%d{yyyy-MM-dd HH:mm:ss}) %blue([%thread]) %highlight([%level])  %green(%logger{35}) - %highlight(%msg) %n</pattern>
+            <pattern>%clr(%d{YYYY-MM-dd HH:mm:ss}) %clr(%-5level) %clr([%(%X{uuid}%t)]){magenta} %clr([%-4L]) %clr(%c){cyan} %clr(:) %clr(%msg%n)</pattern>
         </encoder>
     </appender>
 
