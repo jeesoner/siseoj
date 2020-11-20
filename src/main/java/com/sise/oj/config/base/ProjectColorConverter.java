@@ -31,7 +31,7 @@ public class ProjectColorConverter extends CompositeConverter<ILoggingEvent> {
         ELEMENTS.put("cyan", AnsiColor.CYAN);
 
         LEVELS.put(Level.ERROR_INTEGER, AnsiColor.RED);
-        LEVELS.put(Level.INFO_INTEGER, AnsiColor.BLACK);
+        LEVELS.put(Level.INFO_INTEGER, AnsiColor.BLUE);
         LEVELS.put(Level.WARN_INTEGER, AnsiColor.BRIGHT_YELLOW);
         LEVELS.put(Level.DEBUG_INTEGER, AnsiColor.WHITE);
 

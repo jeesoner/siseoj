@@ -35,9 +35,7 @@ spring:
       # 是否缓存preparedStatement，即PSCache
       poolPreparedStatements: false
       # 要启用PSCache，必须配置大于0，当大于0时，poolPreparedStatements自动触发修改为true
-      maxOpenPreparedStatements: -1
-logging:
-  config: classpath:config/logback-spring.xml
+      max-open-prepared-statements: -1
 
 mybatis:
   # mapper.xml包地址

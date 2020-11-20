@@ -3,7 +3,7 @@
 <configuration scan="true" debug="false" scanPeriod="60 seconds">
     <conversionRule conversionWord="clr" converterClass="com.sise.oj.config.base.ProjectColorConverter"/>
     <!-- 日志级别 -->
-    <property name="logLevel" value="INFO"/>
+    <property name="logLevel" value="DEBUG"/>
     <!-- 日志地址 -->
     <property name="logPath" value="./logs"/>
     <!-- 最大保存时间 -->
