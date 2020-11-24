@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- 不分级别同步文件日志输出配置 -->
 <configuration scan="true" debug="false" scanPeriod="60 seconds">
-    <conversionRule conversionWord="clr" converterClass="com.sise.oj.config.log.ProjectColorConverter"/>
+    <conversionRule conversionWord="clr" converterClass="com.sise.oj.base.config.ProjectColorConverter"/>
     <!-- 日志级别 -->
     <property name="logLevel" value="INFO"/>
     <!-- 日志地址 -->

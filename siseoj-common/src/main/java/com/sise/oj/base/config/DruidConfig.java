@@ -1,5 +1,5 @@
-package com.sise.oj.config;/*
-package com.sise.oj.config.data;
+package com.sise.oj.base.config;/*
+package com.sise.oj.base.config.data;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;

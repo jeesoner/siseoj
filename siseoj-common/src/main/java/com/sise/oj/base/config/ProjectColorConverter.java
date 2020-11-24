@@ -1,4 +1,4 @@
-package com.sise.oj.config;
+package com.sise.oj.base.config;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.spi.ILoggingEvent;
