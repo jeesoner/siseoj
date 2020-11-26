@@ -1,8 +1,14 @@
-package com.sise.oj.base.enums;
+package com.sise.oj.enums;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * API 统一返回状态码
+ *
+ * @author CiJee
+ * @version 1.0
+ */
 public enum ResultCode {
 
     /* 成功状态码 */
@@ -43,9 +49,9 @@ public enum ResultCode {
     /* 权限错误：70001-79999 */
     PERMISSION_NO_ACCESS(70001, "无访问权限");
 
-    private Integer code;
+    private final Integer code;
 
-    private String message;
+    private final String message;
 
     ResultCode(Integer code, String message) {
         this.code = code;
@@ -53,34 +59,11 @@ public enum ResultCode {
     }
 
     public Integer code() {
-        return this.code;
+        return code;
     }
 
     public String message() {
-        return this.message;
-    }
-
-    public static String getMessage(String name) {
-        for (ResultCode item : ResultCode.values()) {
-            if (item.name().equals(name)) {
-                return item.message;
-            }
-        }
-        return name;
-    }
-
-    public static Integer getCode(String name) {
-        for (ResultCode item : ResultCode.values()) {
-            if (item.name().equals(name)) {
-                return item.code;
-            }
-        }
-        return null;
-    }
-
-    @Override
-    public String toString() {
-        return this.name();
+        return message;
     }
 
     /* 校验重复的code值 */
@@ -91,8 +74,12 @@ public enum ResultCode {
             if (codeList.contains(ApiResultCode.code)) {
                 System.out.println(ApiResultCode.code);
             } else {
-                codeList.add(ApiResultCode.code());
+                codeList.add(ApiResultCode.code);
             }
         }
+        System.out.println(ResultCode.DATA_ALREADY_EXISTED.toString());
+        System.out.println(ResultCode.DATA_ALREADY_EXISTED.name());
+        System.out.println(ResultCode.DATA_ALREADY_EXISTED.code);
+        System.out.println(ResultCode.DATA_ALREADY_EXISTED.ordinal());
     }
 }

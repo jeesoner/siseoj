@@ -1,12 +1,16 @@
 package com.sise.oj.controller;
 
+import com.sise.oj.domain.base.Result;
+import com.sise.oj.domain.po.UserInfoPO;
 import com.sise.oj.service.UserInfoService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@Slf4j
 public class TestController {
 
     private final UserInfoService userInfoService;
@@ -15,14 +19,13 @@ public class TestController {
         this.userInfoService = userInfoService;
     }
 
-    @RequestMapping("/oj")
+    @RequestMapping({"/", "/oj"})
     public String oj() {
         return "hello oj";
     }
 
     @GetMapping("/{id}")
-    public String get(@PathVariable Long id) {
-        return "sdfsdfa";
+    public Result<UserInfoPO> get(@PathVariable Long id) {
+        return Result.success(userInfoService.getUserInfo(id));
     }
-
 }

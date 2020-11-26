@@ -11,6 +11,6 @@ import com.sise.oj.domain.po.UserInfoPO;
  */
 public interface UserInfoService {
 
-    public UserInfoPO getUserInfo(Long id);
+    UserInfoPO getUserInfo(Long id);
 
 }
