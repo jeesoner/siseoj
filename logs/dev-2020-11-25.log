@@ -1,5 +1,5 @@
-2020-11-25 16:01:06 1026 [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 20296 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
-2020-11-25 16:01:06 1034 [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-25 16:01:06 1026 [restartedMain] INFO  AppRun - Starting AppRun on LX-5CG9276CNQ with PID 20296 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj)
+2020-11-25 16:01:06 1034 [restartedMain] INFO  AppRun - No active profile set, falling back to default profiles: default
 2020-11-25 16:01:06 1110 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
 2020-11-25 16:01:06 1110 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
 2020-11-25 16:01:07 2303 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
@@ -14,9 +14,9 @@
 2020-11-25 16:01:10 5140 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
 2020-11-25 16:01:10 5155 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
 2020-11-25 16:01:10 5176 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
-2020-11-25 16:01:10 5186 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 4.948 seconds (JVM running for 5.985) 
-2020-11-25 16:02:01 1033 [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 18256 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
-2020-11-25 16:02:01 1039 [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-25 16:01:10 5186 [restartedMain] INFO  AppRun - Started AppRun in 4.948 seconds (JVM running for 5.985)
+2020-11-25 16:02:01 1033 [restartedMain] INFO  AppRun - Starting AppRun on LX-5CG9276CNQ with PID 18256 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj)
+2020-11-25 16:02:01 1039 [restartedMain] INFO  AppRun - No active profile set, falling back to default profiles: default
 2020-11-25 16:02:01 1130 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
 2020-11-25 16:02:01 1131 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
 2020-11-25 16:02:03 2221 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
@@ -31,12 +31,12 @@
 2020-11-25 16:02:05 5038 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
 2020-11-25 16:02:05 5054 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
 2020-11-25 16:02:05 5072 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
-2020-11-25 16:02:05 5083 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 4.824 seconds (JVM running for 6.271) 
+2020-11-25 16:02:05 5083 [restartedMain] INFO  AppRun - Started AppRun in 4.824 seconds (JVM running for 6.271)
 2020-11-25 16:02:56 55223 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
 2020-11-25 16:02:56 55224 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
 2020-11-25 16:02:56 55232 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 8 ms 
-2020-11-25 16:16:11 766  [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 17800 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
-2020-11-25 16:16:11 770  [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-25 16:16:11 766  [restartedMain] INFO  AppRun - Starting AppRun on LX-5CG9276CNQ with PID 17800 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj)
+2020-11-25 16:16:11 770  [restartedMain] INFO  AppRun - No active profile set, falling back to default profiles: default
 2020-11-25 16:16:11 845  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
 2020-11-25 16:16:11 846  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
 2020-11-25 16:16:12 1901 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
@@ -51,13 +51,13 @@
 2020-11-25 16:16:14 4326 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
 2020-11-25 16:16:14 4343 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
 2020-11-25 16:16:14 4369 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
-2020-11-25 16:16:14 4379 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 4.182 seconds (JVM running for 5.164) 
+2020-11-25 16:16:14 4379 [restartedMain] INFO  AppRun - Started AppRun in 4.182 seconds (JVM running for 5.164)
 2020-11-25 16:16:35 25248 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
 2020-11-25 16:16:35 25249 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
 2020-11-25 16:16:35 25257 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 8 ms 
 2020-11-25 16:16:35 25284 [http-nio-8080-exec-1] INFO  c.sise.oj.controller.TestController - hello world 
-2020-11-25 17:30:44 903  [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 10468 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
-2020-11-25 17:30:44 907  [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-25 17:30:44 903  [restartedMain] INFO  AppRun - Starting AppRun on LX-5CG9276CNQ with PID 10468 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj)
+2020-11-25 17:30:44 907  [restartedMain] INFO  AppRun - No active profile set, falling back to default profiles: default
 2020-11-25 17:30:44 996  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
 2020-11-25 17:30:44 997  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
 2020-11-25 17:30:46 2252 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
@@ -72,9 +72,9 @@
 2020-11-25 17:30:49 5374 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
 2020-11-25 17:30:49 5400 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
 2020-11-25 17:30:49 5422 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
-2020-11-25 17:30:49 5435 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 5.191 seconds (JVM running for 6.518) 
-2020-11-25 17:31:25 840  [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 12152 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
-2020-11-25 17:31:25 843  [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-25 17:30:49 5435 [restartedMain] INFO  AppRun - Started AppRun in 5.191 seconds (JVM running for 6.518)
+2020-11-25 17:31:25 840  [restartedMain] INFO  AppRun - Starting AppRun on LX-5CG9276CNQ with PID 12152 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj)
+2020-11-25 17:31:25 843  [restartedMain] INFO  AppRun - No active profile set, falling back to default profiles: default
 2020-11-25 17:31:26 921  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
 2020-11-25 17:31:26 922  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
 2020-11-25 17:31:27 1969 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
@@ -89,10 +89,10 @@
 2020-11-25 17:31:29 4347 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
 2020-11-25 17:31:29 4362 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
 2020-11-25 17:31:29 4381 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
-2020-11-25 17:31:29 4393 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 4.205 seconds (JVM running for 5.179) 
+2020-11-25 17:31:29 4393 [restartedMain] INFO  AppRun - Started AppRun in 4.205 seconds (JVM running for 5.179)
 2020-11-25 18:02:20 634  [restartedMain] DEBUG o.s.b.c.l.ClasspathLoggingApplicationListener - Application started with classpath: [file:/D:/projects/public/siseoj/siseoj-system/target/classes/, file:/D:/projects/public/siseoj/siseoj-common/target/classes/] 
-2020-11-25 18:02:20 770  [restartedMain] DEBUG com.sise.oj.AppRun - Running with Spring Boot v2.3.5.RELEASE, Spring v5.2.10.RELEASE 
-2020-11-25 18:02:20 773  [restartedMain] DEBUG o.s.boot.SpringApplication - Loading source class com.sise.oj.AppRun 
+2020-11-25 18:02:20 770  [restartedMain] DEBUG AppRun - Running with Spring Boot v2.3.5.RELEASE, Spring v5.2.10.RELEASE
+2020-11-25 18:02:20 773  [restartedMain] DEBUG o.s.boot.SpringApplication - Loading source class AppRun
 2020-11-25 18:02:20 844  [restartedMain] DEBUG o.s.b.c.c.ConfigFileApplicationListener - Loaded config file 'file:/D:/projects/public/siseoj/siseoj-system/target/classes/application.yml' (classpath:/application.yml) 
 2020-11-25 18:02:20 846  [restartedMain] DEBUG o.s.b.d.restart.ChangeableUrls - Matching URLs for reloading : [file:/D:/projects/public/siseoj/siseoj-system/target/classes/, file:/D:/projects/public/siseoj/siseoj-common/target/classes/] 
 2020-11-25 18:02:20 846  [restartedMain] DEBUG o.s.b.d.settings.DevToolsSettings - Included patterns for restart : [/mybatis-plus-[\w-]+.jar] 
@@ -114,11 +114,11 @@
 2020-11-25 18:02:21 1381 [restartedMain] DEBUG o.s.c.e.PropertySourcesPropertyResolver - Found key 'spring.template.provider.cache' in PropertySource 'configurationProperties' with value of type String 
 2020-11-25 18:02:21 1463 [restartedMain] DEBUG o.s.c.e.PropertySourcesPropertyResolver - Found key 'spring.jmx.enabled' in PropertySource 'configurationProperties' with value of type String 
 2020-11-25 18:02:21 1467 [restartedMain] DEBUG o.s.c.e.PropertySourcesPropertyResolver - Found key 'spring.application.admin.enabled' in PropertySource 'configurationProperties' with value of type String 
-2020-11-25 18:02:21 1566 [restartedMain] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'com.sise.oj.AppRun#MapperScannerRegistrar#0' 
+2020-11-25 18:02:21 1566 [restartedMain] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'AppRun#MapperScannerRegistrar#0'
 2020-11-25 18:02:21 1576 [restartedMain] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'propertySourcesPlaceholderConfigurer' 
 2020-11-25 18:02:21 1584 [restartedMain] DEBUG o.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter. 
 2020-11-25 18:02:21 1586 [restartedMain] DEBUG o.m.s.mapper.ClassPathMapperScanner - Identified candidate component class: file [D:\projects\public\siseoj\siseoj-system\target\classes\com\sise\oj\mapper\UserInfoMapper.class] 
-2020-11-25 18:02:21 1586 [restartedMain] DEBUG o.m.s.mapper.ClassPathMapperScanner - Creating MapperFactoryBean with name 'userInfoMapper' and 'com.sise.oj.mapper.UserInfoMapper' mapperInterface 
+2020-11-25 18:02:21 1586 [restartedMain] DEBUG o.m.s.mapper.ClassPathMapperScanner - Creating MapperFactoryBean with name 'userInfoMapper' and 'UserInfoMapper' mapperInterface
 2020-11-25 18:02:21 1586 [restartedMain] DEBUG o.m.s.mapper.ClassPathMapperScanner - Enabling autowire by type for MapperFactoryBean with name 'userInfoMapper'. 
 2020-11-25 18:02:21 1642 [restartedMain] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerProcessor' 
 2020-11-25 18:02:21 1643 [restartedMain] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'preserveErrorControllerTargetClassPostProcessor' 
@@ -210,23 +210,23 @@
 2020-11-25 18:02:23 3550 [restartedMain] DEBUG c.b.m.e.s.MybatisSqlSessionFactoryBean - Property 'mapperLocations' was not specified. 
 2020-11-25 18:02:23 4065 [restartedMain] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'sqlSessionTemplate' 
 2020-11-25 18:02:23 4065 [restartedMain] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'sqlSessionTemplate' via factory method to bean named 'sqlSessionFactory' 
-2020-11-25 18:02:23 4132 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: com.sise.oj.mapper.UserInfoMapper.insert 
-2020-11-25 18:02:23 4137 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: com.sise.oj.mapper.UserInfoMapper.delete 
-2020-11-25 18:02:24 4140 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: com.sise.oj.mapper.UserInfoMapper.deleteByMap 
-2020-11-25 18:02:24 4155 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: com.sise.oj.mapper.UserInfoMapper.deleteById 
-2020-11-25 18:02:24 4156 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: com.sise.oj.mapper.UserInfoMapper.deleteBatchIds 
-2020-11-25 18:02:24 4161 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: com.sise.oj.mapper.UserInfoMapper.update 
-2020-11-25 18:02:24 4163 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: com.sise.oj.mapper.UserInfoMapper.updateById 
-2020-11-25 18:02:24 4163 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: com.sise.oj.mapper.UserInfoMapper.selectById 
-2020-11-25 18:02:24 4165 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: com.sise.oj.mapper.UserInfoMapper.selectBatchIds 
-2020-11-25 18:02:24 4166 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: com.sise.oj.mapper.UserInfoMapper.selectByMap 
-2020-11-25 18:02:24 4168 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: com.sise.oj.mapper.UserInfoMapper.selectOne 
-2020-11-25 18:02:24 4171 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: com.sise.oj.mapper.UserInfoMapper.selectCount 
-2020-11-25 18:02:24 4173 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: com.sise.oj.mapper.UserInfoMapper.selectMaps 
-2020-11-25 18:02:24 4175 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: com.sise.oj.mapper.UserInfoMapper.selectMapsPage 
-2020-11-25 18:02:24 4177 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: com.sise.oj.mapper.UserInfoMapper.selectObjs 
-2020-11-25 18:02:24 4179 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: com.sise.oj.mapper.UserInfoMapper.selectList 
-2020-11-25 18:02:24 4181 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: com.sise.oj.mapper.UserInfoMapper.selectPage 
+2020-11-25 18:02:23 4132 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: UserInfoMapper.insert
+2020-11-25 18:02:23 4137 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: UserInfoMapper.delete
+2020-11-25 18:02:24 4140 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: UserInfoMapper.deleteByMap
+2020-11-25 18:02:24 4155 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: UserInfoMapper.deleteById
+2020-11-25 18:02:24 4156 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: UserInfoMapper.deleteBatchIds
+2020-11-25 18:02:24 4161 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: UserInfoMapper.update
+2020-11-25 18:02:24 4163 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: UserInfoMapper.updateById
+2020-11-25 18:02:24 4163 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: UserInfoMapper.selectById
+2020-11-25 18:02:24 4165 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: UserInfoMapper.selectBatchIds
+2020-11-25 18:02:24 4166 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: UserInfoMapper.selectByMap
+2020-11-25 18:02:24 4168 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: UserInfoMapper.selectOne
+2020-11-25 18:02:24 4171 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: UserInfoMapper.selectCount
+2020-11-25 18:02:24 4173 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: UserInfoMapper.selectMaps
+2020-11-25 18:02:24 4175 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: UserInfoMapper.selectMapsPage
+2020-11-25 18:02:24 4177 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: UserInfoMapper.selectObjs
+2020-11-25 18:02:24 4179 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: UserInfoMapper.selectList
+2020-11-25 18:02:24 4181 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: UserInfoMapper.selectPage
 2020-11-25 18:02:24 4188 [restartedMain] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'userInfoServiceImpl' via constructor to bean named 'userInfoMapper' 
 2020-11-25 18:02:24 4189 [restartedMain] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'testController' via constructor to bean named 'userInfoServiceImpl' 
 2020-11-25 18:02:24 4190 [restartedMain] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.AutoConfigurationPackages' 
@@ -1171,7 +1171,7 @@ Negative matches:
 
    MybatisAutoConfiguration.MapperScannerRegistrarNotFoundConfiguration:
       Did not match:
-         - @ConditionalOnMissingBean (types: org.mybatis.spring.mapper.MapperFactoryBean,org.mybatis.spring.mapper.MapperScannerConfigurer; SearchStrategy: all) found beans of type 'org.mybatis.spring.mapper.MapperScannerConfigurer' com.sise.oj.AppRun#MapperScannerRegistrar#0 (OnBeanCondition)
+         - @ConditionalOnMissingBean (types: org.mybatis.spring.mapper.MapperFactoryBean,org.mybatis.spring.mapper.MapperScannerConfigurer; SearchStrategy: all) found beans of type 'org.mybatis.spring.mapper.MapperScannerConfigurer' AppRun#MapperScannerRegistrar#0 (OnBeanCondition)
 
    MybatisLanguageDriverAutoConfiguration.FreeMarkerConfiguration:
       Did not match:
@@ -1195,7 +1195,7 @@ Negative matches:
 
    MybatisPlusAutoConfiguration.MapperScannerRegistrarNotFoundConfiguration:
       Did not match:
-         - @ConditionalOnMissingBean (types: org.mybatis.spring.mapper.MapperFactoryBean,org.mybatis.spring.mapper.MapperScannerConfigurer; SearchStrategy: all) found beans of type 'org.mybatis.spring.mapper.MapperScannerConfigurer' com.sise.oj.AppRun#MapperScannerRegistrar#0 (OnBeanCondition)
+         - @ConditionalOnMissingBean (types: org.mybatis.spring.mapper.MapperFactoryBean,org.mybatis.spring.mapper.MapperScannerConfigurer; SearchStrategy: all) found beans of type 'org.mybatis.spring.mapper.MapperScannerConfigurer' AppRun#MapperScannerRegistrar#0 (OnBeanCondition)
 
    MybatisPlusLanguageDriverAutoConfiguration.FreeMarkerConfiguration:
       Did not match:
@@ -1485,11 +1485,11 @@ Unconditional classes:
 2020-11-25 18:02:24 4587 [restartedMain] DEBUG o.s.boot.devtools.restart.Restarter - Creating new Restarter for thread Thread[main,5,main] 
 2020-11-25 18:02:24 4587 [restartedMain] DEBUG o.s.boot.devtools.restart.Restarter - Immediately restarting application 
 2020-11-25 18:02:24 4587 [restartedMain] DEBUG o.s.boot.devtools.restart.Restarter - Created RestartClassLoader org.springframework.boot.devtools.restart.classloader.RestartClassLoader@3c853ec4 
-2020-11-25 18:02:24 4587 [restartedMain] DEBUG o.s.boot.devtools.restart.Restarter - Starting application com.sise.oj.AppRun with URLs [file:/D:/projects/public/siseoj/siseoj-system/target/classes/, file:/D:/projects/public/siseoj/siseoj-common/target/classes/] 
+2020-11-25 18:02:24 4587 [restartedMain] DEBUG o.s.boot.devtools.restart.Restarter - Starting application AppRun with URLs [file:/D:/projects/public/siseoj/siseoj-system/target/classes/, file:/D:/projects/public/siseoj/siseoj-common/target/classes/]
 2020-11-25 18:02:24 5097 [RMI TCP Connection(1)-192.168.1.195] DEBUG o.s.c.e.PropertySourcesPropertyResolver - Found key 'local.server.port' in PropertySource 'server.ports' with value of type Integer 
 2020-11-25 18:02:48 601  [restartedMain] DEBUG o.s.b.c.l.ClasspathLoggingApplicationListener - Application started with classpath: [file:/D:/projects/public/siseoj/siseoj-system/target/classes/, file:/D:/projects/public/siseoj/siseoj-common/target/classes/] 
-2020-11-25 18:02:48 728  [restartedMain] DEBUG com.sise.oj.AppRun - Running with Spring Boot v2.3.5.RELEASE, Spring v5.2.10.RELEASE 
-2020-11-25 18:02:48 729  [restartedMain] DEBUG o.s.boot.SpringApplication - Loading source class com.sise.oj.AppRun 
+2020-11-25 18:02:48 728  [restartedMain] DEBUG AppRun - Running with Spring Boot v2.3.5.RELEASE, Spring v5.2.10.RELEASE
+2020-11-25 18:02:48 729  [restartedMain] DEBUG o.s.boot.SpringApplication - Loading source class AppRun
 2020-11-25 18:02:49 802  [restartedMain] DEBUG o.s.b.c.c.ConfigFileApplicationListener - Loaded config file 'file:/D:/projects/public/siseoj/siseoj-system/target/classes/application.yml' (classpath:/application.yml) 
 2020-11-25 18:02:49 804  [restartedMain] DEBUG o.s.b.d.restart.ChangeableUrls - Matching URLs for reloading : [file:/D:/projects/public/siseoj/siseoj-system/target/classes/, file:/D:/projects/public/siseoj/siseoj-common/target/classes/] 
 2020-11-25 18:02:49 804  [restartedMain] DEBUG o.s.b.d.settings.DevToolsSettings - Included patterns for restart : [/mybatis-plus-[\w-]+.jar] 
@@ -1511,11 +1511,11 @@ Unconditional classes:
 2020-11-25 18:02:49 1309 [restartedMain] DEBUG o.s.c.e.PropertySourcesPropertyResolver - Found key 'spring.template.provider.cache' in PropertySource 'configurationProperties' with value of type String 
 2020-11-25 18:02:49 1388 [restartedMain] DEBUG o.s.c.e.PropertySourcesPropertyResolver - Found key 'spring.jmx.enabled' in PropertySource 'configurationProperties' with value of type String 
 2020-11-25 18:02:49 1392 [restartedMain] DEBUG o.s.c.e.PropertySourcesPropertyResolver - Found key 'spring.application.admin.enabled' in PropertySource 'configurationProperties' with value of type String 
-2020-11-25 18:02:49 1478 [restartedMain] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'com.sise.oj.AppRun#MapperScannerRegistrar#0' 
+2020-11-25 18:02:49 1478 [restartedMain] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'AppRun#MapperScannerRegistrar#0'
 2020-11-25 18:02:49 1486 [restartedMain] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'propertySourcesPlaceholderConfigurer' 
 2020-11-25 18:02:49 1493 [restartedMain] DEBUG o.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter. 
 2020-11-25 18:02:49 1495 [restartedMain] DEBUG o.m.s.mapper.ClassPathMapperScanner - Identified candidate component class: file [D:\projects\public\siseoj\siseoj-system\target\classes\com\sise\oj\mapper\UserInfoMapper.class] 
-2020-11-25 18:02:49 1496 [restartedMain] DEBUG o.m.s.mapper.ClassPathMapperScanner - Creating MapperFactoryBean with name 'userInfoMapper' and 'com.sise.oj.mapper.UserInfoMapper' mapperInterface 
+2020-11-25 18:02:49 1496 [restartedMain] DEBUG o.m.s.mapper.ClassPathMapperScanner - Creating MapperFactoryBean with name 'userInfoMapper' and 'UserInfoMapper' mapperInterface
 2020-11-25 18:02:49 1496 [restartedMain] DEBUG o.m.s.mapper.ClassPathMapperScanner - Enabling autowire by type for MapperFactoryBean with name 'userInfoMapper'. 
 2020-11-25 18:02:49 1547 [restartedMain] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerProcessor' 
 2020-11-25 18:02:49 1548 [restartedMain] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'preserveErrorControllerTargetClassPostProcessor' 
@@ -1607,23 +1607,23 @@ Unconditional classes:
 2020-11-25 18:02:51 3280 [restartedMain] DEBUG c.b.m.e.s.MybatisSqlSessionFactoryBean - Property 'mapperLocations' was not specified. 
 2020-11-25 18:02:52 3795 [restartedMain] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'sqlSessionTemplate' 
 2020-11-25 18:02:52 3795 [restartedMain] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'sqlSessionTemplate' via factory method to bean named 'sqlSessionFactory' 
-2020-11-25 18:02:52 3861 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: com.sise.oj.mapper.UserInfoMapper.insert 
-2020-11-25 18:02:52 3866 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: com.sise.oj.mapper.UserInfoMapper.delete 
-2020-11-25 18:02:52 3868 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: com.sise.oj.mapper.UserInfoMapper.deleteByMap 
-2020-11-25 18:02:52 3884 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: com.sise.oj.mapper.UserInfoMapper.deleteById 
-2020-11-25 18:02:52 3886 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: com.sise.oj.mapper.UserInfoMapper.deleteBatchIds 
-2020-11-25 18:02:52 3891 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: com.sise.oj.mapper.UserInfoMapper.update 
-2020-11-25 18:02:52 3893 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: com.sise.oj.mapper.UserInfoMapper.updateById 
-2020-11-25 18:02:52 3893 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: com.sise.oj.mapper.UserInfoMapper.selectById 
-2020-11-25 18:02:52 3895 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: com.sise.oj.mapper.UserInfoMapper.selectBatchIds 
-2020-11-25 18:02:52 3896 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: com.sise.oj.mapper.UserInfoMapper.selectByMap 
-2020-11-25 18:02:52 3898 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: com.sise.oj.mapper.UserInfoMapper.selectOne 
-2020-11-25 18:02:52 3901 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: com.sise.oj.mapper.UserInfoMapper.selectCount 
-2020-11-25 18:02:52 3903 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: com.sise.oj.mapper.UserInfoMapper.selectMaps 
-2020-11-25 18:02:52 3905 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: com.sise.oj.mapper.UserInfoMapper.selectMapsPage 
-2020-11-25 18:02:52 3907 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: com.sise.oj.mapper.UserInfoMapper.selectObjs 
-2020-11-25 18:02:52 3909 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: com.sise.oj.mapper.UserInfoMapper.selectList 
-2020-11-25 18:02:52 3911 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: com.sise.oj.mapper.UserInfoMapper.selectPage 
+2020-11-25 18:02:52 3861 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: UserInfoMapper.insert
+2020-11-25 18:02:52 3866 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: UserInfoMapper.delete
+2020-11-25 18:02:52 3868 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: UserInfoMapper.deleteByMap
+2020-11-25 18:02:52 3884 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: UserInfoMapper.deleteById
+2020-11-25 18:02:52 3886 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: UserInfoMapper.deleteBatchIds
+2020-11-25 18:02:52 3891 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: UserInfoMapper.update
+2020-11-25 18:02:52 3893 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: UserInfoMapper.updateById
+2020-11-25 18:02:52 3893 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: UserInfoMapper.selectById
+2020-11-25 18:02:52 3895 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: UserInfoMapper.selectBatchIds
+2020-11-25 18:02:52 3896 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: UserInfoMapper.selectByMap
+2020-11-25 18:02:52 3898 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: UserInfoMapper.selectOne
+2020-11-25 18:02:52 3901 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: UserInfoMapper.selectCount
+2020-11-25 18:02:52 3903 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: UserInfoMapper.selectMaps
+2020-11-25 18:02:52 3905 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: UserInfoMapper.selectMapsPage
+2020-11-25 18:02:52 3907 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: UserInfoMapper.selectObjs
+2020-11-25 18:02:52 3909 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: UserInfoMapper.selectList
+2020-11-25 18:02:52 3911 [restartedMain] DEBUG c.b.m.core.MybatisConfiguration - addMappedStatement: UserInfoMapper.selectPage
 2020-11-25 18:02:52 3918 [restartedMain] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'userInfoServiceImpl' via constructor to bean named 'userInfoMapper' 
 2020-11-25 18:02:52 3919 [restartedMain] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'testController' via constructor to bean named 'userInfoServiceImpl' 
 2020-11-25 18:02:52 3920 [restartedMain] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.AutoConfigurationPackages' 
@@ -2568,7 +2568,7 @@ Negative matches:
 
    MybatisAutoConfiguration.MapperScannerRegistrarNotFoundConfiguration:
       Did not match:
-         - @ConditionalOnMissingBean (types: org.mybatis.spring.mapper.MapperFactoryBean,org.mybatis.spring.mapper.MapperScannerConfigurer; SearchStrategy: all) found beans of type 'org.mybatis.spring.mapper.MapperScannerConfigurer' com.sise.oj.AppRun#MapperScannerRegistrar#0 (OnBeanCondition)
+         - @ConditionalOnMissingBean (types: org.mybatis.spring.mapper.MapperFactoryBean,org.mybatis.spring.mapper.MapperScannerConfigurer; SearchStrategy: all) found beans of type 'org.mybatis.spring.mapper.MapperScannerConfigurer' AppRun#MapperScannerRegistrar#0 (OnBeanCondition)
 
    MybatisLanguageDriverAutoConfiguration.FreeMarkerConfiguration:
       Did not match:
@@ -2592,7 +2592,7 @@ Negative matches:
 
    MybatisPlusAutoConfiguration.MapperScannerRegistrarNotFoundConfiguration:
       Did not match:
-         - @ConditionalOnMissingBean (types: org.mybatis.spring.mapper.MapperFactoryBean,org.mybatis.spring.mapper.MapperScannerConfigurer; SearchStrategy: all) found beans of type 'org.mybatis.spring.mapper.MapperScannerConfigurer' com.sise.oj.AppRun#MapperScannerRegistrar#0 (OnBeanCondition)
+         - @ConditionalOnMissingBean (types: org.mybatis.spring.mapper.MapperFactoryBean,org.mybatis.spring.mapper.MapperScannerConfigurer; SearchStrategy: all) found beans of type 'org.mybatis.spring.mapper.MapperScannerConfigurer' AppRun#MapperScannerRegistrar#0 (OnBeanCondition)
 
    MybatisPlusLanguageDriverAutoConfiguration.FreeMarkerConfiguration:
       Did not match:
@@ -2882,5 +2882,5 @@ Unconditional classes:
 2020-11-25 18:02:52 4265 [restartedMain] DEBUG o.s.boot.devtools.restart.Restarter - Creating new Restarter for thread Thread[main,5,main] 
 2020-11-25 18:02:52 4265 [restartedMain] DEBUG o.s.boot.devtools.restart.Restarter - Immediately restarting application 
 2020-11-25 18:02:52 4265 [restartedMain] DEBUG o.s.boot.devtools.restart.Restarter - Created RestartClassLoader org.springframework.boot.devtools.restart.classloader.RestartClassLoader@48e2a101 
-2020-11-25 18:02:52 4265 [restartedMain] DEBUG o.s.boot.devtools.restart.Restarter - Starting application com.sise.oj.AppRun with URLs [file:/D:/projects/public/siseoj/siseoj-system/target/classes/, file:/D:/projects/public/siseoj/siseoj-common/target/classes/] 
+2020-11-25 18:02:52 4265 [restartedMain] DEBUG o.s.boot.devtools.restart.Restarter - Starting application AppRun with URLs [file:/D:/projects/public/siseoj/siseoj-system/target/classes/, file:/D:/projects/public/siseoj/siseoj-common/target/classes/]
 2020-11-25 18:02:53 5487 [RMI TCP Connection(5)-192.168.1.195] DEBUG o.s.c.e.PropertySourcesPropertyResolver - Found key 'local.server.port' in PropertySource 'server.ports' with value of type Integer 

@@ -9,7 +9,6 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>siseoj-common</artifactId>
-    <name>公共处理模块</name>
     <description>提供与业务无关的公共组件和工具</description>
 
     <dependencies>
