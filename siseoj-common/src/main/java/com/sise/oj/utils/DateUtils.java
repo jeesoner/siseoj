@@ -10,7 +10,7 @@ import java.util.Date;
 /**
  * 日期工具类
  *
- * @author CiJee [2020/11/26]
+ * @author Cijee [2020/11/26]
  * @version 1.0
  */
 @Slf4j
@@ -61,7 +61,7 @@ public class DateUtils {
             Date endDate = df.parse(end);
             return endDate.getTime() - startDate.getTime();
         } catch (ParseException e) {
-            log.warn("日期转换错误", e);
+            log.error("日期转换错误", e);
             return 0;
         }
     }

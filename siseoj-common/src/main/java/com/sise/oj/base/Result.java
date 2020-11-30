@@ -1,9 +1,13 @@
-package com.sise.oj.domain.base;
+package com.sise.oj.base;
 
 import com.sise.oj.enums.ResultCode;
 
 import java.io.Serializable;
 
+/**
+ * @author Cijee
+ * @version 1.0
+ */
 public class Result<T> implements Serializable {
 
     /* 是否响应成功 */
