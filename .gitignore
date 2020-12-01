@@ -31,3 +31,4 @@ build/
 
 ### VS Code ###
 .vscode/
+!/logs/dev-2020-11-26.log
