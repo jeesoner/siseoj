@@ -1,9 +1,11 @@
 package com.sise.oj.handler;
 
-import com.sise.oj.base.Result;
+import com.sise.oj.base.ResultJson;
 import com.sise.oj.enums.ResultCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -23,18 +25,22 @@ public class GlobalExceptionHandler {
      * @param e 异常类
      * @return json
      */
-    public Result<String> HandleParamException(Exception e) {
-        return Result.failure(ResultCode.INTERFACE_FORBID_VISIT);
+    @ExceptionHandler({MethodArgumentNotValidException.class})
+    public ResultJson<String> HandleParamException(MethodArgumentNotValidException e) {
+        // 获取错误字段的数组
+        //String[] str = Objects.requireNonNull(e.getBindingResult().getAllErrors().get(0).getCodes())[1].split("\\.");
+        String message = e.getBindingResult().getAllErrors().get(0).getDefaultMessage();
+        return ResultJson.failure(ResultCode.PARAM_ILLEGAL, message);
     }
 
     /**
-     * 20000 请求参数异常
+     * 20000 用户登录异常
      *
      * @param e 异常类
      * @return json
      */
-    public Result<String> HandleUserException(Exception e) {
-        return Result.failure(null);
+    public ResultJson<String> HandleUserException(Exception e) {
+        return ResultJson.failure(null);
     }
 
     /**
@@ -43,8 +49,8 @@ public class GlobalExceptionHandler {
      * @param e 业务异常类
      * @return json
      */
-    public Result<String> HandleBusinessException(Exception e) {
-        return Result.failure(null);
+    public ResultJson<String> HandleBusinessException(Exception e) {
+        return ResultJson.failure(null);
     }
 
     /**
@@ -53,8 +59,8 @@ public class GlobalExceptionHandler {
      * @param e 系统异常类
      * @return json
      */
-    public Result<String> HandleSystemException(Exception e) {
-        return Result.failure(null);
+    public ResultJson<String> HandleSystemException(Exception e) {
+        return ResultJson.failure(null);
     }
 
     /**
@@ -63,8 +69,8 @@ public class GlobalExceptionHandler {
      * @param e 数据异常类
      * @return json
      */
-    public Result<String> HandleDataException(Exception e) {
-        return Result.failure(null);
+    public ResultJson<String> HandleDataException(Exception e) {
+        return ResultJson.failure(null);
     }
 
     /**
@@ -73,8 +79,8 @@ public class GlobalExceptionHandler {
      * @param e 接口异常类
      * @return json
      */
-    public Result<String> HandleInterfaceException(Exception e) {
-        return Result.failure(null);
+    public ResultJson<String> HandleInterfaceException(Exception e) {
+        return ResultJson.failure(null);
     }
 
     /**
@@ -83,7 +89,7 @@ public class GlobalExceptionHandler {
      * @param e 权限异常类
      * @return json
      */
-    public Result<String> HandlePermissionException(Exception e) {
-        return Result.failure(null);
+    public ResultJson<String> HandlePermissionException(Exception e) {
+        return ResultJson.failure(null);
     }
 }

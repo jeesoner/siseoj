@@ -1,7 +1,7 @@
 package com.sise.oj.service;
 
 
-import com.sise.oj.domain.po.UserInfoPO;
+import com.sise.oj.domain.UserInfo;
 
 /**
  * TODO
@@ -11,6 +11,6 @@ import com.sise.oj.domain.po.UserInfoPO;
  */
 public interface UserInfoService {
 
-    UserInfoPO getUserInfo(Long id);
+    UserInfo getUserInfo(Long id);
 
 }

@@ -15,10 +15,11 @@ public enum ResultCode {
     SUCCESS(0, "成功"),
 
     /* 参数错误：10001-19999 */
-    PARAM_IS_INVALID(10001, "参数无效"),
-    PARAM_IS_BLANK(10002, "参数为空"),
-    PARAM_TYPE_BIND_ERROR(10003, "参数类型错误"),
-    PARAM_NOT_COMPLETE(10004, "参数缺失"),
+    PARAM_ILLEGAL(10000, "请求参数非法"),
+    PARAM_IS_INVALID(10001, "请求参数无效"),
+    PARAM_IS_BLANK(10002, "请求参数为空"),
+    PARAM_TYPE_BIND_ERROR(10003, "请求参数类型错误"),
+    PARAM_NOT_COMPLETE(10004, "请求参数缺失"),
 
     /* 用户错误：20001-29999*/
     USER_NOT_LOGGED_IN(20001, "用户未登录"),

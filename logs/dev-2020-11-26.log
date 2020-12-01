@@ -1,0 +1,646 @@
+2020-11-26 15:19:16 923  [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 13176 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
+2020-11-26 15:19:16 929  [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-26 15:19:16 997  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2020-11-26 15:19:16 997  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2020-11-26 15:19:17 2063 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2020-11-26 15:19:17 2071 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2020-11-26 15:19:17 2071 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2020-11-26 15:19:17 2071 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39] 
+2020-11-26 15:19:17 2141 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2020-11-26 15:19:17 2142 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1142 ms 
+2020-11-26 15:19:17 2205 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource 
+2020-11-26 15:19:18 3516 [restartedMain] INFO  c.a.druid.pool.DruidDataSource - {dataSource-1} inited 
+2020-11-26 15:19:19 4327 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2020-11-26 15:19:19 4506 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2020-11-26 15:19:19 4529 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2020-11-26 15:19:19 4548 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2020-11-26 15:19:20 4557 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 4.333 seconds (JVM running for 5.364) 
+2020-11-26 15:21:40 144938 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2020-11-26 15:21:40 144938 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2020-11-26 15:21:40 144945 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 7 ms 
+2020-11-26 15:21:41 146423 [http-nio-8080-exec-2] INFO  c.sise.oj.controller.TestController - hello world 
+2020-11-26 15:24:48 333523 [http-nio-8080-exec-6] INFO  c.sise.oj.controller.TestController - hello world 
+2020-11-26 15:24:59 932  [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 6052 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
+2020-11-26 15:24:59 937  [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-26 15:24:59 1039 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2020-11-26 15:24:59 1039 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2020-11-26 15:25:00 2066 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2020-11-26 15:25:00 2073 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2020-11-26 15:25:00 2073 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2020-11-26 15:25:00 2074 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39] 
+2020-11-26 15:25:00 2147 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2020-11-26 15:25:00 2148 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1108 ms 
+2020-11-26 15:25:00 2208 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource 
+2020-11-26 15:25:02 3530 [restartedMain] INFO  c.a.druid.pool.DruidDataSource - {dataSource-1} inited 
+2020-11-26 15:25:02 4349 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2020-11-26 15:25:03 4512 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2020-11-26 15:25:03 4528 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2020-11-26 15:25:03 4546 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2020-11-26 15:25:03 4556 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 4.352 seconds (JVM running for 5.363) 
+2020-11-26 15:25:12 13685 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2020-11-26 15:25:12 13685 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2020-11-26 15:25:12 13692 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 7 ms 
+2020-11-26 15:26:07 782  [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 5452 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
+2020-11-26 15:26:07 787  [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-26 15:26:07 863  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2020-11-26 15:26:07 863  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2020-11-26 15:26:08 1960 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2020-11-26 15:26:08 1969 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2020-11-26 15:26:08 1970 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2020-11-26 15:26:08 1970 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39] 
+2020-11-26 15:26:08 2050 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2020-11-26 15:26:08 2050 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1186 ms 
+2020-11-26 15:26:08 2114 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource 
+2020-11-26 15:26:09 3207 [restartedMain] INFO  c.a.druid.pool.DruidDataSource - {dataSource-1} inited 
+2020-11-26 15:26:10 4186 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2020-11-26 15:26:10 4383 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2020-11-26 15:26:10 4399 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2020-11-26 15:26:10 4419 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2020-11-26 15:26:10 4428 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 4.244 seconds (JVM running for 5.147) 
+2020-11-26 15:26:11 4793 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2020-11-26 15:26:11 4793 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2020-11-26 15:26:11 4799 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 6 ms 
+2020-11-26 15:43:45 1059297 [Thread-12] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+2020-11-26 15:43:45 1059298 [Thread-12] INFO  c.a.druid.pool.DruidDataSource - {dataSource-1} closing ... 
+2020-11-26 15:43:45 1059303 [Thread-12] INFO  c.a.druid.pool.DruidDataSource - {dataSource-1} closed 
+2020-11-26 15:43:45 1059439 [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 5452 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
+2020-11-26 15:43:45 1059439 [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-26 15:43:46 1059676 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2020-11-26 15:43:46 1059677 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2020-11-26 15:43:46 1059677 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2020-11-26 15:43:46 1059677 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39] 
+2020-11-26 15:43:46 1059695 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2020-11-26 15:43:46 1059695 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 253 ms 
+2020-11-26 15:43:46 1059710 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource 
+2020-11-26 15:43:50 1063760 [restartedMain] INFO  c.a.druid.pool.DruidDataSource - {dataSource-2} inited 
+2020-11-26 15:43:50 1064032 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2020-11-26 15:43:50 1064083 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2020-11-26 15:43:50 1064091 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2020-11-26 15:43:50 1064095 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2020-11-26 15:43:50 1064099 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 4.698 seconds (JVM running for 1064.817) 
+2020-11-26 15:43:50 1064100 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2020-11-26 16:31:17 1279 [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 16060 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
+2020-11-26 16:31:17 1283 [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-26 16:31:17 1376 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2020-11-26 16:31:17 1377 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2020-11-26 16:31:18 2717 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2020-11-26 16:31:18 2725 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:31:18 2725 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2020-11-26 16:31:18 2725 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39] 
+2020-11-26 16:31:18 2816 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2020-11-26 16:31:18 2817 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1439 ms 
+2020-11-26 16:31:18 2886 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource 
+2020-11-26 16:31:20 4798 [restartedMain] INFO  c.a.druid.pool.DruidDataSource - {dataSource-1} inited 
+2020-11-26 16:31:21 5756 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2020-11-26 16:31:21 5961 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2020-11-26 16:31:21 5978 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:31:21 5999 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2020-11-26 16:31:21 6009 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 5.747 seconds (JVM running for 7.085) 
+2020-11-26 16:31:33 17914 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2020-11-26 16:31:33 17914 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2020-11-26 16:31:33 17922 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 8 ms 
+2020-11-26 16:32:30 873  [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 4060 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
+2020-11-26 16:32:30 876  [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-26 16:32:30 957  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2020-11-26 16:32:30 958  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2020-11-26 16:32:31 2013 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2020-11-26 16:32:31 2021 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:32:31 2022 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2020-11-26 16:32:31 2022 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39] 
+2020-11-26 16:32:31 2106 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2020-11-26 16:32:31 2106 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1147 ms 
+2020-11-26 16:32:31 2171 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource 
+2020-11-26 16:32:32 3362 [restartedMain] INFO  c.a.druid.pool.DruidDataSource - {dataSource-1} inited 
+2020-11-26 16:32:33 4134 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2020-11-26 16:32:33 4304 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2020-11-26 16:32:33 4320 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:32:33 4337 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2020-11-26 16:32:33 4347 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 4.138 seconds (JVM running for 5.114) 
+2020-11-26 16:33:55 85819 [http-nio-8080-exec-4] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2020-11-26 16:33:55 85819 [http-nio-8080-exec-4] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2020-11-26 16:33:55 85825 [http-nio-8080-exec-4] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 6 ms 
+2020-11-26 16:34:27 799  [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 4028 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
+2020-11-26 16:34:27 803  [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-26 16:34:27 858  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2020-11-26 16:34:27 859  [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2020-11-26 16:34:28 1918 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2020-11-26 16:34:28 1927 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:34:28 1928 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2020-11-26 16:34:28 1928 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39] 
+2020-11-26 16:34:28 2011 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2020-11-26 16:34:28 2011 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1152 ms 
+2020-11-26 16:34:28 2094 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource 
+2020-11-26 16:34:30 3489 [restartedMain] INFO  c.a.druid.pool.DruidDataSource - {dataSource-1} inited 
+2020-11-26 16:34:30 4279 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2020-11-26 16:34:31 4503 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2020-11-26 16:34:31 4525 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:34:31 4555 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2020-11-26 16:34:31 4568 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 4.296 seconds (JVM running for 6.65) 
+2020-11-26 16:35:10 44366 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2020-11-26 16:35:10 44366 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2020-11-26 16:35:10 44375 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 9 ms 
+2020-11-26 16:35:49 82698 [Thread-14] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+2020-11-26 16:35:49 82699 [Thread-14] INFO  c.a.druid.pool.DruidDataSource - {dataSource-1} closing ... 
+2020-11-26 16:35:49 82703 [Thread-14] INFO  c.a.druid.pool.DruidDataSource - {dataSource-1} closed 
+2020-11-26 16:35:49 82926 [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 4028 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
+2020-11-26 16:35:49 82926 [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-26 16:35:49 83327 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2020-11-26 16:35:49 83328 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:35:49 83328 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2020-11-26 16:35:49 83328 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39] 
+2020-11-26 16:35:49 83354 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2020-11-26 16:35:49 83355 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 424 ms 
+2020-11-26 16:35:50 83449 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2020-11-26 16:35:50 83524 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource 
+2020-11-26 16:35:50 84144 [restartedMain] INFO  c.a.druid.pool.DruidDataSource - {dataSource-2} inited 
+2020-11-26 16:35:51 84548 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2020-11-26 16:35:51 84565 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:35:51 84571 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2020-11-26 16:35:51 84579 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 1.718 seconds (JVM running for 86.661) 
+2020-11-26 16:35:51 84582 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2020-11-26 16:35:52 86355 [Thread-21] INFO  c.a.druid.pool.DruidDataSource - {dataSource-2} closing ... 
+2020-11-26 16:35:52 86361 [Thread-21] INFO  c.a.druid.pool.DruidDataSource - {dataSource-2} closed 
+2020-11-26 16:35:52 86361 [Thread-21] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+2020-11-26 16:35:53 86582 [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 4028 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
+2020-11-26 16:35:53 86582 [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-26 16:35:53 86854 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2020-11-26 16:35:53 86855 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:35:53 86856 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2020-11-26 16:35:53 86856 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39] 
+2020-11-26 16:35:53 86872 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2020-11-26 16:35:53 86872 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 286 ms 
+2020-11-26 16:35:53 86889 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource 
+2020-11-26 16:35:54 87521 [restartedMain] INFO  c.a.druid.pool.DruidDataSource - {dataSource-3} inited 
+2020-11-26 16:35:54 87799 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2020-11-26 16:35:54 87855 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2020-11-26 16:35:54 87863 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:35:54 87866 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2020-11-26 16:35:54 87870 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 1.34 seconds (JVM running for 89.952) 
+2020-11-26 16:35:54 87871 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2020-11-26 16:36:11 105164 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2020-11-26 16:36:11 105164 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2020-11-26 16:36:11 105170 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms 
+2020-11-26 16:42:51 504578 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+2020-11-26 16:42:51 504578 [SpringContextShutdownHook] INFO  c.a.druid.pool.DruidDataSource - {dataSource-3} closing ... 
+2020-11-26 16:42:51 504582 [SpringContextShutdownHook] INFO  c.a.druid.pool.DruidDataSource - {dataSource-3} closed 
+2020-11-26 16:42:57 1179 [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 11512 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
+2020-11-26 16:42:57 1184 [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-26 16:42:57 1262 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2020-11-26 16:42:57 1262 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2020-11-26 16:42:58 2774 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2020-11-26 16:42:58 2790 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:42:58 2790 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2020-11-26 16:42:58 2791 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39] 
+2020-11-26 16:42:58 2935 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2020-11-26 16:42:58 2936 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1673 ms 
+2020-11-26 16:42:58 3059 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource 
+2020-11-26 16:43:00 4795 [restartedMain] INFO  c.a.druid.pool.DruidDataSource - {dataSource-1} inited 
+2020-11-26 16:43:01 6083 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2020-11-26 16:43:02 6328 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2020-11-26 16:43:02 6349 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:43:02 6373 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2020-11-26 16:43:02 6385 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 6.12 seconds (JVM running for 7.434) 
+2020-11-26 16:44:56 120901 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2020-11-26 16:44:56 120901 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2020-11-26 16:44:56 120910 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 9 ms 
+2020-11-26 16:45:27 152018 [Thread-17] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+2020-11-26 16:45:27 152018 [Thread-17] INFO  c.a.druid.pool.DruidDataSource - {dataSource-1} closing ... 
+2020-11-26 16:45:27 152026 [Thread-17] INFO  c.a.druid.pool.DruidDataSource - {dataSource-1} closed 
+2020-11-26 16:45:28 152247 [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 11512 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
+2020-11-26 16:45:28 152247 [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-26 16:45:28 152556 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2020-11-26 16:45:28 152556 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:45:28 152556 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2020-11-26 16:45:28 152557 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39] 
+2020-11-26 16:45:28 152590 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2020-11-26 16:45:28 152590 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 340 ms 
+2020-11-26 16:45:28 152614 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource 
+2020-11-26 16:45:29 153278 [restartedMain] INFO  c.a.druid.pool.DruidDataSource - {dataSource-2} inited 
+2020-11-26 16:45:29 153725 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2020-11-26 16:45:29 153810 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2020-11-26 16:45:29 153820 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:45:29 153824 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2020-11-26 16:45:29 153829 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 1.638 seconds (JVM running for 154.878) 
+2020-11-26 16:45:29 153832 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2020-11-26 16:46:30 215059 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+2020-11-26 16:46:30 215063 [SpringContextShutdownHook] INFO  c.a.druid.pool.DruidDataSource - {dataSource-2} closing ... 
+2020-11-26 16:46:30 215090 [SpringContextShutdownHook] INFO  c.a.druid.pool.DruidDataSource - {dataSource-2} closed 
+2020-11-26 16:46:36 1056 [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 17340 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
+2020-11-26 16:46:36 1060 [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-26 16:46:36 1139 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2020-11-26 16:46:36 1139 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2020-11-26 16:46:37 2549 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2020-11-26 16:46:37 2568 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:46:37 2569 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2020-11-26 16:46:37 2570 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39] 
+2020-11-26 16:46:38 2701 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2020-11-26 16:46:38 2701 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1561 ms 
+2020-11-26 16:46:38 2843 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource 
+2020-11-26 16:46:39 4212 [restartedMain] INFO  c.a.druid.pool.DruidDataSource - {dataSource-1} inited 
+2020-11-26 16:46:40 5010 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2020-11-26 16:46:40 5289 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2020-11-26 16:46:40 5305 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:46:40 5326 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2020-11-26 16:46:40 5336 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 5.093 seconds (JVM running for 6.317) 
+2020-11-26 16:49:16 161110 [Thread-15] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+2020-11-26 16:49:16 161110 [Thread-15] INFO  c.a.druid.pool.DruidDataSource - {dataSource-1} closing ... 
+2020-11-26 16:49:16 161116 [Thread-15] INFO  c.a.druid.pool.DruidDataSource - {dataSource-1} closed 
+2020-11-26 16:49:16 161309 [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 17340 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
+2020-11-26 16:49:16 161310 [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-26 16:49:16 161613 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2020-11-26 16:49:16 161613 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:49:16 161613 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2020-11-26 16:49:16 161614 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39] 
+2020-11-26 16:49:16 161641 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2020-11-26 16:49:16 161641 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 328 ms 
+2020-11-26 16:49:16 161658 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource 
+2020-11-26 16:49:17 162364 [restartedMain] INFO  c.a.druid.pool.DruidDataSource - {dataSource-2} inited 
+2020-11-26 16:49:18 162733 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2020-11-26 16:49:18 162796 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2020-11-26 16:49:18 162806 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:49:18 162809 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2020-11-26 16:49:18 162813 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 1.549 seconds (JVM running for 163.794) 
+2020-11-26 16:49:18 162814 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2020-11-26 16:50:10 214889 [Thread-22] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+2020-11-26 16:50:10 214890 [Thread-22] INFO  c.a.druid.pool.DruidDataSource - {dataSource-2} closing ... 
+2020-11-26 16:50:10 214896 [Thread-22] INFO  c.a.druid.pool.DruidDataSource - {dataSource-2} closed 
+2020-11-26 16:50:10 215078 [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 17340 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
+2020-11-26 16:50:10 215079 [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-26 16:50:10 215373 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2020-11-26 16:50:10 215374 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:50:10 215374 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2020-11-26 16:50:10 215375 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39] 
+2020-11-26 16:50:10 215389 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2020-11-26 16:50:10 215390 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 307 ms 
+2020-11-26 16:50:10 215407 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource 
+2020-11-26 16:50:11 216101 [restartedMain] INFO  c.a.druid.pool.DruidDataSource - {dataSource-3} inited 
+2020-11-26 16:50:11 216525 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2020-11-26 16:50:11 216606 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2020-11-26 16:50:11 216615 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:50:11 216618 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2020-11-26 16:50:11 216622 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 1.585 seconds (JVM running for 217.603) 
+2020-11-26 16:50:11 216623 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2020-11-26 16:50:47 252653 [Thread-27] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+2020-11-26 16:50:47 252654 [Thread-27] INFO  c.a.druid.pool.DruidDataSource - {dataSource-3} closing ... 
+2020-11-26 16:50:47 252657 [Thread-27] INFO  c.a.druid.pool.DruidDataSource - {dataSource-3} closed 
+2020-11-26 16:50:48 252842 [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 17340 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
+2020-11-26 16:50:48 252842 [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-26 16:50:48 253178 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2020-11-26 16:50:48 253179 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:50:48 253179 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2020-11-26 16:50:48 253179 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39] 
+2020-11-26 16:50:48 253196 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2020-11-26 16:50:48 253196 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 351 ms 
+2020-11-26 16:50:48 253215 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource 
+2020-11-26 16:50:49 253963 [restartedMain] INFO  c.a.druid.pool.DruidDataSource - {dataSource-4} inited 
+2020-11-26 16:50:49 254354 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2020-11-26 16:50:49 254417 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2020-11-26 16:50:49 254425 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:50:49 254429 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2020-11-26 16:50:49 254432 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 1.636 seconds (JVM running for 255.414) 
+2020-11-26 16:50:49 254433 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2020-11-26 16:51:03 268288 [Thread-32] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+2020-11-26 16:51:03 268289 [Thread-32] INFO  c.a.druid.pool.DruidDataSource - {dataSource-4} closing ... 
+2020-11-26 16:51:03 268294 [Thread-32] INFO  c.a.druid.pool.DruidDataSource - {dataSource-4} closed 
+2020-11-26 16:51:03 268472 [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 17340 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
+2020-11-26 16:51:03 268473 [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-26 16:51:04 268739 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2020-11-26 16:51:04 268739 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:51:04 268739 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2020-11-26 16:51:04 268739 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39] 
+2020-11-26 16:51:04 268763 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2020-11-26 16:51:04 268763 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 286 ms 
+2020-11-26 16:51:04 268779 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource 
+2020-11-26 16:51:05 269791 [restartedMain] INFO  c.a.druid.pool.DruidDataSource - {dataSource-5} inited 
+2020-11-26 16:51:05 270175 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2020-11-26 16:51:05 270251 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2020-11-26 16:51:05 270262 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:51:05 270267 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2020-11-26 16:51:05 270273 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 1.852 seconds (JVM running for 271.254) 
+2020-11-26 16:51:05 270275 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2020-11-26 16:51:15 280032 [Thread-37] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+2020-11-26 16:51:15 280032 [Thread-37] INFO  c.a.druid.pool.DruidDataSource - {dataSource-5} closing ... 
+2020-11-26 16:51:15 280037 [Thread-37] INFO  c.a.druid.pool.DruidDataSource - {dataSource-5} closed 
+2020-11-26 16:51:15 280148 [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 17340 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
+2020-11-26 16:51:15 280148 [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-26 16:51:15 280436 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2020-11-26 16:51:15 280437 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:51:15 280437 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2020-11-26 16:51:15 280438 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39] 
+2020-11-26 16:51:15 280462 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2020-11-26 16:51:15 280462 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 310 ms 
+2020-11-26 16:51:15 280476 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource 
+2020-11-26 16:51:16 281142 [restartedMain] INFO  c.a.druid.pool.DruidDataSource - {dataSource-6} inited 
+2020-11-26 16:51:16 281467 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2020-11-26 16:51:16 281523 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2020-11-26 16:51:16 281531 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:51:16 281535 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2020-11-26 16:51:16 281540 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 1.436 seconds (JVM running for 282.522) 
+2020-11-26 16:51:16 281541 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2020-11-26 16:52:51 375985 [Thread-42] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+2020-11-26 16:52:51 375986 [Thread-42] INFO  c.a.druid.pool.DruidDataSource - {dataSource-6} closing ... 
+2020-11-26 16:52:51 375992 [Thread-42] INFO  c.a.druid.pool.DruidDataSource - {dataSource-6} closed 
+2020-11-26 16:52:51 376160 [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 17340 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
+2020-11-26 16:52:51 376160 [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-26 16:52:51 376427 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2020-11-26 16:52:51 376427 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:52:51 376428 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2020-11-26 16:52:51 376428 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39] 
+2020-11-26 16:52:51 376456 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2020-11-26 16:52:51 376456 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 293 ms 
+2020-11-26 16:52:51 376475 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource 
+2020-11-26 16:52:52 377076 [restartedMain] INFO  c.a.druid.pool.DruidDataSource - {dataSource-7} inited 
+2020-11-26 16:52:52 377370 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2020-11-26 16:52:52 377443 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2020-11-26 16:52:52 377453 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:52:52 377458 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2020-11-26 16:52:52 377465 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 1.342 seconds (JVM running for 378.446) 
+2020-11-26 16:52:52 377468 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2020-11-26 16:53:39 424539 [Thread-47] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+2020-11-26 16:53:39 424539 [Thread-47] INFO  c.a.druid.pool.DruidDataSource - {dataSource-7} closing ... 
+2020-11-26 16:53:39 424543 [Thread-47] INFO  c.a.druid.pool.DruidDataSource - {dataSource-7} closed 
+2020-11-26 16:53:40 424675 [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 17340 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
+2020-11-26 16:53:40 424676 [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-26 16:53:40 424976 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2020-11-26 16:53:40 424977 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:53:40 424977 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2020-11-26 16:53:40 424977 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39] 
+2020-11-26 16:53:40 424992 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2020-11-26 16:53:40 424993 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 314 ms 
+2020-11-26 16:53:40 425008 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource 
+2020-11-26 16:53:41 426417 [restartedMain] INFO  c.a.druid.pool.DruidDataSource - {dataSource-8} inited 
+2020-11-26 16:53:42 426686 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2020-11-26 16:53:42 426736 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2020-11-26 16:53:42 426744 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:53:42 426746 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2020-11-26 16:53:42 426750 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 2.118 seconds (JVM running for 427.731) 
+2020-11-26 16:53:42 426751 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2020-11-26 16:55:46 551291 [Thread-52] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+2020-11-26 16:55:46 551291 [Thread-52] INFO  c.a.druid.pool.DruidDataSource - {dataSource-8} closing ... 
+2020-11-26 16:55:46 551297 [Thread-52] INFO  c.a.druid.pool.DruidDataSource - {dataSource-8} closed 
+2020-11-26 16:55:46 551500 [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 17340 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
+2020-11-26 16:55:46 551500 [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-26 16:55:47 551763 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2020-11-26 16:55:47 551763 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:55:47 551763 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2020-11-26 16:55:47 551764 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39] 
+2020-11-26 16:55:47 551782 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2020-11-26 16:55:47 551782 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 279 ms 
+2020-11-26 16:55:47 551800 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource 
+2020-11-26 16:55:47 552526 [restartedMain] INFO  c.a.druid.pool.DruidDataSource - {dataSource-9} inited 
+2020-11-26 16:55:48 552914 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2020-11-26 16:55:48 552982 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2020-11-26 16:55:48 552992 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:55:48 552996 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2020-11-26 16:55:48 553000 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 1.543 seconds (JVM running for 553.981) 
+2020-11-26 16:55:48 553002 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2020-11-26 16:56:19 583938 [Thread-57] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+2020-11-26 16:56:19 583939 [Thread-57] INFO  c.a.druid.pool.DruidDataSource - {dataSource-9} closing ... 
+2020-11-26 16:56:19 583945 [Thread-57] INFO  c.a.druid.pool.DruidDataSource - {dataSource-9} closed 
+2020-11-26 16:56:19 584059 [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 17340 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
+2020-11-26 16:56:19 584060 [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-26 16:56:19 584463 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2020-11-26 16:56:19 584464 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:56:19 584464 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2020-11-26 16:56:19 584464 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39] 
+2020-11-26 16:56:19 584484 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2020-11-26 16:56:19 584484 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 420 ms 
+2020-11-26 16:56:19 584502 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource 
+2020-11-26 16:56:20 585185 [restartedMain] INFO  c.a.druid.pool.DruidDataSource - {dataSource-10} inited 
+2020-11-26 16:56:21 585766 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2020-11-26 16:56:21 585843 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2020-11-26 16:56:21 585860 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:56:21 585865 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2020-11-26 16:56:21 585870 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 1.865 seconds (JVM running for 586.851) 
+2020-11-26 16:56:21 585872 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2020-11-26 16:56:46 610761 [Thread-62] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+2020-11-26 16:56:46 610762 [Thread-62] INFO  c.a.druid.pool.DruidDataSource - {dataSource-10} closing ... 
+2020-11-26 16:56:46 610768 [Thread-62] INFO  c.a.druid.pool.DruidDataSource - {dataSource-10} closed 
+2020-11-26 16:56:46 610913 [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 17340 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
+2020-11-26 16:56:46 610913 [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-26 16:56:46 611176 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2020-11-26 16:56:46 611176 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:56:46 611176 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2020-11-26 16:56:46 611176 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39] 
+2020-11-26 16:56:46 611198 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2020-11-26 16:56:46 611198 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 280 ms 
+2020-11-26 16:56:46 611212 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource 
+2020-11-26 16:56:48 612971 [restartedMain] INFO  c.a.druid.pool.DruidDataSource - {dataSource-11} inited 
+2020-11-26 16:56:48 613350 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2020-11-26 16:56:48 613402 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2020-11-26 16:56:48 613415 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:56:48 613418 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2020-11-26 16:56:48 613421 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 2.561 seconds (JVM running for 614.402) 
+2020-11-26 16:56:48 613422 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2020-11-26 16:57:04 629268 [Thread-67] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+2020-11-26 16:57:04 629268 [Thread-67] INFO  c.a.druid.pool.DruidDataSource - {dataSource-11} closing ... 
+2020-11-26 16:57:04 629276 [Thread-67] INFO  c.a.druid.pool.DruidDataSource - {dataSource-11} closed 
+2020-11-26 16:57:04 629407 [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 17340 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
+2020-11-26 16:57:04 629408 [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-26 16:57:05 629693 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2020-11-26 16:57:05 629693 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:57:05 629693 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2020-11-26 16:57:05 629693 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39] 
+2020-11-26 16:57:05 629715 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2020-11-26 16:57:05 629715 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 304 ms 
+2020-11-26 16:57:05 629732 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource 
+2020-11-26 16:57:05 630291 [restartedMain] INFO  c.a.druid.pool.DruidDataSource - {dataSource-12} inited 
+2020-11-26 16:57:06 630740 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2020-11-26 16:57:06 630827 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2020-11-26 16:57:06 630845 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2020-11-26 16:57:06 630851 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2020-11-26 16:57:06 630858 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 1.49 seconds (JVM running for 631.84) 
+2020-11-26 16:57:06 630860 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2020-11-26 17:31:22 2687456 [Thread-72] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+2020-11-26 17:31:22 2687457 [Thread-72] INFO  c.a.druid.pool.DruidDataSource - {dataSource-12} closing ... 
+2020-11-26 17:31:22 2687462 [Thread-72] INFO  c.a.druid.pool.DruidDataSource - {dataSource-12} closed 
+2020-11-26 17:31:22 2687613 [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 17340 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
+2020-11-26 17:31:22 2687614 [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-26 17:31:23 2688050 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2020-11-26 17:31:23 2688050 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2020-11-26 17:31:23 2688051 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2020-11-26 17:31:23 2688051 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39] 
+2020-11-26 17:31:23 2688071 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2020-11-26 17:31:23 2688071 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 453 ms 
+2020-11-26 17:31:23 2688090 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource 
+2020-11-26 17:31:24 2688767 [restartedMain] INFO  c.a.druid.pool.DruidDataSource - {dataSource-13} inited 
+2020-11-26 17:31:24 2689037 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2020-11-26 17:31:24 2689088 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2020-11-26 17:31:24 2689095 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2020-11-26 17:31:24 2689098 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2020-11-26 17:31:24 2689102 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 1.535 seconds (JVM running for 2690.083) 
+2020-11-26 17:31:24 2689103 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2020-11-26 17:33:11 2796414 [Thread-77] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+2020-11-26 17:33:11 2796415 [Thread-77] INFO  c.a.druid.pool.DruidDataSource - {dataSource-13} closing ... 
+2020-11-26 17:33:11 2796420 [Thread-77] INFO  c.a.druid.pool.DruidDataSource - {dataSource-13} closed 
+2020-11-26 17:33:11 2796545 [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 17340 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
+2020-11-26 17:33:11 2796545 [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-26 17:33:12 2796769 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2020-11-26 17:33:12 2796769 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2020-11-26 17:33:12 2796770 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2020-11-26 17:33:12 2796770 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39] 
+2020-11-26 17:33:12 2796784 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2020-11-26 17:33:12 2796784 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 236 ms 
+2020-11-26 17:33:12 2796802 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource 
+2020-11-26 17:33:12 2797404 [restartedMain] INFO  c.a.druid.pool.DruidDataSource - {dataSource-14} inited 
+2020-11-26 17:33:13 2797742 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2020-11-26 17:33:13 2797791 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2020-11-26 17:33:13 2797800 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2020-11-26 17:33:13 2797803 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2020-11-26 17:33:13 2797807 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 1.303 seconds (JVM running for 2798.788) 
+2020-11-26 17:33:13 2797808 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2020-11-26 17:33:32 2816754 [Thread-82] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+2020-11-26 17:33:32 2816755 [Thread-82] INFO  c.a.druid.pool.DruidDataSource - {dataSource-14} closing ... 
+2020-11-26 17:33:32 2816759 [Thread-82] INFO  c.a.druid.pool.DruidDataSource - {dataSource-14} closed 
+2020-11-26 17:33:32 2816889 [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 17340 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
+2020-11-26 17:33:32 2816890 [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-26 17:33:32 2817158 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2020-11-26 17:33:32 2817158 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2020-11-26 17:33:32 2817158 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2020-11-26 17:33:32 2817159 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39] 
+2020-11-26 17:33:32 2817172 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2020-11-26 17:33:32 2817172 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 279 ms 
+2020-11-26 17:33:32 2817185 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource 
+2020-11-26 17:33:33 2817869 [restartedMain] INFO  c.a.druid.pool.DruidDataSource - {dataSource-15} inited 
+2020-11-26 17:33:33 2818461 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2020-11-26 17:33:33 2818517 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2020-11-26 17:33:33 2818526 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2020-11-26 17:33:33 2818530 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2020-11-26 17:33:33 2818534 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 1.687 seconds (JVM running for 2819.516) 
+2020-11-26 17:33:33 2818536 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2020-11-26 17:33:51 2835761 [Thread-87] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+2020-11-26 17:33:51 2835761 [Thread-87] INFO  c.a.druid.pool.DruidDataSource - {dataSource-15} closing ... 
+2020-11-26 17:33:51 2835765 [Thread-87] INFO  c.a.druid.pool.DruidDataSource - {dataSource-15} closed 
+2020-11-26 17:33:51 2835930 [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 17340 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
+2020-11-26 17:33:51 2835931 [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-26 17:33:51 2836281 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2020-11-26 17:33:51 2836282 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2020-11-26 17:33:51 2836282 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2020-11-26 17:33:51 2836282 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39] 
+2020-11-26 17:33:51 2836296 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2020-11-26 17:33:51 2836296 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 361 ms 
+2020-11-26 17:33:51 2836313 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource 
+2020-11-26 17:33:52 2836902 [restartedMain] INFO  c.a.druid.pool.DruidDataSource - {dataSource-16} inited 
+2020-11-26 17:33:52 2837178 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2020-11-26 17:33:52 2837241 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2020-11-26 17:33:52 2837249 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2020-11-26 17:33:52 2837252 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2020-11-26 17:33:52 2837256 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 1.392 seconds (JVM running for 2838.237) 
+2020-11-26 17:33:52 2837257 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2020-11-26 17:35:36 2941075 [Thread-92] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+2020-11-26 17:35:36 2941076 [Thread-92] INFO  c.a.druid.pool.DruidDataSource - {dataSource-16} closing ... 
+2020-11-26 17:35:36 2941083 [Thread-92] INFO  c.a.druid.pool.DruidDataSource - {dataSource-16} closed 
+2020-11-26 17:35:36 2941295 [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 17340 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
+2020-11-26 17:35:36 2941295 [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-26 17:35:36 2941648 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2020-11-26 17:35:36 2941649 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2020-11-26 17:35:36 2941649 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2020-11-26 17:35:36 2941650 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39] 
+2020-11-26 17:35:37 2941674 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2020-11-26 17:35:37 2941674 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 376 ms 
+2020-11-26 17:35:37 2941701 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource 
+2020-11-26 17:35:37 2942375 [restartedMain] INFO  c.a.druid.pool.DruidDataSource - {dataSource-17} inited 
+2020-11-26 17:35:37 2942634 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2020-11-26 17:35:38 2942683 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2020-11-26 17:35:38 2942690 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2020-11-26 17:35:38 2942693 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2020-11-26 17:35:38 2942696 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 1.441 seconds (JVM running for 2943.677) 
+2020-11-26 17:35:38 2942697 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2020-11-26 17:39:59 3203814 [Thread-97] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+2020-11-26 17:39:59 3203815 [Thread-97] INFO  c.a.druid.pool.DruidDataSource - {dataSource-17} closing ... 
+2020-11-26 17:39:59 3203823 [Thread-97] INFO  c.a.druid.pool.DruidDataSource - {dataSource-17} closed 
+2020-11-26 17:39:59 3203965 [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 17340 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
+2020-11-26 17:39:59 3203966 [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-26 17:39:59 3204355 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2020-11-26 17:39:59 3204356 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2020-11-26 17:39:59 3204357 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2020-11-26 17:39:59 3204358 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39] 
+2020-11-26 17:39:59 3204398 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2020-11-26 17:39:59 3204398 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 426 ms 
+2020-11-26 17:39:59 3204434 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource 
+2020-11-26 17:40:00 3205173 [restartedMain] INFO  c.a.druid.pool.DruidDataSource - {dataSource-18} inited 
+2020-11-26 17:40:00 3205462 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2020-11-26 17:40:00 3205508 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2020-11-26 17:40:00 3205515 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2020-11-26 17:40:00 3205518 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2020-11-26 17:40:00 3205521 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 1.611 seconds (JVM running for 3206.502) 
+2020-11-26 17:40:00 3205522 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2020-11-26 17:40:04 3209310 [Thread-102] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+2020-11-26 17:40:04 3209311 [Thread-102] INFO  c.a.druid.pool.DruidDataSource - {dataSource-18} closing ... 
+2020-11-26 17:40:04 3209316 [Thread-102] INFO  c.a.druid.pool.DruidDataSource - {dataSource-18} closed 
+2020-11-26 17:40:04 3209460 [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 17340 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
+2020-11-26 17:40:04 3209460 [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-26 17:40:05 3209685 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2020-11-26 17:40:05 3209685 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2020-11-26 17:40:05 3209686 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2020-11-26 17:40:05 3209686 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39] 
+2020-11-26 17:40:05 3209701 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2020-11-26 17:40:05 3209701 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 238 ms 
+2020-11-26 17:40:05 3209715 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource 
+2020-11-26 17:40:05 3210314 [restartedMain] INFO  c.a.druid.pool.DruidDataSource - {dataSource-19} inited 
+2020-11-26 17:40:06 3210797 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2020-11-26 17:40:06 3210884 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2020-11-26 17:40:06 3210898 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2020-11-26 17:40:06 3210901 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2020-11-26 17:40:06 3210905 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 1.497 seconds (JVM running for 3211.886) 
+2020-11-26 17:40:06 3210906 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2020-11-26 17:43:20 3404859 [Thread-107] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+2020-11-26 17:43:20 3404860 [Thread-107] INFO  c.a.druid.pool.DruidDataSource - {dataSource-19} closing ... 
+2020-11-26 17:43:20 3404864 [Thread-107] INFO  c.a.druid.pool.DruidDataSource - {dataSource-19} closed 
+2020-11-26 17:43:20 3404971 [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 17340 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
+2020-11-26 17:43:20 3404971 [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-26 17:43:20 3405204 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2020-11-26 17:43:20 3405204 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2020-11-26 17:43:20 3405204 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2020-11-26 17:43:20 3405204 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39] 
+2020-11-26 17:43:20 3405217 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2020-11-26 17:43:20 3405217 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 243 ms 
+2020-11-26 17:43:20 3405231 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource 
+2020-11-26 17:43:21 3406014 [restartedMain] INFO  c.a.druid.pool.DruidDataSource - {dataSource-20} inited 
+2020-11-26 17:43:21 3406288 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2020-11-26 17:43:21 3406337 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2020-11-26 17:43:21 3406344 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2020-11-26 17:43:21 3406348 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2020-11-26 17:43:21 3406351 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 1.42 seconds (JVM running for 3407.333) 
+2020-11-26 17:43:21 3406352 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2020-11-26 17:51:35 3900471 [Thread-112] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+2020-11-26 17:51:35 3900472 [Thread-112] INFO  c.a.druid.pool.DruidDataSource - {dataSource-20} closing ... 
+2020-11-26 17:51:35 3900476 [Thread-112] INFO  c.a.druid.pool.DruidDataSource - {dataSource-20} closed 
+2020-11-26 17:51:35 3900589 [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 17340 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
+2020-11-26 17:51:35 3900589 [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-26 17:51:36 3900883 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2020-11-26 17:51:36 3900883 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2020-11-26 17:51:36 3900884 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2020-11-26 17:51:36 3900884 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39] 
+2020-11-26 17:51:36 3900901 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2020-11-26 17:51:36 3900901 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 309 ms 
+2020-11-26 17:51:36 3900918 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource 
+2020-11-26 17:51:36 3901532 [restartedMain] INFO  c.a.druid.pool.DruidDataSource - {dataSource-21} inited 
+2020-11-26 17:51:37 3901897 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2020-11-26 17:51:37 3901948 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2020-11-26 17:51:37 3901957 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2020-11-26 17:51:37 3901960 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2020-11-26 17:51:37 3901964 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 1.418 seconds (JVM running for 3902.945) 
+2020-11-26 17:51:37 3901965 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2020-11-26 17:59:09 4354506 [Thread-117] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+2020-11-26 17:59:09 4354507 [Thread-117] INFO  c.a.druid.pool.DruidDataSource - {dataSource-21} closing ... 
+2020-11-26 17:59:09 4354512 [Thread-117] INFO  c.a.druid.pool.DruidDataSource - {dataSource-21} closed 
+2020-11-26 17:59:10 4354702 [restartedMain] INFO  com.sise.oj.AppRun - Starting AppRun on LX-5CG9276CNQ with PID 17340 (D:\projects\public\siseoj\siseoj-system\target\classes started by Administrator in D:\projects\public\siseoj) 
+2020-11-26 17:59:10 4354703 [restartedMain] INFO  com.sise.oj.AppRun - No active profile set, falling back to default profiles: default 
+2020-11-26 17:59:10 4354945 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2020-11-26 17:59:10 4354946 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2020-11-26 17:59:10 4354946 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat] 
+2020-11-26 17:59:10 4354946 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39] 
+2020-11-26 17:59:10 4354959 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2020-11-26 17:59:10 4354959 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 254 ms 
+2020-11-26 17:59:10 4354973 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource 
+2020-11-26 17:59:10 4355424 [restartedMain] INFO  c.a.druid.pool.DruidDataSource - {dataSource-22} inited 
+2020-11-26 17:59:11 4355757 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2020-11-26 17:59:11 4355804 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2020-11-26 17:59:11 4355812 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2020-11-26 17:59:11 4355815 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2020-11-26 17:59:11 4355819 [restartedMain] INFO  com.sise.oj.AppRun - Started AppRun in 1.156 seconds (JVM running for 4356.8) 
+2020-11-26 17:59:11 4355820 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2020-11-26 18:16:29 5394050 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+2020-11-26 18:16:29 5394050 [SpringContextShutdownHook] INFO  c.a.druid.pool.DruidDataSource - {dataSource-22} closing ... 
+2020-11-26 18:16:29 5394054 [SpringContextShutdownHook] INFO  c.a.druid.pool.DruidDataSource - {dataSource-22} closed 

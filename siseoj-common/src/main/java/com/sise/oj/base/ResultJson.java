@@ -8,7 +8,7 @@ import java.io.Serializable;
  * @author Cijee
  * @version 1.0
  */
-public class Result<T> implements Serializable {
+public class ResultJson<T> implements Serializable {
 
     /* 是否响应成功 */
     private Boolean success;
@@ -22,21 +22,44 @@ public class Result<T> implements Serializable {
     /* 错误信息 */
     private String message;
 
-    private Result() {
+    /* 构造器私有，不允许外界自己创建返回类 */
+    private ResultJson() {
         this.code = ResultCode.SUCCESS.code();
         this.success = true;
     }
 
-    private Result(T data) {
-        this.code = 200;
+    /**
+     * 请求成功
+     *
+     * @param data 数据
+     */
+    private ResultJson(T data) {
+        this.code = ResultCode.SUCCESS.code();
         this.data = data;
         this.success = true;
     }
 
-    private Result(ResultCode resultCode) {
+    /**
+     * 使用状态码枚举类的错误信息
+     *
+     * @param resultCode 状态码
+     */
+    private ResultJson(ResultCode resultCode) {
         this.code = resultCode.code();
         this.success = false;
         this.message = resultCode.message();
+    }
+
+    /**
+     * 自定义错误信息
+     *
+     * @param resultCode 状态码
+     * @param message 错误信息
+     */
+    private ResultJson(ResultCode resultCode, String message) {
+        this.code = resultCode.code();
+        this.success = false;
+        this.message = message;
     }
 
     public Boolean getSuccess() {
@@ -81,12 +104,16 @@ public class Result<T> implements Serializable {
                 '}';
     }
 
-    public static<T> Result<T> success(T data) {
-        return new Result<>(data);
+    public static<T> ResultJson<T> success(T data) {
+        return new ResultJson<>(data);
     }
 
-    public static<T> Result<T> failure(ResultCode resultCode) {
-        return new Result<>(resultCode);
+    public static<T> ResultJson<T> failure(ResultCode resultCode) {
+        return new ResultJson<>(resultCode);
+    }
+
+    public static<T> ResultJson<T> failure(ResultCode resultCode, String message) {
+        return new ResultJson<>(resultCode, message);
     }
 
 }

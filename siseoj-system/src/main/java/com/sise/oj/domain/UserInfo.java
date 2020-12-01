@@ -1,4 +1,4 @@
-package com.sise.oj.domain.po;
+package com.sise.oj.domain;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -14,7 +14,7 @@ import java.util.Date;
  */
 @Getter
 @Setter
-public class UserInfoPO implements Serializable {
+public class UserInfo implements Serializable {
 
     private Long id;
     private String username;

@@ -1,6 +1,6 @@
 package com.sise.oj.service.impl;
 
-import com.sise.oj.domain.po.UserInfoPO;
+import com.sise.oj.domain.UserInfo;
 import com.sise.oj.mapper.UserInfoMapper;
 import com.sise.oj.service.UserInfoService;
 import org.springframework.stereotype.Service;
@@ -21,7 +21,7 @@ public class UserInfoServiceImpl implements UserInfoService {
     }
 
     @Override
-    public UserInfoPO getUserInfo(Long id) {
+    public UserInfo getUserInfo(Long id) {
         return userInfoMapper.selectById(id);
     }
 }
