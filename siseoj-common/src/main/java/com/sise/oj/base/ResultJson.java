@@ -99,7 +99,7 @@ public class ResultJson<T> implements Serializable {
         return "Result{" +
                 "success=" + success +
                 ", code=" + code +
-                ", data=" + data +
+                ", data=[ 日志中不能查看 ]" +
                 ", message='" + message + '\'' +
                 '}';
     }

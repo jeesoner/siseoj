@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.util.Date;
+import java.util.Objects;
 
 
 /**
@@ -32,13 +33,17 @@ public class LogAspectHandler {
     @Value("${oj.config.logHandler.enable}")
     private boolean enable;
     
-    @Pointcut("@annotation(org.springframework.web.bind.annotation.*Mapping)")
+    @Pointcut("@annotation(org.springframework.web.bind.annotation.GetMapping) || " +
+            "@annotation(org.springframework.web.bind.annotation.PostMapping) || " +
+            "@annotation(org.springframework.web.bind.annotation.PutMapping) || " +
+            "@annotation(org.springframework.web.bind.annotation.DeleteMapping) || " +
+            "@annotation(org.springframework.web.bind.annotation.RequestMapping)")
     public void pointCut() {}
 
     @Around("pointCut()")
     public Object logAround(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         Date serviceDate = new Date();
-        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        HttpServletRequest request = ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
         // 获取调用类的信息
         String className = proceedingJoinPoint.getTarget().getClass().getName();
         // 获取调用方法信息
@@ -56,16 +61,15 @@ public class LogAspectHandler {
         Object[] args = proceedingJoinPoint.getArgs();
         // 如果启动该功能
         if (enable) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("\n---------------------- 进入异常处理 ----------------------\n");
-            sb.append("[业务发生时间]: {}\n");
-            sb.append("[请求的URL]: {}\n");
-            sb.append("[源IP]: {}\n");
-            sb.append("[请求的类]: {}\n");
-            sb.append("[调用方法]: {}\n");
-            sb.append("[方法参数]: {}\n");
-            sb.append("\n-------------------------------------------------------\n");
-            log.error(sb.toString(),
+            String sb = "\n<---------------------- 进入请求 ---------------------->\n" +
+                        "[业务发生时间]: {}\n" +
+                        "[请求的URL]: {}\n" +
+                        "[源IP]: {}\n" +
+                        "[请求的类]: {}\n" +
+                        "[调用方法]: {}\n" +
+                        "[方法参数]: {}\n" +
+                        "\n<----------------------------------------------------->\n";
+            log.info(sb,
                     DateUtils.formatDate(serviceDate, SysConstants.TIME_PATTERN),
                     request.getRequestURL().toString(),
                     IPAddressUtils.getClientIPAddress(request),
@@ -75,7 +79,7 @@ public class LogAspectHandler {
         }
         // 计算执行时间
         long startTime = System.currentTimeMillis();
-        long endTime = 0;
+        long endTime;
 
         if (args.length > 0) {
             obj = proceedingJoinPoint.proceed(args);
@@ -85,13 +89,12 @@ public class LogAspectHandler {
 
         endTime = System.currentTimeMillis();
         if (enable) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("\n---------------------- 离开异常处理 ----------------------\n");
-            sb.append("[异常发生时间]: {}\n");
-            sb.append("[响应耗时]: {}\n");
-            sb.append("[响应内容]: {}\n");
-            sb.append("\n-------------------------------------------------------\n");
-            log.error(sb.toString(), DateUtils.formatDate(serviceDate, SysConstants.TIME_PATTERN),
+            String sb = "\n<---------------------- 结束请求 ---------------------->\n" +
+                        "[业务发生时间]: {}\n" +
+                        "[响应耗时]: {}\n" +
+                        "[响应内容]: {}\n" +
+                        "\n<----------------------------------------------------->\n";
+            log.info(sb, DateUtils.formatDate(serviceDate, SysConstants.TIME_PATTERN),
                     endTime - startTime > 0 ? "" : (endTime - startTime) + " ms",
                     obj == null ? "" : obj.toString());
         }
