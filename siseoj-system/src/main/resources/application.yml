@@ -36,6 +36,8 @@ spring:
       poolPreparedStatements: false
       # 要启用PSCache，必须配置大于0，当大于0时，poolPreparedStatements自动触发修改为true
       max-open-prepared-statements: -1
+  gson:
+    date-format: yyyy-MM-dd HH:mm:ss
 
 mybatis:
   # mapper.xml包地址
@@ -68,10 +70,31 @@ jwt:
 swagger:
   enabled: true
 
-# 自定义配置
+# mybatis-plus
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto
+
+# OJ配置
 oj:
   config:
     logHandler:
       enable: true
     exceptionLogHandler:
       enable: true
+
+# 文件存储路径
+file:
+  mac:
+    file: ~/file/
+    avatar: ~/avatar/
+  linux:
+    file: /home/siseoj/file/
+    avatar: /home/siseoj/avatar/
+  windows:
+    file: D:\siseoj\file\
+    avatar: D:\siseoj\avatar\
+  # 文件大小 M
+  maxSize: 100
+  avatarMaxSize: 5

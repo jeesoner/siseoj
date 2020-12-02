@@ -1,5 +1,6 @@
 package com.sise.oj.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.sise.oj.domain.UserInfo;
 import org.springframework.stereotype.Repository;
 
@@ -10,7 +11,7 @@ import org.springframework.stereotype.Repository;
  * @version 1.0
  */
 @Repository
-public interface UserInfoMapper {
+public interface UserInfoMapper extends BaseMapper<UserInfo> {
 
     UserInfo selectById(Long id);
 

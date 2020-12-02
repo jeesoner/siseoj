@@ -29,7 +29,8 @@ import static com.google.common.collect.Lists.newArrayList;
 import static springfox.documentation.schema.AlternateTypeRules.newRule;
 
 /**
- * api页面 /swagger-ui.html
+ * API页面 /swagger-ui.html
+ *
  * @author Cijee
  * @version 1.0
  */
@@ -78,7 +79,7 @@ public class SwaggerConfig {
 }
 
 /**
- *  将Pageable转换展示在swagger中
+ * 将Pageable转换展示在swagger中
  */
 @Configuration
 class SwaggerDataConfig {

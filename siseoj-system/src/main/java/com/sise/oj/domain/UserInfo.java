@@ -1,5 +1,6 @@
 package com.sise.oj.domain;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,6 +17,7 @@ import java.util.Date;
 @Setter
 public class UserInfo implements Serializable {
 
+    @TableId
     private Long id;
     private String username;
     private Integer gender;

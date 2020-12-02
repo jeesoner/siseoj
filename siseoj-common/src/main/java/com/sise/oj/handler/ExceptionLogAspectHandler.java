@@ -20,7 +20,7 @@ import java.util.Date;
 import java.util.Objects;
 
 /**
- * 接口调用日志记录 Handler
+ * 接口异常调用日志记录 Handler
  *
  * @author Cijee [2020/11/26]
  * @version 1.0

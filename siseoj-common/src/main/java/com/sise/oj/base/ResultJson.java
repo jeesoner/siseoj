@@ -5,6 +5,8 @@ import com.sise.oj.enums.ResultCode;
 import java.io.Serializable;
 
 /**
+ * 返回客户端的JSON封装类
+ *
  * @author Cijee
  * @version 1.0
  */

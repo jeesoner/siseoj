@@ -12,4 +12,7 @@ public class SysConstants {
 
     public static final String DATE_PATTERN = "yyyy-MM-dd";
 
+    public static final String WIN = "win";
+
+    public static final String OS = "os";
 }

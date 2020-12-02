@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-@RestController
 @Slf4j
+@RestController
 @RequestMapping("/api")
 public class TestController {
 
