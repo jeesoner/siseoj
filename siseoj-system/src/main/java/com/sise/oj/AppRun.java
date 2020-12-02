@@ -3,8 +3,9 @@ package com.sise.oj;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration;
 
-@SpringBootApplication
+@SpringBootApplication(exclude = {JacksonAutoConfiguration.class})
 @MapperScan("com.sise.oj.mapper")
 public class AppRun {
 

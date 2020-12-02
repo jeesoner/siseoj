@@ -10,7 +10,7 @@ import javax.validation.Valid;
 
 @Slf4j
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/test")
 public class TestController {
 
     private final UserInfoService userInfoService;
@@ -34,4 +34,5 @@ public class TestController {
         System.out.println(userInfo.getUsername());
         return ResultJson.success("成功");
     }
+
 }
