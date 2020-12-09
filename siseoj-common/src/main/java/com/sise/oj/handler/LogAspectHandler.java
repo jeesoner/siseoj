@@ -1,8 +1,8 @@
 package com.sise.oj.handler;
 
 import com.sise.oj.base.SysConstants;
-import com.sise.oj.utils.DateUtils;
-import com.sise.oj.utils.IPAddressUtils;
+import com.sise.oj.utils.DateUtil;
+import com.sise.oj.utils.IPAddressUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -72,9 +72,9 @@ public class LogAspectHandler {
                         "[方法参数]: {}\n" +
                         "\n<----------------------------------------------------->\n";
             log.info(sb,
-                    DateUtils.formatDate(serviceDate, SysConstants.TIME_PATTERN),
+                    DateUtil.formatDate(serviceDate, SysConstants.TIME_PATTERN),
                     request.getRequestURL().toString(),
-                    IPAddressUtils.getClientIPAddress(request),
+                    IPAddressUtil.getClientIPAddress(request),
                     className,
                     method.getName(),
                     params.toString());
@@ -96,7 +96,7 @@ public class LogAspectHandler {
                         "[响应耗时]: {}\n" +
                         "[响应内容]: {}\n" +
                         "\n<----------------------------------------------------->\n";
-            log.info(sb, DateUtils.formatDate(serviceDate, SysConstants.TIME_PATTERN),
+            log.info(sb, DateUtil.formatDate(serviceDate, SysConstants.TIME_PATTERN),
                     endTime - startTime > 0 ? "" : (endTime - startTime) + " ms",
                     obj == null ? "" : obj.toString());
         }

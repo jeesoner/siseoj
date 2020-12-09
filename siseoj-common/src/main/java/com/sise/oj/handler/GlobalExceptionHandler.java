@@ -2,6 +2,7 @@ package com.sise.oj.handler;
 
 import com.sise.oj.base.ResultJson;
 import com.sise.oj.enums.ResultCode;
+import com.sise.oj.utils.ThrowableUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -39,8 +40,9 @@ public class GlobalExceptionHandler {
      * @param e 异常类
      * @return json
      */
+    //@ExceptionHandler(UserLoginFailedException.class)
     public ResultJson<String> HandleUserException(Exception e) {
-        return ResultJson.failure(null);
+        return ResultJson.failure(ResultCode.USER_LOGIN_ERROR);
     }
 
     /**
@@ -91,5 +93,14 @@ public class GlobalExceptionHandler {
      */
     public ResultJson<String> HandlePermissionException(Exception e) {
         return ResultJson.failure(null);
+    }
+
+    /**
+     * 处理所有不可知的异常
+     */
+    @ExceptionHandler(Throwable.class)
+    public ResultJson<?> handleException(Throwable e) {
+        log.error(ThrowableUtil.getStackTrace(e));
+        return ResultJson.failure(ResultCode.ERROR, e.getMessage());
     }
 }

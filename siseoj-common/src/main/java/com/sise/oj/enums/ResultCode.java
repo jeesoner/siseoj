@@ -13,6 +13,8 @@ public enum ResultCode {
 
     /* 成功状态码 */
     SUCCESS(0, "成功"),
+    /* 服务器错误 */
+    ERROR(500, "服务器错误"),
 
     /* 参数错误：10001-19999 */
     PARAM_ILLEGAL(10000, "请求参数非法"),

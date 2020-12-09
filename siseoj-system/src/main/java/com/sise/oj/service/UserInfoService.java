@@ -2,6 +2,7 @@ package com.sise.oj.service;
 
 
 import com.sise.oj.domain.UserInfo;
+import com.sise.oj.domain.dto.AuthUserDTO;
 
 /**
  * TODO
@@ -13,4 +14,5 @@ public interface UserInfoService {
 
     UserInfo getUserInfo(Long id);
 
+    boolean login(AuthUserDTO authUser);
 }

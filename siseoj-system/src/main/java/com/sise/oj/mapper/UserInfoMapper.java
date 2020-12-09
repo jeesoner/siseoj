@@ -4,15 +4,15 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.sise.oj.domain.UserInfo;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
- * 用户信息Mapper
- *
  * @author CiJee
  * @version 1.0
  */
 @Repository
 public interface UserInfoMapper extends BaseMapper<UserInfo> {
 
-    UserInfo selectById(Long id);
+    List<UserInfo> selectByUsernameAndPassword(String username, String password);
 
 }

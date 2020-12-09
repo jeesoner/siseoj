@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
  * @version 1.0
  */
 @Slf4j
-public class IPAddressUtils {
+public class IPAddressUtil {
 
     public static String getClientIPAddress(HttpServletRequest request) {
         // 获取HTTP代理字段

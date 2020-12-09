@@ -14,7 +14,7 @@ import java.util.Date;
  * @version 1.0
  */
 @Slf4j
-public class DateUtils {
+public class DateUtil {
 
     /**
      * 获取当前时间 yyyy-MM-dd HH:mm:ss

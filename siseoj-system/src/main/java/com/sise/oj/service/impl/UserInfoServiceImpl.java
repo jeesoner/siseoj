@@ -1,9 +1,13 @@
 package com.sise.oj.service.impl;
 
 import com.sise.oj.domain.UserInfo;
+import com.sise.oj.domain.dto.AuthUserDTO;
+import com.sise.oj.exception.UserLoginFailedException;
 import com.sise.oj.mapper.UserInfoMapper;
 import com.sise.oj.service.UserInfoService;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * TODO
@@ -23,5 +27,16 @@ public class UserInfoServiceImpl implements UserInfoService {
     @Override
     public UserInfo getUserInfo(Long id) {
         return userInfoMapper.selectById(id);
+    }
+
+    @Override
+    public boolean login(AuthUserDTO authUser) {
+        List<UserInfo> users = userInfoMapper.selectByUsernameAndPassword(authUser.getUsername(), authUser.getPassword());
+        if (users.size() == 0) {
+            throw new UserLoginFailedException("用户登录失败");
+        } else if (users.size() > 1) {
+            throw new UserLoginFailedException("用户登录失败");
+        }
+        return true;
     }
 }

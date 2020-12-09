@@ -19,13 +19,18 @@ public class UserInfo implements Serializable {
 
     @TableId
     private Long id;
+    private String nickname;
     private String username;
+    private String password;
     private Integer gender;
     private String email;
     private String phone;
     private Date registerTime;
     private Date modifyTime;
-    private String varchar;
-    private Integer rating;
+
+    /**
+     * 个人简介
+     */
+    private String motto;
 
 }
