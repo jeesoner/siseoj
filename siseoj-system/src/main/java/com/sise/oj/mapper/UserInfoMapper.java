@@ -15,4 +15,6 @@ public interface UserInfoMapper extends BaseMapper<UserInfo> {
 
     List<UserInfo> selectByUsernameAndPassword(String username, String password);
 
+    List<UserInfo> selectByUsername(String username);
+
 }

@@ -19,7 +19,7 @@ public class TestController {
         this.userInfoService = userInfoService;
     }
 
-    @RequestMapping("/oj")
+    @RequestMapping
     public String oj() {
         return "hello oj";
     }

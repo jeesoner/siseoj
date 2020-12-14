@@ -30,6 +30,17 @@ public class UserInfoServiceImpl implements UserInfoService {
     }
 
     @Override
+    public UserInfo getByUsername(String username) {
+        List<UserInfo> userInfos = userInfoMapper.selectByUsername(username);
+        if (userInfos.size() == 0) {
+            throw new RuntimeException("系统错误");
+        } else if (userInfos.size() > 1) {
+            throw new RuntimeException("系统错误");
+        }
+        return userInfos.get(0);
+    }
+
+    @Override
     public boolean login(AuthUserDTO authUser) {
         List<UserInfo> users = userInfoMapper.selectByUsernameAndPassword(authUser.getUsername(), authUser.getPassword());
         if (users.size() == 0) {

@@ -14,5 +14,7 @@ public interface UserInfoService {
 
     UserInfo getUserInfo(Long id);
 
+    UserInfo getByUsername(String username);
+
     boolean login(AuthUserDTO authUser);
 }

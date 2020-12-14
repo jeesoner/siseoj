@@ -97,7 +97,7 @@ public class LogAspectHandler {
                         "[响应内容]: {}\n" +
                         "\n<----------------------------------------------------->\n";
             log.info(sb, DateUtil.formatDate(serviceDate, SysConstants.TIME_PATTERN),
-                    endTime - startTime > 0 ? "" : (endTime - startTime) + " ms",
+                    endTime - startTime < 0 ? "" : (endTime - startTime) + " ms",
                     obj == null ? "" : obj.toString());
         }
         return obj;
