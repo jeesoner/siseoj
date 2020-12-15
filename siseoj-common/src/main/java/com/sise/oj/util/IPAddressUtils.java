@@ -1,4 +1,4 @@
-package com.sise.oj.utils;
+package com.sise.oj.util;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
  * @version 1.0
  */
 @Slf4j
-public class IPAddressUtil {
+public class IPAddressUtils {
 
     public static String getClientIPAddress(HttpServletRequest request) {
         // 获取HTTP代理字段

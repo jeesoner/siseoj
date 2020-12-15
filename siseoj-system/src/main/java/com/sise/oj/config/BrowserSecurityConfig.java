@@ -22,11 +22,11 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
-                // 禁用CSRF
-                .csrf().disable()
                 .authorizeRequests() // 授权配置
-                .antMatchers("/login").permitAll()
+                .antMatchers("/login").permitAll() // 允许该路径通过
                 .anyRequest()
-                .authenticated();
+                .authenticated()
+                .and().csrf().disable(); // 禁用CSRF
+        ;
     }
 }

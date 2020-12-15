@@ -1,4 +1,4 @@
-package com.sise.oj.utils;
+package com.sise.oj.util;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -14,7 +14,7 @@ import java.util.Date;
  * @version 1.0
  */
 @Slf4j
-public class DateUtil {
+public class DateUtils {
 
     /**
      * 获取当前时间 yyyy-MM-dd HH:mm:ss

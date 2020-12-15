@@ -2,7 +2,7 @@ package com.sise.oj.handler;
 
 import com.sise.oj.base.ResultJson;
 import com.sise.oj.enums.ResultCode;
-import com.sise.oj.utils.ThrowableUtil;
+import com.sise.oj.util.ThrowableUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -100,7 +100,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(Throwable.class)
     public ResultJson<?> handleException(Throwable e) {
-        log.error(ThrowableUtil.getStackTrace(e));
+        log.error(ThrowableUtils.getStackTrace(e));
         return ResultJson.failure(ResultCode.ERROR, e.getMessage());
     }
 }

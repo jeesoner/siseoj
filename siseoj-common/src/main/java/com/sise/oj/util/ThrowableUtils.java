@@ -1,4 +1,4 @@
-package com.sise.oj.utils;
+package com.sise.oj.util;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -9,7 +9,7 @@ import java.io.StringWriter;
  * @author CiJee
  * @version 1.0
  */
-public class ThrowableUtil {
+public class ThrowableUtils {
 
     /**
      * 获取堆栈信息
