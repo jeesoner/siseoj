@@ -39,4 +39,8 @@ public class AuthorizationController {
             return ResultJson.failure(ResultCode.USER_LOGIN_ERROR);
         }
     }
+
+    public ResultJson<?> logout() {
+        return ResultJson.success(null);
+    }
 }
