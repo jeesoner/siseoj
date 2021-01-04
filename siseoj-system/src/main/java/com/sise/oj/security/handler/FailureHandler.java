@@ -1,4 +1,4 @@
-package com.sise.oj.component.handler;
+package com.sise.oj.security.handler;
 
 import com.alibaba.fastjson.JSON;
 import com.sise.oj.base.ResultJson;
@@ -17,7 +17,7 @@ import java.io.IOException;
  * @version 1.0
  */
 @Component
-public class MyAuthenticationFailureHandler implements AuthenticationFailureHandler {
+public class FailureHandler implements AuthenticationFailureHandler {
 
     @Override
     public void onAuthenticationFailure(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {

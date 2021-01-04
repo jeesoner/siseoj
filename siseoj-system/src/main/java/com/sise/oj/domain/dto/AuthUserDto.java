@@ -6,14 +6,14 @@ import lombok.Setter;
 import javax.validation.constraints.NotBlank;
 
 /**
- * 登录、授权用户VO
+ * 登录、授权用户 Dto
  *
  * @author CiJee
  * @version 1.0
  */
 @Getter
 @Setter
-public class AuthUserDTO {
+public class AuthUserDto {
 
     @NotBlank
     private String username;

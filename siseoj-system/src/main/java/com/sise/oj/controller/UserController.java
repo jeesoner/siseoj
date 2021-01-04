@@ -1,7 +1,7 @@
 package com.sise.oj.controller;
 
 import com.sise.oj.base.ResultJson;
-import com.sise.oj.service.UserInfoService;
+import com.sise.oj.service.UserService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController("/user")
 public class UserController {
 
-    private final UserInfoService userInfoService;
+    private final UserService userInfoService;
 
-    public UserController(UserInfoService userInfoService) {
+    public UserController(UserService userInfoService) {
         this.userInfoService = userInfoService;
     }
 

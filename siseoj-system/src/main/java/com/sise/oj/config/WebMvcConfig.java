@@ -18,11 +18,11 @@ import java.util.List;
  * @version 1.0
  */
 @Configuration
-public class ConfigurerAdapter implements WebMvcConfigurer {
+public class WebMvcConfig implements WebMvcConfigurer {
 
     private final FileProperties properties;
 
-    public ConfigurerAdapter(FileProperties properties) {
+    public WebMvcConfig(FileProperties properties) {
         this.properties = properties;
     }
 

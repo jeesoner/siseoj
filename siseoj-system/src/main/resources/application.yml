@@ -5,7 +5,7 @@ spring:
   datasource:
     # 如果存在多个数据源，监控的时候可以通过名字来区分开来
     name: mysql
-    url: jdbc:mysql://47.107.72.240:3306/siseoj_test?serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/siseoj_test?serverTimezone=UTC
     username: root
     password: 1234,abcd
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -39,8 +39,16 @@ spring:
       poolPreparedStatements: false
       # 要启用PSCache，必须配置大于0，当大于0时，poolPreparedStatements自动触发修改为true
       max-open-prepared-statements: -1
+
   fastjson:
     date-format: yyyy-MM-dd HH:mm:ss
+
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password:
+    timeout: 5000
 
 mybatis:
   # mapper.xml包地址
@@ -48,10 +56,30 @@ mybatis:
   configuration:
     map-underscore-to-camel-case: true
 
+
 logging:
   config: classpath:config/logback-spring.xml
 
-#jwt
+# 登录相关配置
+login:
+  #  验证码
+  login-code:
+    #  验证码类型配置 查看 LoginProperties 类
+    code-type: arithmetic
+    #  登录图形验证码有效时间/分钟
+    expiration: 2
+    #  验证码高度
+    width: 111
+    #  验证码宽度
+    heigth: 36
+    # 内容长度
+    length: 2
+    # 字体名称，为空则使用默认字体
+    font-name:
+    # 字体大小
+    font-size: 25
+
+# jwt
 jwt:
   header: Authorization
   # 令牌前缀
@@ -76,8 +104,10 @@ swagger:
 # mybatis-plus
 mybatis-plus:
   global-config:
+    banner: false
     db-config:
       id-type: auto
+      table-underline: true
 
 # OJ配置
 oj:
