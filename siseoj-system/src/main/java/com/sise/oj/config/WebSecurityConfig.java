@@ -36,14 +36,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
                 .formLogin()
-                    .loginPage("/auth/login")
+                    .loginPage("/login")
+                    .loginProcessingUrl("/auth/login")
                     .successHandler(authenticationSuccessHandler)
                     .failureHandler(authenticationFailureHandler)
                     .and()
                 .authorizeRequests() // 授权配置
-                    .antMatchers("auth/login", "auth/logout").permitAll() // 允许该路径通过
-                    .anyRequest()
-                    .authenticated()
+                    .antMatchers("/login", "/auth/login", "/auth/logout").permitAll() // 允许该路径通过
+                    .anyRequest().authenticated()
                     .and()
                 .csrf().disable() // 禁用CSRF
                 .logout().permitAll();
