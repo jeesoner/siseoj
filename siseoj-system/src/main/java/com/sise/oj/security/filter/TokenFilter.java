@@ -39,8 +39,9 @@ public class TokenFilter extends OncePerRequestFilter {
         String token = resolveToken(httpServletRequest);
         // 不为空的token不用检查Redis
         if (StrUtil.isNotBlank(token)) {
-
+            log.info("获取了token");
         }
+        filterChain.doFilter(httpServletRequest, httpServletResponse);
     }
 
     /**

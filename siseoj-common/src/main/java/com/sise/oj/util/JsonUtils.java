@@ -5,6 +5,7 @@ import com.alibaba.fastjson.serializer.SerializeConfig;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.serializer.SimpleDateFormatSerializer;
 import com.alibaba.fastjson.serializer.ValueFilter;
+import com.sise.oj.base.SysConstants;
 
 import java.sql.Timestamp;
 import java.util.Date;
@@ -37,8 +38,8 @@ public final class JsonUtils {
     private static final SerializeConfig mapping = new SerializeConfig();
 
     static {
-        mapping.put(Date.class, new SimpleDateFormatSerializer("yyyy-MM-dd HH:mm:ss"));
-        mapping.put(Timestamp.class, new SimpleDateFormatSerializer("yyyy-MM-dd HH:mm:ss"));//数据库的一个时间类型
+        mapping.put(Date.class, new SimpleDateFormatSerializer(SysConstants.TIME_PATTERN));
+        mapping.put(Timestamp.class, new SimpleDateFormatSerializer(SysConstants.TIME_PATTERN));//数据库的一个时间类型
     }
 
     /**
@@ -50,7 +51,7 @@ public final class JsonUtils {
      */
     public static String objToJson(Object bean) {
         SerializeConfig customMapping = new SerializeConfig();
-        customMapping.put(Date.class, new SimpleDateFormatSerializer("yyyy-MM-dd HH:mm:ss"));
+        customMapping.put(Date.class, new SimpleDateFormatSerializer(SysConstants.TIME_PATTERN));
         return getJsonByObj(bean, customMapping);
     }
 
