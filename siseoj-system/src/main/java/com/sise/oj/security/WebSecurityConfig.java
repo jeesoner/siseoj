@@ -1,5 +1,7 @@
 package com.sise.oj.security;
 
+import com.sise.oj.annotation.AnonymousAccess;
+import com.sise.oj.enums.RequestMethodEnum;
 import com.sise.oj.security.bean.SecurityProperties;
 import com.sise.oj.security.filter.TokenFilter;
 import com.sise.oj.security.handler.JwtAccessDeniedHandler;
@@ -9,7 +11,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -20,6 +21,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
+import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
 import java.util.*;
 
@@ -45,6 +47,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
+        // 搜寻匿名标记 url： @AnonymousAccess
+        RequestMappingHandlerMapping requestMappingHandlerMapping = (RequestMappingHandlerMapping) applicationContext.getBean("requestMappingHandlerMapping");
+        Map<RequestMappingInfo, HandlerMethod> handlerMethodMap = requestMappingHandlerMapping.getHandlerMethods();
+        // 获取匿名标记
+        Map<String, Set<String>> anonymousUrls = getAnonymousUrl(handlerMethodMap);
+
         httpSecurity
                 .exceptionHandling()
                 .authenticationEntryPoint(authenticationErrorHandler)
@@ -80,7 +88,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 // 阿里巴巴 druid
                 .antMatchers("/druid/**").permitAll()
                 .antMatchers("/login", "/auth/login", "/auth/logout").permitAll() // 允许该路径通过
-
+                // 放行OPTIONS请求
+                .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 // 自定义匿名访问所有url放行：允许匿名和带Token访问，细腻化到每个 Request 类型
                 // GET
                 .antMatchers(HttpMethod.GET, anonymousUrls.get(RequestMethodEnum.GET.getType()).toArray(new String[0])).permitAll()
