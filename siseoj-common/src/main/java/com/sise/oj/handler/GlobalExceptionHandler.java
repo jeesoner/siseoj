@@ -2,13 +2,18 @@ package com.sise.oj.handler;
 
 import com.sise.oj.base.ResultJson;
 import com.sise.oj.enums.ResultCode;
+import com.sise.oj.exception.BadConfigurationException;
+import com.sise.oj.exception.BadRequestException;
+import com.sise.oj.exception.DataExistException;
+import com.sise.oj.exception.DataNotFoundException;
 import com.sise.oj.util.ThrowableUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Controller;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import java.util.Objects;
 
 /**
  * 全局异常处理
@@ -16,83 +21,69 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
  * @author Cijee
  * @version 1.0
  */
-@RestControllerAdvice(basePackages = "com.sise.oj.controller.*", annotations = {Controller.class, RestController.class})
 @Slf4j
+@RestControllerAdvice
 public class GlobalExceptionHandler {
 
     /**
-     * 10000 请求参数异常
-     *
-     * @param e 异常类
-     * @return json
+     * 处理接口参数验证异常
      */
     @ExceptionHandler({MethodArgumentNotValidException.class})
     public ResultJson<String> HandleParamException(MethodArgumentNotValidException e) {
-        // 获取错误字段的数组
-        //String[] str = Objects.requireNonNull(e.getBindingResult().getAllErrors().get(0).getCodes())[1].split("\\.");
+        // 打印堆栈信息
+        log.error(ThrowableUtils.getStackTrace(e));
+        String[] str = Objects.requireNonNull(e.getBindingResult().getAllErrors().get(0).getCodes())[1].split("\\.");
         String message = e.getBindingResult().getAllErrors().get(0).getDefaultMessage();
-        return ResultJson.failure(ResultCode.PARAM_ILLEGAL, message);
+        String msg = "不能为空";
+        if(msg.equals(message)){
+            message = str[1] + ":" + message;
+        }
+        return ResultJson.failure(ResultCode.PARAM_ERROR, message);
     }
 
     /**
-     * 20000 用户登录异常
-     *
-     * @param e 异常类
-     * @return json
+     * 处理配置类错误异常
      */
-    //@ExceptionHandler(UserLoginFailedException.class)
-    public ResultJson<String> HandleUserException(Exception e) {
-        return ResultJson.failure(ResultCode.USER_LOGIN_ERROR);
+    @ExceptionHandler(BadConfigurationException.class)
+    public ResultJson<String> HandleBadConfigurationException(BadConfigurationException e) {
+        return ResultJson.failure(ResultCode.SYSTEM_CONFIG_ERROR, e.getMessage());
     }
 
     /**
-     * 30000 处理业务异常
-     *
-     * @param e 业务异常类
-     * @return json
+     * 处理数据不存在异常
      */
-    public ResultJson<String> HandleBusinessException(Exception e) {
-        return ResultJson.failure(null);
+    @ExceptionHandler(DataNotFoundException.class)
+    public ResultJson<?> handleDataNotFoundException(DataNotFoundException e) {
+        return ResultJson.failure(ResultCode.DATA_NOT_FOUND, e.getMessage());
     }
 
     /**
-     * 40000 处理系统异常
-     *
-     * @param e 系统异常类
-     * @return json
+     * 处理数据已存在异常
      */
-    public ResultJson<String> HandleSystemException(Exception e) {
-        return ResultJson.failure(null);
+    @ExceptionHandler(DataExistException.class)
+    public ResultJson<?> handleDataExistException(DataExistException e) {
+        return ResultJson.failure(ResultCode.DATA_EXIST, e.getMessage());
     }
 
     /**
-     * 50000 处理数据异常
-     *
-     * @param e 数据异常类
-     * @return json
+     * BadCredentialsException
      */
-    public ResultJson<String> HandleDataException(Exception e) {
-        return ResultJson.failure(null);
+    @ExceptionHandler(BadCredentialsException.class)
+    public ResultJson<String> badCredentialsException(BadCredentialsException e) {
+        // 打印堆栈信息
+        String message = "坏的凭证".equals(e.getMessage()) ? "用户名或密码不正确" : e.getMessage();
+        log.error(message);
+        return ResultJson.failure(ResultCode.USER_ERROR, message);
     }
 
     /**
-     * 60000 处理接口异常
-     *
-     * @param e 接口异常类
-     * @return json
+     * 处理自定义异常
      */
-    public ResultJson<String> HandleInterfaceException(Exception e) {
-        return ResultJson.failure(null);
-    }
-
-    /**
-     * 70000 处理权限异常
-     *
-     * @param e 权限异常类
-     * @return json
-     */
-    public ResultJson<String> HandlePermissionException(Exception e) {
-        return ResultJson.failure(null);
+    @ExceptionHandler(value = BadRequestException.class)
+    public ResultJson<?> badRequestException(BadRequestException e) {
+        // 打印堆栈信息
+        log.error(ThrowableUtils.getStackTrace(e));
+        return ResultJson.failure(e.getCode(), e.getMessage());
     }
 
     /**

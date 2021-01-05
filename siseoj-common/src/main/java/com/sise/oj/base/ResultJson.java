@@ -1,8 +1,10 @@
 package com.sise.oj.base;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.sise.oj.enums.ResultCode;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * 返回客户端的JSON封装类
@@ -18,11 +20,14 @@ public class ResultJson<T> implements Serializable {
     /* 响应状态码 */
     private Integer code;
 
-    /* 响应数据 */
-    private T data;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime timestamp;
 
     /* 错误信息 */
     private String message;
+
+    /* 响应数据 */
+    private T data;
 
     /* 构造器私有，不允许外界自己创建返回类 */
     private ResultJson() {
@@ -36,9 +41,10 @@ public class ResultJson<T> implements Serializable {
      * @param data 数据
      */
     private ResultJson(T data) {
+        this.timestamp = LocalDateTime.now();
         this.code = ResultCode.SUCCESS.code();
-        this.data = data;
         this.success = true;
+        this.data = data;
     }
 
     /**
@@ -47,6 +53,7 @@ public class ResultJson<T> implements Serializable {
      * @param resultCode 状态码
      */
     private ResultJson(ResultCode resultCode) {
+        this.timestamp = LocalDateTime.now();
         this.code = resultCode.code();
         this.success = false;
         this.message = resultCode.message();
@@ -59,6 +66,7 @@ public class ResultJson<T> implements Serializable {
      * @param message 错误信息
      */
     private ResultJson(ResultCode resultCode, String message) {
+        this.timestamp = LocalDateTime.now();
         this.code = resultCode.code();
         this.success = false;
         this.message = message;

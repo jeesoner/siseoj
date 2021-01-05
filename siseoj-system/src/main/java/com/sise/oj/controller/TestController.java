@@ -1,8 +1,8 @@
 package com.sise.oj.controller;
 
 import com.sise.oj.base.ResultJson;
-import com.sise.oj.domain.UserInfo;
-import com.sise.oj.service.UserInfoService;
+import com.sise.oj.domain.User;
+import com.sise.oj.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,9 +13,9 @@ import javax.validation.Valid;
 @RequestMapping("/test")
 public class TestController {
 
-    private final UserInfoService userInfoService;
+    private final UserService userInfoService;
 
-    public TestController(UserInfoService userInfoService) {
+    public TestController(UserService userInfoService) {
         this.userInfoService = userInfoService;
     }
 
@@ -25,13 +25,13 @@ public class TestController {
     }
 
     @GetMapping("/{id}")
-    public ResultJson<UserInfo> get(@PathVariable Long id) {
+    public ResultJson<User> get(@PathVariable Long id) {
         return ResultJson.success(userInfoService.getUserInfo(id));
     }
 
     @PostMapping("/user")
-    public ResultJson<String> register(@Valid @RequestBody UserInfo userInfo) {
-        System.out.println(userInfo.getUsername());
+    public ResultJson<String> register(@Valid @RequestBody User user) {
+        System.out.println(user.getUsername());
         return ResultJson.success("成功");
     }
 

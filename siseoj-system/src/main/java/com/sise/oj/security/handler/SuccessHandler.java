@@ -1,4 +1,4 @@
-package com.sise.oj.component.handler;
+package com.sise.oj.security.handler;
 
 import com.alibaba.fastjson.JSON;
 import org.springframework.security.core.Authentication;
@@ -15,7 +15,7 @@ import java.io.IOException;
  * @version 1.0
  */
 @Component
-public class MyAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
+public class SuccessHandler implements AuthenticationSuccessHandler {
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {

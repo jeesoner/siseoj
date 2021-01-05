@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration;
 
 @SpringBootApplication(exclude = {JacksonAutoConfiguration.class})
-@MapperScan("com.sise.oj.mapper")
+@MapperScan(basePackages = "com.sise.oj.mapper")
 public class AppRun {
 
     public static void main(String[] args) {

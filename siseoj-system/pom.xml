@@ -12,11 +12,31 @@
     <artifactId>siseoj-system</artifactId>
     <description>提供在线评测系统服务</description>
 
+    <properties>
+        <jjwt.version>0.11.1</jjwt.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.sise</groupId>
             <artifactId>siseoj-common</artifactId>
             <version>1.0</version>
+        </dependency>
+        <!-- jwt -->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-api</artifactId>
+            <version>${jjwt.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-impl</artifactId>
+            <version>${jjwt.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-jackson</artifactId>
+            <version>${jjwt.version}</version>
         </dependency>
     </dependencies>
 
