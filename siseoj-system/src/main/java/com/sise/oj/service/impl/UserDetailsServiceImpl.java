@@ -38,7 +38,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         if (user == null) {
             throw new UsernameNotFoundException("");
         } else {
-            if (user.getLocked()) {
+            if (user.getIsLocked()) {
                 throw new BadRequestException("用户被锁定！");
             }
             jwtUserDto = new JwtUserDto(user, roleService.mapToGrantedAuthorities(user));

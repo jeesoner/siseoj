@@ -24,8 +24,9 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
     @Override
     public void commence(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
-        //httpServletResponse.sendError(HttpServletResponse.SC_UNAUTHORIZED, e == null ? "Unauthorized" : e.getMessage());
-        httpServletResponse.setContentType(MediaType.APPLICATION_JSON_VALUE);
+        // 设置响应类型为JSON
+        httpServletResponse.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
+        // 封装响应内容
         ResultJson<String> failure = ResultJson.failure(ResultCode.USER_ERROR, e == null ? "Unauthorized" : e.getMessage());
         httpServletResponse.getWriter().write(JsonUtils.objToJson(failure));
     }

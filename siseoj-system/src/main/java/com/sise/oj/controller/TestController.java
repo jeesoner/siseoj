@@ -2,6 +2,8 @@ package com.sise.oj.controller;
 
 import com.sise.oj.base.ResultJson;
 import com.sise.oj.domain.User;
+import com.sise.oj.domain.UserAuth;
+import com.sise.oj.service.UserAuthService;
 import com.sise.oj.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -15,8 +17,11 @@ public class TestController {
 
     private final UserService userInfoService;
 
-    public TestController(UserService userInfoService) {
+    private final UserAuthService userAuthService;
+
+    public TestController(UserService userInfoService, UserAuthService userAuthService) {
         this.userInfoService = userInfoService;
+        this.userAuthService = userAuthService;
     }
 
     @RequestMapping
@@ -35,4 +40,13 @@ public class TestController {
         return ResultJson.success("成功");
     }
 
+    @PostMapping("/post")
+    public String testPost() {
+        return "post";
+    }
+
+    @GetMapping("/auth")
+    public UserAuth testAuth() {
+        return userAuthService.findByName("root");
+    }
 }

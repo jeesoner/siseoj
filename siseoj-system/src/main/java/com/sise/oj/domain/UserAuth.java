@@ -1,6 +1,5 @@
 package com.sise.oj.domain;
 
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Getter;
 import lombok.Setter;
@@ -42,8 +41,7 @@ public class UserAuth implements Serializable {
     /**
      * 1为锁定，0为启用
      */
-    @TableField("is_locked")
-    private Boolean locked;
+    private Boolean isLocked;
 
     /**
      * 最后一次登录时间

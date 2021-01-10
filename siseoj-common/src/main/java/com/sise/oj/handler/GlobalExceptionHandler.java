@@ -91,7 +91,8 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(Throwable.class)
     public ResultJson<?> handleException(Throwable e) {
-        log.error(ThrowableUtils.getStackTrace(e));
+        String stackTrace = ThrowableUtils.getStackTrace(e);
+        log.error(stackTrace);
         return ResultJson.failure(ResultCode.ERROR, e.getMessage());
     }
 }

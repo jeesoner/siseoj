@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.sise.oj.enums.ResultCode;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * 返回客户端的JSON封装类
@@ -20,8 +20,9 @@ public class ResultJson<T> implements Serializable {
     /* 响应状态码 */
     private Integer code;
 
+    /* 日期 */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime timestamp;
+    private Date timestamp;
 
     /* 错误信息 */
     private String message;
@@ -31,6 +32,7 @@ public class ResultJson<T> implements Serializable {
 
     /* 构造器私有，不允许外界自己创建返回类 */
     private ResultJson() {
+        this.timestamp = new Date();
         this.code = ResultCode.SUCCESS.code();
         this.success = true;
     }
@@ -41,9 +43,7 @@ public class ResultJson<T> implements Serializable {
      * @param data 数据
      */
     private ResultJson(T data) {
-        this.timestamp = LocalDateTime.now();
-        this.code = ResultCode.SUCCESS.code();
-        this.success = true;
+        this();
         this.data = data;
     }
 
@@ -53,7 +53,7 @@ public class ResultJson<T> implements Serializable {
      * @param resultCode 状态码
      */
     private ResultJson(ResultCode resultCode) {
-        this.timestamp = LocalDateTime.now();
+        this.timestamp = new Date();
         this.code = resultCode.code();
         this.success = false;
         this.message = resultCode.message();
@@ -66,7 +66,7 @@ public class ResultJson<T> implements Serializable {
      * @param message 错误信息
      */
     private ResultJson(ResultCode resultCode, String message) {
-        this.timestamp = LocalDateTime.now();
+        this.timestamp = new Date();
         this.code = resultCode.code();
         this.success = false;
         this.message = message;
@@ -104,21 +104,22 @@ public class ResultJson<T> implements Serializable {
         this.message = message;
     }
 
-    public LocalDateTime getTimestamp() {
+    public Date getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(LocalDateTime timestamp) {
+    public void setTimestamp(Date timestamp) {
         this.timestamp = timestamp;
     }
 
     @Override
     public String toString() {
-        return "Result{" +
+        return "ResultJson{" +
                 "success=" + success +
                 ", code=" + code +
-                ", data=[ 日志中不能查看 ]" +
+                ", timestamp=" + timestamp +
                 ", message='" + message + '\'' +
+                ", data=[日志中不能查看]" +
                 '}';
     }
 

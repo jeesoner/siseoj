@@ -3,12 +3,17 @@ package com.sise.oj.config;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,14 +31,16 @@ public class WebMvcConfig implements WebMvcConfigurer {
         this.properties = properties;
     }
 
-    /**
-     * 配置拦截器
-     *
-     * @param registry 拦截器注册器
-     */
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-
+    @Bean
+    public CorsFilter corsFilter() {
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        CorsConfiguration config = new CorsConfiguration();
+        config.setAllowCredentials(true);
+        config.addAllowedOrigin("*");
+        config.addAllowedHeader("*");
+        config.addAllowedMethod("*");
+        source.registerCorsConfiguration("/**", config);
+        return new CorsFilter(source);
     }
 
     /**
@@ -65,8 +72,11 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 SerializerFeature.WriteMapNullValue);
         //4、在convert中添加配置信息
         fastConverter.setFastJsonConfig(fastJsonConfig);
-        //5、将convert添加到converters中，并设置优先级
+        //5、解决中文乱码
+        List<MediaType> fastMediaType = new ArrayList<>();
+        fastMediaType.add(MediaType.APPLICATION_JSON_UTF8);
+        fastConverter.setSupportedMediaTypes(fastMediaType);
+        //6、将convert添加到converters中，并设置优先级
         converters.add(0, fastConverter);
     }
-
 }

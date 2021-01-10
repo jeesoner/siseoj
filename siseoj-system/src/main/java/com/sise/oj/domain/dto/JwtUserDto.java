@@ -48,7 +48,7 @@ public class JwtUserDto implements UserDetails {
     @Override
     @JSONField(serialize = false)
     public boolean isAccountNonLocked() {
-        return userAuth.getLocked();
+        return userAuth.getIsLocked();
     }
 
     @Override

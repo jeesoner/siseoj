@@ -60,11 +60,11 @@ public final class JsonUtils {
      *
      * @param <T> 类型参数
      * @param json  JSON数组数据
-     * @param calzz 待转换的Bean类型 --LinkedCaseInsensitiveMap
+     * @param clazz 待转换的Bean类型 --LinkedCaseInsensitiveMap
      * @return bean
      */
-    public static <T> List<T> jsonToObj(String json, Class<T> calzz) {
-        return JSON.parseArray(json, calzz);
+    public static <T> List<T> jsonToObj(String json, Class<T> clazz) {
+        return JSON.parseArray(json, clazz);
     }
 
     /***
