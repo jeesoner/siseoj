@@ -80,17 +80,30 @@ CREATE TABLE `sys_roles_menus`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_user`;
 CREATE TABLE `sys_user`  (
-                             `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
+                             `id` bigint(0) NOT NULL AUTO_INCREMENT COMMENT '主键',
                              `nickname` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '昵称',
                              `username` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户名',
-                             `gender` tinyint(4) NULL DEFAULT NULL COMMENT '性别，0为保密，1为男，2为女',
+                             `password` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '密码',
+                             `gender` tinyint(0) NULL DEFAULT NULL COMMENT '性别，0保密、1男、2女',
                              `email` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '邮箱',
                              `phone` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '手机号',
                              `motto` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '个性签名',
                              `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
                              `modify_time` datetime(0) NULL DEFAULT NULL COMMENT '修改时间',
-                             PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+                             `enabled` bit(1) NULL DEFAULT NULL COMMENT '状态：1启用、0禁用',
+                             `last_login_time` datetime(0) NULL DEFAULT NULL COMMENT '最后一次登录时间',
+                             `unlock_time` datetime(0) NULL DEFAULT NULL COMMENT '解锁时间',
+                             `login_fail_count` tinyint(0) NULL DEFAULT NULL COMMENT '登录失败次数',
+                             PRIMARY KEY (`id`) USING BTREE,
+                             UNIQUE INDEX `uniq_username`(`username`) USING BTREE COMMENT '用户名唯一索引'
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of sys_user
+-- ----------------------------
+INSERT INTO `sys_user` VALUES (1, 'root', 'root', 'root', 0, 'saykuray@foxmail.com', '88888888888', '世界那么大，我想去看看~', '2020-11-16 22:11:33', '2020-11-16 22:11:38', b'1', NULL, NULL, NULL);
+
+SET FOREIGN_KEY_CHECKS = 1;
 
 -- ----------------------------
 -- Records of sys_user
