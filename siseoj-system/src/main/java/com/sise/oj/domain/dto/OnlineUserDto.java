@@ -1,5 +1,6 @@
 package com.sise.oj.domain.dto;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -8,7 +9,7 @@ import java.util.Date;
  * @author Cijee
  * @version 1.0
  */
-public class OnlineUserDto {
+public class OnlineUserDto implements Serializable {
 
     /**
      * 用户名

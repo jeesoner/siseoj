@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 /**
  * sys_role
@@ -24,6 +25,11 @@ public class Role implements Serializable {
      */
     @TableId
     private Long id;
+
+    /**
+     * 用户集合
+     */
+    private Set<User> users;
 
     /**
      * 角色名称

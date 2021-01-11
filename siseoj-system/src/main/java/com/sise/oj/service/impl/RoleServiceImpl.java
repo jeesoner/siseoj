@@ -1,6 +1,6 @@
 package com.sise.oj.service.impl;
 
-import com.sise.oj.domain.UserAuth;
+import com.sise.oj.domain.User;
 import com.sise.oj.mapper.RoleMapper;
 import com.sise.oj.service.RoleService;
 import org.springframework.security.core.GrantedAuthority;
@@ -30,19 +30,18 @@ public class RoleServiceImpl implements RoleService {
     /**
      * 获取用户的权限信息
      *
-     * @param userAuth 用户
+     * @param user 用户
      * @return 权限信息列表
      */
     @Override
-    public List<GrantedAuthority> mapToGrantedAuthorities(UserAuth userAuth) {
+    public List<GrantedAuthority> mapToGrantedAuthorities(User user) {
         Set<String> permissions = new HashSet<>();
         // 如果是root用户直接返回 root用户具有最高权限
-        if ("root".equals(userAuth.getUsername())) {
+        if ("root".equals(user.getUsername())) {
             permissions.add("root");
             return permissions.stream().map(SimpleGrantedAuthority::new)
                     .collect(Collectors.toList());
         }
-        roleMapper.findByUserId(userAuth.getUserId());
         return null;
     }
 }

@@ -11,5 +11,7 @@ import com.sise.oj.domain.User;
  */
 public interface UserService {
 
-    User getUserInfo(Long id);
+    User findByName(String username);
+
+    User findById(Long id);
 }

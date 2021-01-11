@@ -1,11 +1,11 @@
 package com.sise.oj.service.impl;
 
-import com.sise.oj.domain.UserAuth;
+import com.sise.oj.domain.User;
 import com.sise.oj.domain.dto.JwtUserDto;
 import com.sise.oj.exception.BadRequestException;
 import com.sise.oj.exception.DataNotFoundException;
 import com.sise.oj.service.RoleService;
-import com.sise.oj.service.UserAuthService;
+import com.sise.oj.service.UserService;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -17,20 +17,20 @@ import org.springframework.stereotype.Service;
 @Service("userDetailsService")
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    private final UserAuthService userAuthService;
+    private final UserService userService;
     private final RoleService roleService;
 
-    public UserDetailsServiceImpl(UserAuthService userAuthService, RoleService roleService) {
-        this.userAuthService = userAuthService;
+    public UserDetailsServiceImpl(UserService userService, RoleService roleService) {
+        this.userService = userService;
         this.roleService = roleService;
     }
 
     @Override
     public JwtUserDto loadUserByUsername(String username) throws UsernameNotFoundException {
         JwtUserDto jwtUserDto;
-        UserAuth user;
+        User user;
         try {
-            user = userAuthService.findByName(username);
+            user = userService.findByName(username);
         } catch (DataNotFoundException e) {
             // SpringSecurity会自动转换UsernameNotFoundException为BadCredentialsException
             throw new UsernameNotFoundException("", e);
@@ -38,7 +38,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         if (user == null) {
             throw new UsernameNotFoundException("");
         } else {
-            if (user.getIsLocked()) {
+            if (!user.getEnabled()) {
                 throw new BadRequestException("用户被锁定！");
             }
             jwtUserDto = new JwtUserDto(user, roleService.mapToGrantedAuthorities(user));

@@ -1,6 +1,6 @@
 package com.sise.oj.service;
 
-import com.sise.oj.domain.UserAuth;
+import com.sise.oj.domain.User;
 import org.springframework.security.core.GrantedAuthority;
 
 import java.util.List;
@@ -11,6 +11,6 @@ import java.util.List;
  */
 public interface RoleService {
 
-    List<GrantedAuthority> mapToGrantedAuthorities(UserAuth userAuth);
+    List<GrantedAuthority> mapToGrantedAuthorities(User user);
 
 }

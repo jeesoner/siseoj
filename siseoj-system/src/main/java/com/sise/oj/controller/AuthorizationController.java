@@ -6,13 +6,11 @@ import com.sise.oj.domain.dto.JwtUserDto;
 import com.sise.oj.security.TokenProvider;
 import com.sise.oj.security.bean.LoginProperties;
 import com.sise.oj.service.OnlineUserService;
-import com.sise.oj.service.UserService;
 import com.sise.oj.util.RedisUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
@@ -44,7 +42,6 @@ public class AuthorizationController {
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
     private final OnlineUserService onlineUserService;
     private final TokenProvider tokenProvider;
-    private final UserService userService;
     private final RedisUtils redisUtils;
     @Resource
     private LoginProperties loginProperties;
@@ -54,13 +51,16 @@ public class AuthorizationController {
     public ResultJson<Object> login(@Validated @RequestBody AuthUserDto authUser, HttpServletRequest request) throws Exception {
         // 获取密码
         String password = authUser.getPassword();
+        // 用户密码认证令牌
         UsernamePasswordAuthenticationToken authenticationToken =
                 new UsernamePasswordAuthenticationToken(authUser.getUsername(), password);
-        AuthenticationManager object = authenticationManagerBuilder.getObject();
-        Authentication authentication = object.authenticate(authenticationToken);
+        // 获取用户信息
+        Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
+        // 设置到Spring Security上下文中
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        // 生成令牌
+        // 生成token
         String token = tokenProvider.createToken(authentication);
+        // 获取用户
         final JwtUserDto jwtUserDto = (JwtUserDto) authentication.getPrincipal();
         // 保存用户在线信息
         // TODO

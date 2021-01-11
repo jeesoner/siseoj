@@ -4,8 +4,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.sise.oj.domain.User;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 /**
  * @author CiJee
  * @version 1.0
@@ -13,8 +11,5 @@ import java.util.List;
 @Repository
 public interface UserMapper extends BaseMapper<User> {
 
-    List<User> selectByUsernameAndPassword(String username, String password);
-
-    List<User> selectByUsername(String username);
-
+    User selectByName(String username);
 }

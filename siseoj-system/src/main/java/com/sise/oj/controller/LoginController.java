@@ -14,6 +14,6 @@ public class LoginController {
 
     @GetMapping("/login")
     public ResultJson<?> login() {
-        return ResultJson.failure(ResultCode.USER_NOT_LOGGED_IN);
+        return ResultJson.failure(ResultCode.USER_ERROR);
     }
 }

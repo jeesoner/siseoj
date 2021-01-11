@@ -44,7 +44,7 @@ public class TokenProvider implements InitializingBean {
      * 初始化Bean后就执行这个方法
      */
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet() {
         byte[] keyBytes = Decoders.BASE64.decode(properties.getBase64Secret());
         Key key = Keys.hmacShaKeyFor(keyBytes);
         jwtParser = Jwts.parserBuilder()

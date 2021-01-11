@@ -2,8 +2,6 @@ package com.sise.oj.controller;
 
 import com.sise.oj.base.ResultJson;
 import com.sise.oj.domain.User;
-import com.sise.oj.domain.UserAuth;
-import com.sise.oj.service.UserAuthService;
 import com.sise.oj.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -15,23 +13,15 @@ import javax.validation.Valid;
 @RequestMapping("/test")
 public class TestController {
 
-    private final UserService userInfoService;
+    private final UserService userService;
 
-    private final UserAuthService userAuthService;
-
-    public TestController(UserService userInfoService, UserAuthService userAuthService) {
-        this.userInfoService = userInfoService;
-        this.userAuthService = userAuthService;
+    public TestController(UserService userService) {
+        this.userService = userService;
     }
 
     @RequestMapping
     public String oj() {
         return "hello oj";
-    }
-
-    @GetMapping("/{id}")
-    public ResultJson<User> get(@PathVariable Long id) {
-        return ResultJson.success(userInfoService.getUserInfo(id));
     }
 
     @PostMapping("/user")
@@ -40,13 +30,14 @@ public class TestController {
         return ResultJson.success("成功");
     }
 
+    @GetMapping("/{id}")
+    public ResultJson<User> get(@PathVariable Long id) {
+        User user = userService.findById(id);
+        return ResultJson.success(user);
+    }
+
     @PostMapping("/post")
     public String testPost() {
         return "post";
-    }
-
-    @GetMapping("/auth")
-    public UserAuth testAuth() {
-        return userAuthService.findByName("root");
     }
 }

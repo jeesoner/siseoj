@@ -1,7 +1,7 @@
 package com.sise.oj.domain.dto;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import com.sise.oj.domain.UserAuth;
+import com.sise.oj.domain.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
@@ -17,20 +17,20 @@ import java.util.List;
 @AllArgsConstructor
 public class JwtUserDto implements UserDetails {
 
-    private final UserAuth userAuth;
+    private final User user;
 
     private final List<GrantedAuthority> authorities;
 
     @Override
     @JSONField(serialize = false)
     public String getUsername() {
-        return userAuth.getUsername();
+        return user.getUsername();
     }
 
     @Override
     @JSONField(serialize = false)
     public String getPassword() {
-        return userAuth.getPassword();
+        return user.getPassword();
     }
 
     @Override
@@ -48,7 +48,7 @@ public class JwtUserDto implements UserDetails {
     @Override
     @JSONField(serialize = false)
     public boolean isAccountNonLocked() {
-        return userAuth.getIsLocked();
+        return true;
     }
 
     @Override
@@ -60,6 +60,6 @@ public class JwtUserDto implements UserDetails {
     @Override
     @JSONField(serialize = false)
     public boolean isEnabled() {
-        return true;
+        return user.getEnabled();
     }
 }

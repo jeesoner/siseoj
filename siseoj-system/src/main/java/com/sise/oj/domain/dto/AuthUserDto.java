@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 
 /**
  * 登录、授权用户 Dto
@@ -13,7 +14,7 @@ import javax.validation.constraints.NotBlank;
  */
 @Getter
 @Setter
-public class AuthUserDto {
+public class AuthUserDto implements Serializable {
 
     @NotBlank
     private String username;

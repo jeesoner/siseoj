@@ -1,13 +1,9 @@
 package com.sise.oj.service.impl;
 
 import com.sise.oj.domain.User;
-import com.sise.oj.domain.dto.AuthUserDto;
-import com.sise.oj.exception.UserLoginFailedException;
 import com.sise.oj.mapper.UserMapper;
 import com.sise.oj.service.UserService;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * TODO
@@ -25,7 +21,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserInfo(Long id) {
+    public User findByName(String username) {
+        return userMapper.selectByName(username);
+    }
+
+    @Override
+    public User findById(Long id) {
         return userMapper.selectById(id);
     }
 }
