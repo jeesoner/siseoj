@@ -1,6 +1,7 @@
 package com.sise.oj.domain;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Getter;
@@ -30,6 +31,7 @@ public class User implements Serializable {
     /**
      * 角色集合
      */
+    @TableField(exist = false)
     private Set<Role> roles;
 
     /**

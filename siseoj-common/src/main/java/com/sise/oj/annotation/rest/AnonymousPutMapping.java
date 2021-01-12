@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.lang.annotation.*;
 
 /**
- * 匿名 PostMapping
+ * 匿名 PutMapping
  *
  * @author Cijee
  * @version 1.0
@@ -17,8 +17,8 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD})
 @Documented
-@RequestMapping(method = RequestMethod.POST)
-public @interface AnonymousPostMapping {
+@RequestMapping(method = RequestMethod.PUT)
+public @interface AnonymousPutMapping {
 
     /**
      * Alias for {@link RequestMapping#name}.

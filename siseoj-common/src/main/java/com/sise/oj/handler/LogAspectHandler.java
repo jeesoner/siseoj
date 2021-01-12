@@ -37,9 +37,14 @@ public class LogAspectHandler {
     
     @Pointcut("@annotation(org.springframework.web.bind.annotation.GetMapping) || " +
             "@annotation(org.springframework.web.bind.annotation.PostMapping) || " +
-            "@annotation(org.springframework.web.bind.annotation.PutMapping) || " +
             "@annotation(org.springframework.web.bind.annotation.DeleteMapping) || " +
-            "@annotation(org.springframework.web.bind.annotation.RequestMapping)")
+            "@annotation(org.springframework.web.bind.annotation.PutMapping) || " +
+            "@annotation(org.springframework.web.bind.annotation.RequestMapping) || " +
+            "@annotation(com.sise.oj.annotation.rest.AnonymousGetMapping) || " +
+            "@annotation(com.sise.oj.annotation.rest.AnonymousPostMapping) || " +
+            "@annotation(com.sise.oj.annotation.rest.AnonymousDeleteMapping) || " +
+            "@annotation(com.sise.oj.annotation.rest.AnonymousPutMapping) || " +
+            "@annotation(com.sise.oj.annotation.rest.AnonymousPatchMapping)")
     public void pointCut() {}
 
     @Around("pointCut()")

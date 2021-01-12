@@ -5,7 +5,7 @@ spring:
   datasource:
     # 如果存在多个数据源，监控的时候可以通过名字来区分开来
     name: mysql
-    url: jdbc:mysql://localhost:3306/siseoj_test?serverTimezone=UTC
+    url: jdbc:mysql://106.52.183.73:3306/siseoj_test?serverTimezone=UTC
     username: root
     password: 1234,abcd
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -45,9 +45,9 @@ spring:
 
   redis:
     database: 0
-    host: 127.0.0.1
+    host: 106.52.183.73
     port: 6379
-    password:
+    password: 1234,abcd
     timeout: 5000
 
 mybatis:
