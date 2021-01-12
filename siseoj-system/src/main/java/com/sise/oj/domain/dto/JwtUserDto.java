@@ -8,6 +8,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * @author Cijee
@@ -19,7 +21,12 @@ public class JwtUserDto implements UserDetails {
 
     private final User user;
 
+    @JSONField(serialize = false)
     private final List<GrantedAuthority> authorities;
+
+    public Set<String> getPermissions() {
+        return authorities.stream().map(GrantedAuthority::getAuthority).collect(Collectors.toSet());
+    }
 
     @Override
     @JSONField(serialize = false)
@@ -31,12 +38,6 @@ public class JwtUserDto implements UserDetails {
     @JSONField(serialize = false)
     public String getPassword() {
         return user.getPassword();
-    }
-
-    @Override
-    @JSONField(serialize = false)
-    public List<GrantedAuthority> getAuthorities() {
-        return authorities;
     }
 
     @Override

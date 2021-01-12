@@ -1,5 +1,6 @@
 package com.sise.oj.domain;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Getter;
@@ -29,6 +30,7 @@ public class Role implements Serializable {
     /**
      * 用户集合
      */
+    @TableField(exist = false)
     private Set<User> users;
 
     /**
