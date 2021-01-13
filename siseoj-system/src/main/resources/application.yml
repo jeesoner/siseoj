@@ -113,9 +113,9 @@ mybatis-plus:
 oj:
   config:
     logHandler:
-      enable: true
+      enable: false
     exceptionLogHandler:
-      enable: true
+      enable: false
 
 # 文件存储路径
 file:

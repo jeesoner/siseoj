@@ -5,11 +5,13 @@ import com.sise.oj.annotation.rest.AnonymousGetMapping;
 import com.sise.oj.base.ResultJson;
 import com.sise.oj.domain.dto.AuthUserDto;
 import com.sise.oj.domain.dto.JwtUserDto;
+import com.sise.oj.exception.BadRequestException;
 import com.sise.oj.security.TokenProvider;
 import com.sise.oj.security.bean.LoginProperties;
 import com.sise.oj.security.bean.SecurityProperties;
 import com.sise.oj.service.OnlineUserService;
 import com.sise.oj.util.RedisUtils;
+import com.sise.oj.util.StringUtils;
 import com.wf.captcha.base.Captcha;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -57,6 +59,16 @@ public class AuthorizationController {
     public ResultJson<Object> login(@Validated @RequestBody AuthUserDto authUser, HttpServletRequest request) throws Exception {
         // 获取密码
         String password = authUser.getPassword();
+        // 查询验证码
+        String code = (String) redisUtils.get(authUser.getUuid());
+        // 清除验证码
+        redisUtils.del(authUser.getUuid());
+        if (StringUtils.isBlank(code)) {
+            throw new BadRequestException("验证码不存在或已过期");
+        }
+        if (StringUtils.isBlank(authUser.getCode()) || !authUser.getCode().equalsIgnoreCase(code)) {
+            throw new BadRequestException("验证码错误");
+        }
         // 用户密码认证令牌
         UsernamePasswordAuthenticationToken authenticationToken =
                 new UsernamePasswordAuthenticationToken(authUser.getUsername(), password);

@@ -26,8 +26,8 @@ public enum ResultCode {
     BUSINESS_ERROR(30000, "业务异常"),
 
     /* 系统错误：40000-49999 */
-    SYSTEM_ERROR(40000, "系统异常"),
-    SYSTEM_CONFIG_ERROR(40001, "系统配置信息错误"),
+    SYSTEM_ERROR(40000, "服务器错误"),
+    SYSTEM_CONFIG_ERROR(40001, "服务器配置信息错误"),
 
     /* 数据错误：50000-59999 */
     DATA_NOT_FOUND(50001, "数据不存在"),
@@ -37,7 +37,8 @@ public enum ResultCode {
     INTERFACE_ERROR(60000, "接口异常"),
 
     /* 权限错误：70000-79999 */
-    PERMISSION_NO_ACCESS(70001, "无访问权限");
+    INVALID_CREDENTIALS(70001, "凭据失效，请重新登录"),
+    NO_PERMISSION(70002, "无权限访问");
 
     private final Integer code;
 

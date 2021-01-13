@@ -27,7 +27,7 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
         // 设置响应类型为JSON
         httpServletResponse.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
         // 封装响应内容
-        ResultJson<String> failure = ResultJson.failure(ResultCode.USER_ERROR, e == null ? "Unauthorized" : e.getMessage());
+        ResultJson<String> failure = ResultJson.failure(ResultCode.INVALID_CREDENTIALS, e == null ? "Unauthorized" : e.getMessage());
         httpServletResponse.getWriter().write(JsonUtils.objToJson(failure));
     }
 }
