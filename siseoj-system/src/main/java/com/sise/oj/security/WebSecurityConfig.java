@@ -123,7 +123,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     private TokenFilter tokenFilter() {
-        return new TokenFilter(tokenProvider, properties);
+        return new TokenFilter(tokenProvider, properties, onlineUserService);
     }
 
     private Map<String, Set<String>> getAnonymousUrl(Map<RequestMappingInfo, HandlerMethod> handlerMethodMap) {

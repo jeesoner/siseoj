@@ -10,13 +10,13 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 /**
- * IP地址工具类
+ * 客户端工具类
  *
  * @author Cijee
  * @version 1.0
  */
 @Slf4j
-public class IPAddressUtils {
+public class ClientUtils {
 
     public static String getClientIPAddress(HttpServletRequest request) {
         // 获取HTTP代理字段

@@ -3,6 +3,7 @@ package com.sise.oj.controller;
 import cn.hutool.core.util.IdUtil;
 import com.sise.oj.annotation.rest.AnonymousGetMapping;
 import com.sise.oj.base.ResultJson;
+import com.sise.oj.config.RsaProperties;
 import com.sise.oj.domain.dto.AuthUserDto;
 import com.sise.oj.domain.dto.JwtUserDto;
 import com.sise.oj.exception.BadRequestException;
@@ -11,6 +12,7 @@ import com.sise.oj.security.bean.LoginProperties;
 import com.sise.oj.security.bean.SecurityProperties;
 import com.sise.oj.service.OnlineUserService;
 import com.sise.oj.util.RedisUtils;
+import com.sise.oj.util.RsaUtils;
 import com.sise.oj.util.StringUtils;
 import com.wf.captcha.base.Captcha;
 import io.swagger.annotations.Api;
@@ -22,10 +24,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -50,6 +49,7 @@ public class AuthorizationController {
     private final OnlineUserService onlineUserService;
     private final TokenProvider tokenProvider;
     private final SecurityProperties properties;
+    private final RsaProperties rsaProperties;
     private final RedisUtils redisUtils;
     @Resource
     private LoginProperties loginProperties;
@@ -58,7 +58,7 @@ public class AuthorizationController {
     @PostMapping("/login")
     public ResultJson<Object> login(@Validated @RequestBody AuthUserDto authUser, HttpServletRequest request) throws Exception {
         // 获取密码
-        String password = authUser.getPassword();
+        String password = RsaUtils.decryptByPrivateKey(rsaProperties.getPrivateKey(), authUser.getPassword());
         // 查询验证码
         String code = (String) redisUtils.get(authUser.getUuid());
         // 清除验证码
@@ -81,13 +81,19 @@ public class AuthorizationController {
         // 获取用户
         final JwtUserDto jwtUserDto = (JwtUserDto) authentication.getPrincipal();
         // 保存用户在线信息
-        // TODO
+        onlineUserService.save(jwtUserDto, token, request);
         // 返回 token 和用户信息
         Map<String, Object> authInfo = new HashMap<String, Object>(2) {{
-            put("token", token);
+            put("token", properties.getTokenStartWith() + token);
             put("user", jwtUserDto);
         }};
         return ResultJson.success(authInfo);
+    }
+
+    @ApiOperation("获取用户信息")
+    @GetMapping("/info")
+    public ResultJson<Object> getUserInfo() {
+        return ResultJson.success(null);
     }
 
     @ApiOperation("获取验证码")
@@ -110,7 +116,10 @@ public class AuthorizationController {
         return ResultJson.success(captchaImg);
     }
 
-    public ResultJson<?> logout() {
+    @ApiOperation("退出登录")
+    @DeleteMapping("/logout")
+    public ResultJson<?> logout(HttpServletRequest request) {
+        onlineUserService.logout(tokenProvider.getToken(request));
         return ResultJson.success(null);
     }
 }

@@ -17,6 +17,8 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * Redis操作工具类
+ *
  * @author -
  */
 @Component

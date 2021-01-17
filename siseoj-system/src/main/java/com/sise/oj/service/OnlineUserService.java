@@ -2,6 +2,7 @@ package com.sise.oj.service;
 
 
 import com.sise.oj.domain.dto.JwtUserDto;
+import com.sise.oj.domain.dto.OnlineUserDto;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -15,4 +16,5 @@ public interface OnlineUserService {
 
     void logout(String token);
 
+    OnlineUserDto getOne(String key);
 }

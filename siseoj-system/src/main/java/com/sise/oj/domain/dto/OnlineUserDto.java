@@ -1,5 +1,9 @@
 package com.sise.oj.domain.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -9,6 +13,9 @@ import java.util.Date;
  * @author Cijee
  * @version 1.0
  */
+@Getter
+@Setter
+@AllArgsConstructor
 public class OnlineUserDto implements Serializable {
 
     /**
