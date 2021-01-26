@@ -1,6 +1,8 @@
 package com.sise.oj.util;
 
 /**
+ * 字符串工具类
+ *
  * @author Cijee
  * @version 1.0
  */

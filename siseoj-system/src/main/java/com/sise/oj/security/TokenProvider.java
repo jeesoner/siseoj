@@ -67,7 +67,7 @@ public class TokenProvider implements InitializingBean {
     }
 
     public Claims getClaims(String token) {
-        return jwtParser.parseClaimsJwt(token).getBody();
+        return jwtParser.parseClaimsJws(token).getBody();
     }
 
     /**
@@ -76,7 +76,7 @@ public class TokenProvider implements InitializingBean {
      * @param token -
      * @return -
      */
-    Authentication getAuthentication(String token) {
+    public Authentication getAuthentication(String token) {
         Claims claims = getClaims(token);
         // 使用 Spring Security 的User构造用户信息
         // 用户名 密码 权限
@@ -99,7 +99,6 @@ public class TokenProvider implements InitializingBean {
             redisUtils.expire(properties.getOnlineKey() + token, renew, TimeUnit.MILLISECONDS);
         }
     }
-
 
     /**
      * 获取请求里的token

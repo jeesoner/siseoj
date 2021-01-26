@@ -2,7 +2,7 @@ package com.sise.oj.handler;
 
 import com.sise.oj.base.SysConstants;
 import com.sise.oj.util.DateUtils;
-import com.sise.oj.util.IPAddressUtils;
+import com.sise.oj.util.ClientUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.AfterThrowing;
@@ -62,7 +62,7 @@ public class ExceptionLogAspectHandler {
             log.error(sb,
                     DateUtils.formatDate(serviceDate, SysConstants.TIME_PATTERN),
                     request.getRequestURL().toString(),
-                    IPAddressUtils.getClientIPAddress(request),
+                    ClientUtils.getClientIPAddress(request),
                     className,
                     method.getName());
         }
