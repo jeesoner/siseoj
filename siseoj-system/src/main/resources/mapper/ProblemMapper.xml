@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sise.oj.mapper.ProblemMapper">
+    <insert id="insertProblemTag">
+        insert into pb_problem_tag (pid, tid) values
+        <foreach collection="tags" item="id" index="index" separator=",">
+            (#{pid}, #{id})
+        </foreach>
+    </insert>
+
+    <delete id="deleteProblemTagByPid">
+        delete from pb_problem_tag where pid = #{pid}
+    </delete>
+
+    <delete id="deleteProblemTagByPidAndTid">
+        delete from pb_problem_tag where pid = #{pid} and tid = #{tid}
+    </delete>
+
+    <select id="selectByTitle" resultType="com.sise.oj.domain.Problem">
+        select * from pb_problem where title = #{title}
+    </select>
+
+    <select id="selectTagIdByPid" resultType="java.lang.Long">
+        select tid from pb_problem_tag where pid = #{pid}
+    </select>
+</mapper>
