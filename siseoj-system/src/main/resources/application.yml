@@ -5,7 +5,7 @@ spring:
   datasource:
     # 如果存在多个数据源，监控的时候可以通过名字来区分开来
     name: mysql
-    url: jdbc:mysql://106.52.183.73:3306/siseoj_test?serverTimezone=UTC
+    url: jdbc:mysql://localhost/siseoj_test?serverTimezone=UTC
     username: root
     password: 1234,abcd
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -50,12 +50,17 @@ spring:
     password: 1234,abcd
     timeout: 5000
 
-mybatis:
-  # mapper.xml包地址
-  mapper-locations: classpath:mapper/*.xml
-  configuration:
-    map-underscore-to-camel-case: true
-
+# mybatis-plus
+mybatis-plus:
+  global-config:
+    # 不显示banner
+    banner: false
+    db-config:
+      # 数据库自增
+      id-type: auto
+      # 下划线转换
+      table-underline: true
+  mapper-locations: classpath:/mapper/*.xml
 
 logging:
   config: classpath:config/logback-spring.xml
@@ -101,14 +106,6 @@ jwt:
 swagger:
   enabled: true
 
-# mybatis-plus
-mybatis-plus:
-  global-config:
-    banner: false
-    db-config:
-      id-type: auto
-      table-underline: true
-
 # OJ配置
 oj:
   config:
@@ -116,6 +113,8 @@ oj:
       enable: false
     exceptionLogHandler:
       enable: false
+  judge:
+    url: http://106.52.183.73/8100
 
 # 文件存储路径
 file:

@@ -13,6 +13,7 @@ import com.sise.oj.security.bean.SecurityProperties;
 import com.sise.oj.service.OnlineUserService;
 import com.sise.oj.util.RedisUtils;
 import com.sise.oj.util.RsaUtils;
+import com.sise.oj.util.SecurityUtils;
 import com.sise.oj.util.StringUtils;
 import com.wf.captcha.base.Captcha;
 import io.swagger.annotations.Api;
@@ -23,6 +24,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -92,8 +94,8 @@ public class AuthorizationController {
 
     @ApiOperation("获取用户信息")
     @GetMapping("/info")
-    public ResultJson<Object> getUserInfo() {
-        return ResultJson.success(null);
+    public ResultJson<UserDetails> getUserInfo() {
+        return ResultJson.success(SecurityUtils.getCurrentUser());
     }
 
     @ApiOperation("获取验证码")

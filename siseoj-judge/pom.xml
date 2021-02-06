@@ -11,5 +11,12 @@
 
     <artifactId>siseoj-judge</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.sise</groupId>
+            <artifactId>siseoj-common</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
 
 </project>
