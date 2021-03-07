@@ -17,7 +17,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -48,7 +48,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     PasswordEncoder passwordEncoder() {
-        return NoOpPasswordEncoder.getInstance();
+        // 密码加密方式
+        return new BCryptPasswordEncoder();
     }
 
     @Override
@@ -98,7 +99,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 // 阿里巴巴 druid
                 .antMatchers("/druid/**").permitAll()
                 // 放行登录接口
-                .antMatchers( "/auth/login", "/auth/logout", "/test/**").permitAll()
+                .antMatchers( "/auth/login", "/auth/admin-login", "/auth/logout", "/test/**").permitAll()
                 .antMatchers("/admin/**").permitAll()
                 // 放行OPTIONS请求
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
@@ -126,6 +127,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private TokenFilter tokenFilter() {
         return new TokenFilter(tokenProvider, properties, onlineUserService);
     }
+
+
 
     private Map<String, Set<String>> getAnonymousUrl(Map<RequestMappingInfo, HandlerMethod> handlerMethodMap) {
         Map<String, Set<String>> anonymousUrls = new HashMap<>(6);

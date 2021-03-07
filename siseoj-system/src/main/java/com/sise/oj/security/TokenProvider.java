@@ -3,6 +3,7 @@ package com.sise.oj.security;
 import cn.hutool.core.date.DateField;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.IdUtil;
+import com.sise.oj.domain.dto.OnlineUserDto;
 import com.sise.oj.security.bean.SecurityProperties;
 import com.sise.oj.util.RedisUtils;
 import io.jsonwebtoken.*;
@@ -12,14 +13,16 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.Key;
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 /**
  * @author Cijee
@@ -76,12 +79,14 @@ public class TokenProvider implements InitializingBean {
      * @param token -
      * @return -
      */
-    public Authentication getAuthentication(String token) {
+    public Authentication getAuthentication(String token, OnlineUserDto onlineUserDto) {
         Claims claims = getClaims(token);
+        List<SimpleGrantedAuthority> grantedAuthorities = onlineUserDto.getPermissions()
+                .stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList());
         // 使用 Spring Security 的User构造用户信息
         // 用户名 密码 权限
-        User principal = new User(claims.getSubject(), "****", new ArrayList<>());
-        return new UsernamePasswordAuthenticationToken(principal, token, new ArrayList<>());
+        User principal = new User(claims.getSubject(), "******", grantedAuthorities);
+        return new UsernamePasswordAuthenticationToken(principal, token, grantedAuthorities);
     }
 
     /**

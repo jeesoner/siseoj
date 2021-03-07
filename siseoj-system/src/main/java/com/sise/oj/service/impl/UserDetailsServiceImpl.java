@@ -3,7 +3,6 @@ package com.sise.oj.service.impl;
 import com.sise.oj.domain.User;
 import com.sise.oj.domain.dto.JwtUserDto;
 import com.sise.oj.exception.BadRequestException;
-import com.sise.oj.exception.DataNotFoundException;
 import com.sise.oj.service.RoleService;
 import com.sise.oj.service.UserService;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -28,18 +27,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public JwtUserDto loadUserByUsername(String username) throws UsernameNotFoundException {
         JwtUserDto jwtUserDto;
-        User user;
-        try {
-            user = userService.findByName(username);
-        } catch (DataNotFoundException e) {
-            // SpringSecurity会自动转换UsernameNotFoundException为BadCredentialsException
-            throw new UsernameNotFoundException("", e);
-        }
+        User user = userService.findByName(username);
         if (user == null) {
-            throw new UsernameNotFoundException("");
+            throw new UsernameNotFoundException("用户不存在！");
         } else {
             if (!user.getEnabled()) {
-                throw new BadRequestException("用户被锁定！");
+                throw new BadRequestException("该用户已被锁定！");
             }
             jwtUserDto = new JwtUserDto(user, roleService.mapToGrantedAuthorities(user));
         }

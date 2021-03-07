@@ -54,7 +54,7 @@ public class TokenFilter extends OncePerRequestFilter {
             // redis中存在用户信息
             if (onlineUserDto != null && StringUtils.hasText(token)) {
                 // 获取鉴权信息
-                Authentication authentication = tokenProvider.getAuthentication(token);
+                Authentication authentication = tokenProvider.getAuthentication(token, onlineUserDto);
                 // 设置到上下文中
                 SecurityContextHolder.getContext().setAuthentication(authentication);
                 // token 续期
