@@ -3,9 +3,11 @@ package com.sise.oj.domain.dto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 /**
  * 在线用户
@@ -15,6 +17,7 @@ import java.util.Date;
  */
 @Getter
 @Setter
+@ToString
 @AllArgsConstructor
 public class OnlineUserDto implements Serializable {
 
@@ -27,6 +30,11 @@ public class OnlineUserDto implements Serializable {
      * 昵称
      */
     private String nickName;
+
+    /**
+     * 权限
+     */
+    private Set<String> permissions;
 
     /**
      * 浏览器

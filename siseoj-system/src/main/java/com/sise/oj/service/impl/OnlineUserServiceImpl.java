@@ -6,11 +6,13 @@ import com.sise.oj.security.bean.SecurityProperties;
 import com.sise.oj.service.OnlineUserService;
 import com.sise.oj.util.ClientUtils;
 import com.sise.oj.util.RedisUtils;
+import com.sise.oj.util.StringUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
+import java.util.*;
 
 /**
  * @author Cijee
@@ -26,6 +28,25 @@ public class OnlineUserServiceImpl implements OnlineUserService {
     public OnlineUserServiceImpl(RedisUtils redisUtils, SecurityProperties properties) {
         this.redisUtils = redisUtils;
         this.properties = properties;
+    }
+
+    @Override
+    public List<OnlineUserDto> getAll(String filter) {
+        List<String> keys = redisUtils.scan(properties.getOnlineKey() + "*");
+        Collections.reverse(keys);
+        List<OnlineUserDto> onlineUserDtoList = new ArrayList<>();
+        for (String key : keys) {
+            OnlineUserDto onlineUserDto = (OnlineUserDto) redisUtils.get(key);
+            if (StringUtils.isNotBlank(filter)) {
+                if (onlineUserDto.toString().contains(filter)) {
+                    onlineUserDtoList.add(onlineUserDto);
+                }
+            } else {
+                onlineUserDtoList.add(onlineUserDto);
+            }
+        }
+        onlineUserDtoList.sort(((o1, o2) -> o2.getLoginTime().compareTo(o1.getLoginTime())));
+        return onlineUserDtoList;
     }
 
     /**
@@ -45,6 +66,7 @@ public class OnlineUserServiceImpl implements OnlineUserService {
             onlineUserDto = new OnlineUserDto(
                     jwtUserDto.getUsername(),
                     jwtUserDto.getUser().getNickname(),
+                    jwtUserDto.getPermissions(),
                     browser,
                     ip,
                     null,
@@ -67,6 +89,23 @@ public class OnlineUserServiceImpl implements OnlineUserService {
     @Override
     public void logout(String token) {
         redisUtils.del(properties.getOnlineKey() + token);
+    }
+
+    @Override
+    public void kickOut(String token) {
+        redisUtils.del(properties.getOnlineKey() + token);
+    }
+
+    @Async
+    @Override
+    public void kickOutForUsername(String username) {
+        List<OnlineUserDto> onlineUsers = getAll(username);
+        for (OnlineUserDto onlineUser : onlineUsers) {
+            if (onlineUser.getUserName().equals(username)) {
+                String token = onlineUser.getKey();
+                kickOut(token);
+            }
+        }
     }
 
     @Override
