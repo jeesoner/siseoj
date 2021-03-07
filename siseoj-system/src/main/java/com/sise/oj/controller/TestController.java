@@ -32,7 +32,7 @@ public class TestController {
 
     @GetMapping("/{id}")
     public ResultJson<User> get(@PathVariable Long id) {
-        User user = userService.findById(id);
+        User user = userService.getById(id);
         return ResultJson.success(user);
     }
 

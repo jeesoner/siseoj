@@ -28,7 +28,7 @@ public class MybatisTest {
 
     @Test
     public void getOne() {
-        Problem problem = problemService.getOne(Wrappers.<Problem>lambdaQuery().eq(Problem::getPid, 1), false);
+        Problem problem = problemService.getOne(Wrappers.lambdaQuery(Problem.class).eq(Problem::getPid, 1), false);
         System.out.println(problem);
     }
 
