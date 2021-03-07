@@ -61,6 +61,8 @@ mybatis-plus:
       # 下划线转换
       table-underline: true
   mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 logging:
   config: classpath:config/logback-spring.xml
@@ -114,7 +116,9 @@ oj:
     exceptionLogHandler:
       enable: false
   judge:
-    url: http://106.52.183.73/8100
+    url: http://106.52.183.73:8100
+  fileServer:
+    url: http://106.52.183.73:8200
 
 # 文件存储路径
 file:
