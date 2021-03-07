@@ -1,9 +1,5 @@
 package com.sise.oj.security.handler;
 
-import com.sise.oj.base.ResultJson;
-import com.sise.oj.enums.ResultCode;
-import com.sise.oj.util.JsonUtils;
-import org.springframework.http.MediaType;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.stereotype.Component;
@@ -14,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * 无权限访问处理类
+ * 已认证用户访问资源 处理器
  *
  * @author Cijee
  * @version 1.0
@@ -22,12 +18,9 @@ import java.io.IOException;
 @Component
 public class JwtAccessDeniedHandler implements AccessDeniedHandler {
 
+    // 当用户在没有授权的情况下访问受保护的REST资源时，将调用此方法发送403 Forbidden响应
     @Override
-    public void handle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AccessDeniedException e) throws IOException, ServletException {
-        // 设置响应类型为JSON
-        httpServletResponse.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
-        // 封装响应内容
-        ResultJson<String> failure = ResultJson.failure(ResultCode.NO_PERMISSION, e.getMessage());
-        httpServletResponse.getWriter().write(JsonUtils.objToJson(failure));
+    public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException e) throws IOException, ServletException {
+        response.sendError(HttpServletResponse.SC_FORBIDDEN, "拒绝请求，无权限访问");
     }
 }

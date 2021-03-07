@@ -4,6 +4,7 @@ import cn.hutool.core.util.IdUtil;
 import com.sise.oj.annotation.rest.AnonymousGetMapping;
 import com.sise.oj.base.ResultJson;
 import com.sise.oj.config.RsaProperties;
+import com.sise.oj.domain.User;
 import com.sise.oj.domain.dto.AuthUserDto;
 import com.sise.oj.domain.dto.JwtUserDto;
 import com.sise.oj.exception.BadRequestException;
@@ -11,10 +12,10 @@ import com.sise.oj.security.TokenProvider;
 import com.sise.oj.security.bean.LoginProperties;
 import com.sise.oj.security.bean.SecurityProperties;
 import com.sise.oj.service.OnlineUserService;
+import com.sise.oj.service.UserService;
 import com.sise.oj.util.RedisUtils;
 import com.sise.oj.util.RsaUtils;
 import com.sise.oj.util.SecurityUtils;
-import com.sise.oj.util.StringUtils;
 import com.wf.captcha.base.Captcha;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -25,6 +26,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -52,17 +54,34 @@ public class AuthorizationController {
     private final TokenProvider tokenProvider;
     private final SecurityProperties properties;
     private final RsaProperties rsaProperties;
+    private final UserService userService;
     private final RedisUtils redisUtils;
     @Resource
     private LoginProperties loginProperties;
+
+    @ApiOperation("管理员登录授权")
+    @PostMapping("/admin-login")
+    public ResultJson<Object> adminLogin(@Validated @RequestBody AuthUserDto authUser, HttpServletRequest request) throws Exception {
+        // 判断是否为管理员
+        String username = authUser.getUsername();
+        User user = userService.findByName(username);
+        if (user == null) {
+            throw new BadRequestException("用户名或密码错误");
+        }
+        if (!user.getIsAdmin()) {
+            throw new BadRequestException("对不起，您不是管理员");
+        }
+        return login(authUser, request);
+    }
 
     @ApiOperation("登录授权")
     @PostMapping("/login")
     public ResultJson<Object> login(@Validated @RequestBody AuthUserDto authUser, HttpServletRequest request) throws Exception {
         // 获取密码
         String password = RsaUtils.decryptByPrivateKey(rsaProperties.getPrivateKey(), authUser.getPassword());
+        // String password = authUser.getPassword();
         // 查询验证码
-        String code = (String) redisUtils.get(authUser.getUuid());
+/*        String code = (String) redisUtils.get(authUser.getUuid());
         // 清除验证码
         redisUtils.del(authUser.getUuid());
         if (StringUtils.isBlank(code)) {
@@ -70,7 +89,7 @@ public class AuthorizationController {
         }
         if (StringUtils.isBlank(authUser.getCode()) || !authUser.getCode().equalsIgnoreCase(code)) {
             throw new BadRequestException("验证码错误");
-        }
+        }*/
         // 用户密码认证令牌
         UsernamePasswordAuthenticationToken authenticationToken =
                 new UsernamePasswordAuthenticationToken(authUser.getUsername(), password);

@@ -1,9 +1,5 @@
 package com.sise.oj.security.handler;
 
-import com.sise.oj.base.ResultJson;
-import com.sise.oj.enums.ResultCode;
-import com.sise.oj.util.JsonUtils;
-import org.springframework.http.MediaType;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
@@ -14,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * 认证失败处理类
+ * 未认证用户访问资源 处理器
  *
  * @author Cijee
  * @version 1.0
@@ -22,12 +18,9 @@ import java.io.IOException;
 @Component
 public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
+    // 当用户尝试访问安全的REST资源而不提供任何凭据时，将调用此方法发送401 unauthorized响应
     @Override
-    public void commence(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
-        // 设置响应类型为JSON
-        httpServletResponse.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
-        // 封装响应内容
-        ResultJson<String> failure = ResultJson.failure(ResultCode.INVALID_CREDENTIALS, e == null ? "Unauthorized" : e.getMessage());
-        httpServletResponse.getWriter().write(JsonUtils.objToJson(failure));
+    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException e) throws IOException, ServletException {
+        response.sendError(HttpServletResponse.SC_UNAUTHORIZED, e == null ? "未认证的" : "用户未登录，请先登录");
     }
 }
