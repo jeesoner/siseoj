@@ -11,19 +11,28 @@ import java.io.Serializable;
 @Data
 public class ProblemQueryParam implements Serializable {
 
-    private Long id;
+    /**
+     * 题号
+     */
+    private Long pid;
 
     /**
-     * 题目名称或题目号
+     * 关键字
      */
-    private String title;
+    private String keyword;
+
+    /**
+     * 题目难度
+     */
+    private Integer difficulty;
+
+    /**
+     * 题目来源表主键
+     */
+    private Long sourceId;
 
     /**
      * 标签主键
      */
-    private Long tagId;
-
-    private Long levelId;
-
-    private Long sourceId;
+    private Long tid;
 }

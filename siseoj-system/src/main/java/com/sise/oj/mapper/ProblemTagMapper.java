@@ -1,13 +1,15 @@
 package com.sise.oj.mapper;
 
 import com.sise.oj.base.BaseMapper;
-import com.sise.oj.domain.ProblemInfo;
+import com.sise.oj.domain.ProblemTag;
 import org.springframework.stereotype.Repository;
 
 /**
+ * ProblemTagMapper
+ *
  * @author Cijee
  * @version 1.0
  */
 @Repository
-public interface ProblemInfoMapper extends BaseMapper<ProblemInfo> {
+public interface ProblemTagMapper extends BaseMapper<ProblemTag> {
 }

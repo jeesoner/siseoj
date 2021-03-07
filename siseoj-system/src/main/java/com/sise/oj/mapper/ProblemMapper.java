@@ -1,7 +1,10 @@
 package com.sise.oj.mapper;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.sise.oj.base.BaseMapper;
 import com.sise.oj.domain.Problem;
+import com.sise.oj.domain.Tag;
+import com.sise.oj.domain.vo.ProblemVo;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -16,6 +19,30 @@ import java.util.Set;
  */
 @Repository
 public interface ProblemMapper extends BaseMapper<Problem> {
+
+    /**
+     * 分页查询
+     *
+     * @param page 分页对象
+     * @param keyword 搜索关键字
+     * @param difficulty 难度
+     * @param tid 标签外键
+     * @return ProblemVo
+     */
+    List<ProblemVo> getProblemList(Page<ProblemVo> page,
+                                   @Param("keyword")String keyword,
+                                   @Param("difficulty")Integer difficulty,
+                                   @Param("sourceId")Long sourceId,
+                                   @Param("tid")Long tid,
+                                   @Param("pid")Long pid);
+
+    /**
+     * 根据题目id查询标签
+     *
+     * @param pid 题目主键
+     * @return 标签集合
+     */
+    List<Tag> getProblemTag(Long pid);
 
     /**
      * 插入pid和tagId到题目标签关系表

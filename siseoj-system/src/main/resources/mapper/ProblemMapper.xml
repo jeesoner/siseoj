@@ -1,19 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sise.oj.mapper.ProblemMapper">
+
+    <resultMap id="map_ProblemList" type="com.sise.oj.domain.vo.ProblemVo">
+        <id column="pid" property="pid"/>
+        <result column="title" property="title"/>
+        <result column="difficulty" property="difficulty"/>
+        <result column="source_id" property="sourceId"/>
+        <result column="total" property="total"/>
+        <result column="accept" property="accept"/>
+        <collection property="tags" ofType="com.sise.oj.domain.Tag" select="getProblemTag" column="pid"/>
+    </resultMap>
+
+    <!-- 主查询 -->
+    <select id="getProblemList" resultMap="map_ProblemList">
+        SELECT distinct p.pid,p.title,p.difficulty,p.source_id,pc.total,pc.accept
+        FROM pb_problem p
+        LEFT JOIN pb_problem_count pc ON p.pid = pc.pid
+        LEFT JOIN pb_problems_tags pt ON p.pid = pt.pid
+        <where>
+            p.auth = 1
+            <if test="keyword != null and keyword != ''">
+                and (
+                p.pid like concat('%',#{keyword},'%') or p.title like concat('%',#{keyword},'%')
+                <if test="pid != null and pid != ''">
+                    or p.pid = #{pid}
+                </if>
+                )
+            </if>
+            <if test="difficulty != null">
+                and p.difficulty = #{difficulty}
+            </if>
+            <if test="sourceId != null">
+                and p.source_id = #{sourceId}
+            </if>
+            <if test="tid != null">
+                and pt.tid = #{tid}
+            </if>
+        </where>
+    </select>
+
+    <!-- 子查询 :为了防止分页总数据数出错-->
+    <select id="getProblemTag" resultType="com.sise.oj.domain.Tag">
+        select t.* from pb_tag t, pb_problems_tags pt where t.id = pt.tid and pt.pid = #{pid}
+    </select>
+
+
     <insert id="insertProblemTag">
-        insert into pb_problem_tag (pid, tid) values
+        insert into pb_problems_tags (pid, tid) values
         <foreach collection="tags" item="id" index="index" separator=",">
             (#{pid}, #{id})
         </foreach>
     </insert>
 
     <delete id="deleteProblemTagByPid">
-        delete from pb_problem_tag where pid = #{pid}
+        delete from pb_problems_tags where pid = #{pid}
     </delete>
 
     <delete id="deleteProblemTagByPidAndTid">
-        delete from pb_problem_tag where pid = #{pid} and tid = #{tid}
+        delete from pb_problems_tags where pid = #{pid} and tid = #{tid}
     </delete>
 
     <select id="selectByTitle" resultType="com.sise.oj.domain.Problem">
@@ -21,6 +66,6 @@
     </select>
 
     <select id="selectTagIdByPid" resultType="java.lang.Long">
-        select tid from pb_problem_tag where pid = #{pid}
+        select tid from pb_problems_tags where pid = #{pid}
     </select>
 </mapper>
