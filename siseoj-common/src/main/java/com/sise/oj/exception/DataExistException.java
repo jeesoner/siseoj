@@ -12,6 +12,10 @@ public class DataExistException extends RuntimeException {
         super(generateMessage(clazz.getSimpleName(), field, val));
     }
 
+    public DataExistException(String message) {
+        super(message);
+    }
+
     private static String generateMessage(String bean, String field, String val) {
         return bean + " with " +  field + " " + val + " exist";
     }

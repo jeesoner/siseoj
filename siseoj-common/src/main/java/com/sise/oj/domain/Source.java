@@ -2,6 +2,7 @@ package com.sise.oj.domain;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.sise.oj.base.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,7 +17,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @TableName("pb_source")
-public class Source implements Serializable {
+public class Source extends BaseEntity implements Serializable {
 
     /**
      * 主键

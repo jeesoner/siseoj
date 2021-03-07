@@ -11,34 +11,46 @@ import java.util.List;
  */
 public enum ResultCode {
 
-    /* 成功状态码 */
-    SUCCESS(0, "请求成功"),
 
-    ERROR(-1, "未知异常"),
+    /**
+     * {@code 200 请求成功}.
+     */
+    SUCCESS(200, "请求成功"),
 
-    /* 参数错误：10000-19999 */
-    PARAM_ERROR(10000, "请求参数异常"),
+    /**
+     * {@code 400 错误的请求}.
+     */
+    BAD_REQUEST(400, "错误的请求"),
 
-    /* 用户错误：20000-29999*/
-    USER_ERROR(20000, "用户异常"),
+    /**
+     * {@code 401 请求要求用户的身份认证}.
+     */
+    UNAUTHORIZED(401, "请求要求用户的身份认证"),
 
-    /* 业务错误：30000-39999 */
-    BUSINESS_ERROR(30000, "业务异常"),
+    /**
+     * {@code 403 拒绝请求，无权限访问}.
+     */
+    FORBIDDEN(403, "拒绝请求，无权限访问"),
 
-    /* 系统错误：40000-49999 */
-    SYSTEM_ERROR(40000, "服务器错误"),
-    SYSTEM_CONFIG_ERROR(40001, "服务器配置信息错误"),
+    /**
+     * {@code 404 请求的资源无法找到}.
+     */
+    NOT_FOUND(404, "请求的资源无法找到"),
 
-    /* 数据错误：50000-59999 */
-    DATA_NOT_FOUND(50001, "数据不存在"),
-    DATA_EXIST(50002, "数据已存在"),
+    /**
+     * {@code 405 不支持当前请求方法}.
+     */
+    METHOD_NOT_ALLOWED(405, "不支持当前请求方法"),
 
-    /* 接口错误：60000-69999 */
-    INTERFACE_ERROR(60000, "接口异常"),
+    /**
+     * {@code 415 不支持当前媒体类型}.
+     */
+    UNSUPPORTED_MEDIA_TYPE(415, "不支持当前媒体类型"),
 
-    /* 权限错误：70000-79999 */
-    INVALID_CREDENTIALS(70001, "凭据失效，请重新登录"),
-    NO_PERMISSION(70002, "无权限访问");
+    /**
+     * {@code 500 服务器内部错误}.
+     */
+    ERROR(500, "服务器内部错误");
 
     private final Integer code;
 

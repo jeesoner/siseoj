@@ -17,7 +17,7 @@ public class ValidationUtils {
      */
     public static void isNull(Object obj, String entity, String parameter , Object value){
         if(ObjectUtil.isNull(obj)){
-            String msg = entity + " 不存在: "+ parameter +" is "+ value;
+            String msg = entity + " 不存在: "+ parameter +" 为 "+ value;
             throw new BadRequestException(msg);
         }
     }

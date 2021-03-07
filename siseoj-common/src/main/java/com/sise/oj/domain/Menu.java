@@ -2,11 +2,11 @@ package com.sise.oj.domain;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.sise.oj.base.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * sys_menu
@@ -17,7 +17,7 @@ import java.util.Date;
 @Getter
 @Setter
 @TableName("sys_menu")
-public class Menu implements Serializable {
+public class Menu extends BaseEntity implements Serializable {
 
     /**
      * 主键
@@ -89,24 +89,4 @@ public class Menu implements Serializable {
      * 权限
      */
     private String permission;
-
-    /**
-     * 创建者
-     */
-    private String createBy;
-
-    /**
-     * 更新者
-     */
-    private String updateBy;
-
-    /**
-     * 创建日期
-     */
-    private Date createTime;
-
-    /**
-     * 更新时间
-     */
-    private Date updateTime;
 }

@@ -6,7 +6,7 @@ import lombok.Getter;
 @Getter
 public class BadRequestException extends RuntimeException{
 
-    private ResultCode code = ResultCode.SYSTEM_ERROR;
+    private ResultCode code = ResultCode.BAD_REQUEST;
 
     public BadRequestException(String msg){
         super(msg);

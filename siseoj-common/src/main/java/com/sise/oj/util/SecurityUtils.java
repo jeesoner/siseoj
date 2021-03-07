@@ -19,11 +19,20 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 public class SecurityUtils {
 
     /**
-     * 获取系统用户信息
+     * 获取当前用户信息，返回值为UserDetails类或其子类
      *
      * @return UserDetails
      */
     public static UserDetails getCurrentUser() {
+        /*final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null) {
+            throw new BadRequestException(ResultCode.UNAUTHORIZED, "当前登录状态过期");
+        }
+        // 找到登录信息则返回
+        if (authentication.getPrincipal() instanceof UserDetails) {
+            return (UserDetails) authentication.getPrincipal();
+        }
+        throw new BadRequestException(ResultCode.UNAUTHORIZED, "找不到当前登录的信息");*/
         UserDetailsService userDetailsService = SpringContextHolder.getBean(UserDetailsService.class);
         return userDetailsService.loadUserByUsername(getCurrentUsername());
     }
@@ -33,20 +42,21 @@ public class SecurityUtils {
      *
      * @return 系统用户名称
      */
-    private static String getCurrentUsername() {
+    public static String getCurrentUsername() {
         final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication == null) {
-            throw new BadRequestException(ResultCode.INVALID_CREDENTIALS, "当前登录状态过期");
+            throw new BadRequestException(ResultCode.UNAUTHORIZED, "当前登录状态过期");
         }
         if (authentication.getPrincipal() instanceof UserDetails) {
             UserDetails userDetails = (UserDetails) authentication.getPrincipal();
             return userDetails.getUsername();
         }
-        throw new BadRequestException(ResultCode.INVALID_CREDENTIALS, "找不到当前登录的信息");
+        throw new BadRequestException(ResultCode.UNAUTHORIZED, "找不到当前登录的信息");
     }
 
     /**
      * 获取系统用户ID
+     *
      * @return 系统用户ID
      */
     public static Long getCurrentUserId() {
