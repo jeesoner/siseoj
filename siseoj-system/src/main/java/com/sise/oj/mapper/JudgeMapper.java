@@ -1,15 +1,15 @@
 package com.sise.oj.mapper;
 
 import com.sise.oj.base.BaseMapper;
-import com.sise.oj.domain.JudgeResultInfo;
+import com.sise.oj.domain.Judge;
 import org.springframework.stereotype.Repository;
 
 /**
- * JudgeResultInfoMapper类
+ * JudgeStatusMapper类
  *
  * @author Cijee
  * @version 1.0
  */
 @Repository
-public interface JudgeResultInfoMapper extends BaseMapper<JudgeResultInfo> {
+public interface JudgeMapper extends BaseMapper<Judge> {
 }

@@ -1,9 +1,9 @@
-package com.sise.oj.judge.param;
+package com.sise.oj.judge.entity;
 
 import lombok.Data;
 
 /**
- * 提交到评测机的参数
+ * 提交到判题机的参数
  *
  * @author Cijee
  * @version 1.0

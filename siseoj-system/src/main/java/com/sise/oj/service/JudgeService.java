@@ -1,7 +1,7 @@
 package com.sise.oj.service;
 
 import com.sise.oj.base.BaseService;
-import com.sise.oj.domain.JudgeStatus;
+import com.sise.oj.domain.Judge;
 import com.sise.oj.domain.dto.JudgeDto;
 
 /**
@@ -10,7 +10,7 @@ import com.sise.oj.domain.dto.JudgeDto;
  * @author Cijee
  * @version 1.0
  */
-public interface JudgeStatusService extends BaseService<JudgeStatus> {
+public interface JudgeService extends BaseService<Judge> {
 
     /**
      * 创建新的评测记录
@@ -18,13 +18,13 @@ public interface JudgeStatusService extends BaseService<JudgeStatus> {
      * @param judgeStatus 评测参数Dto
      * @return 新的评测记录
      */
-    JudgeStatus create(JudgeDto judgeStatus);
+    Judge create(JudgeDto judgeStatus);
 
 
     /**
      * 记录评测的异常信息
      *
-     * @param judgeStatus -
+     * @param judge -
      */
-    void error(JudgeStatus judgeStatus);
+    void error(Judge judge);
 }

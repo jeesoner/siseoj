@@ -1,6 +1,7 @@
 package com.sise.oj.domain;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.sise.oj.base.BaseEntity;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
@@ -9,24 +10,19 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * oj_judge_status
+ * oj_judge
  *
  * @author Cijee
  * @version 1.0
  */
 @Data
-@TableName("oj_judge_status")
-public class JudgeStatus implements Serializable {
+@TableName("oj_judge")
+public class Judge extends BaseEntity implements Serializable {
+
     /**
      * 评测表主键
      */
     private Long id;
-
-    /**
-     * 用户名
-     */
-    @NotBlank(message = "用户名不能为空")
-    private String username;
 
     /**
      * 题目表外键
@@ -35,22 +31,33 @@ public class JudgeStatus implements Serializable {
     private Long pid;
 
     /**
-     * 用户表外键
-     */
-    private Long userId;
-
-    /**
-     * 比赛表主键
+     * 比赛表外键
      */
     private Long cid;
 
     /**
-     * 评测结果
+     * 用户表外键
      */
-    private Integer result;
+    private Long uid;
 
     /**
-     * 使用语言，1：C/C++，2：Java
+     * 用户名
+     */
+    @NotBlank(message = "用户名不能为空")
+    private String username;
+
+    /**
+     * 评测结果码
+     */
+    private Integer status;
+
+    /**
+     * 错误信息
+     */
+    private String error_message;
+
+    /**
+     * 代码语言，1：C/C++，2：Java
      */
     @NotNull(message = "评测语言不能为空")
     private Integer language;
@@ -62,19 +69,19 @@ public class JudgeStatus implements Serializable {
     private String code;
 
     /**
-     * 如果是特判类型的题目，这里显示得分
+     * 得分
      */
     private Integer score;
 
     /**
-     * 评测使用时间
+     * 运行时间（ms）
      */
-    private Integer usedTime;
+    private Integer time;
 
     /**
-     * 评测使用空间
+     * 运行内存（MB）
      */
-    private Integer usedMemory;
+    private Integer memory;
 
     /**
      * 提交时间
@@ -85,4 +92,9 @@ public class JudgeStatus implements Serializable {
      * 代码长度
      */
     private Integer codeLength;
+
+    /**
+     * 0：仅自己可见，1：所有人可见
+     */
+    private Boolean share;
 }

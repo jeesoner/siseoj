@@ -1,7 +1,7 @@
 package com.sise.oj.service;
 
 import com.sise.oj.base.BaseService;
-import com.sise.oj.domain.JudgeResultInfo;
+import com.sise.oj.domain.JudgeCase;
 
 /**
  * JudgeResultInfoService
@@ -9,5 +9,5 @@ import com.sise.oj.domain.JudgeResultInfo;
  * @author Cijee
  * @version 1.0
  */
-public interface JudgeResultInfoService extends BaseService<JudgeResultInfo> {
+public interface JudgeCaseService extends BaseService<JudgeCase> {
 }
