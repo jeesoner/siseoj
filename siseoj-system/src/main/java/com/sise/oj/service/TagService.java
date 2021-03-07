@@ -3,7 +3,7 @@ package com.sise.oj.service;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.sise.oj.base.BaseService;
 import com.sise.oj.domain.Tag;
-import com.sise.oj.domain.param.TagQueryParam;
+import com.sise.oj.domain.param.QueryParam;
 
 import java.util.Set;
 
@@ -19,7 +19,7 @@ public interface TagService extends BaseService<Tag> {
      * @param page 分页参数
      * @return 分页对象
      */
-    Page<Tag> query(TagQueryParam param, Page<Tag> page);
+    Page<Tag> query(QueryParam param, Page<Tag> page);
 
     /**
      * 创建标签
@@ -41,4 +41,11 @@ public interface TagService extends BaseService<Tag> {
      * @param ids 标签主键集合不能为空
      */
     void delete(Set<Long> ids);
+
+    /**
+     * 验证是否被题目关联
+     *
+     * @param ids /
+     */
+    void verification(Set<Long> ids);
 }

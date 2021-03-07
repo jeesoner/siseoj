@@ -4,8 +4,16 @@
     <!-- 查询该题号的所有标签 -->
     <select id="selectByProblemId" resultType="com.sise.oj.domain.Tag">
         select * from pb_tag p
-        left join pb_problem_tag ppt
+        left join pb_problems_tags ppt
         on p.id = ppt.tid
         where ppt.pid = #{id}
+    </select>
+
+    <select id="countByProblems" resultType="java.lang.Integer">
+        select count(1) from pb_problem p, pb_problems_tags t
+        where p.pid = t.pid and t.tid in
+        <foreach collection="ids" separator="," open="(" close=")" item="id">
+            #{id}
+        </foreach>
     </select>
 </mapper>

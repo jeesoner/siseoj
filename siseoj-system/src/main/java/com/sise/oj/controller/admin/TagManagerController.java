@@ -3,12 +3,10 @@ package com.sise.oj.controller.admin;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.sise.oj.base.ResultJson;
 import com.sise.oj.domain.Tag;
-import com.sise.oj.domain.param.TagQueryParam;
-import com.sise.oj.enums.ResultCode;
+import com.sise.oj.domain.param.QueryParam;
 import com.sise.oj.service.TagService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.util.CollectionUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +20,7 @@ import java.util.Set;
  * @version 1.0
  */
 @RestController
-@Api(tags = "题库：标签管理")
+@Api(tags = "题库：标签管理接口")
 @RequestMapping("/admin/tags")
 public class TagManagerController {
 
@@ -34,7 +32,7 @@ public class TagManagerController {
 
     @ApiOperation("查询标签")
     @GetMapping
-    public ResultJson<Page<Tag>> query(TagQueryParam param, Page<Tag> page) {
+    public ResultJson<Page<Tag>> query(QueryParam param, Page<Tag> page) {
         return ResultJson.success(tagService.query(param, page));
     }
 
@@ -46,27 +44,24 @@ public class TagManagerController {
 
     @ApiOperation("新增标签")
     @PostMapping
-    public ResultJson<Tag> create(@Validated @RequestBody Tag tag) {
+    public ResultJson<String> create(@Validated @RequestBody Tag tag) {
         tagService.create(tag);
-        return ResultJson.success(null);
+        return ResultJson.success("新增标签成功");
     }
 
-    @ApiOperation("更新标签")
+    @ApiOperation("修改标签")
     @PutMapping
-    public ResultJson<Tag> update(@Validated(Tag.Update.class) @RequestBody Tag tag) {
+    public ResultJson<String> update(@Validated(Tag.Update.class) @RequestBody Tag tag) {
         tagService.update(tag);
-        return ResultJson.success(null);
+        return ResultJson.success("更新标签成功");
     }
 
     @ApiOperation("删除标签")
     @DeleteMapping
-    public ResultJson<Tag> delete(@RequestBody Set<Long> ids) {
-        // 如有删除的标签
-        if (!CollectionUtils.isEmpty(ids)) {
-            tagService.delete(ids);
-            return ResultJson.success(null);
-        } else {
-            return ResultJson.failure(ResultCode.PARAM_ERROR, "没有需要删除的标签");
-        }
+    public ResultJson<String> delete(@RequestBody Set<Long> ids) {
+        // 验证是否被题目关联
+        tagService.verification(ids);
+        tagService.delete(ids);
+        return ResultJson.success("删除标签成功");
     }
 }
