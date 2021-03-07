@@ -4,9 +4,12 @@ import com.alibaba.fastjson.annotation.JSONField;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.sise.oj.base.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
@@ -20,12 +23,13 @@ import java.util.Set;
 @Getter
 @Setter
 @TableName("sys_user")
-public class User implements Serializable {
+public class User extends BaseEntity implements Serializable {
 
     /**
      * 主键
      */
     @TableId
+    @NotNull(groups = Update.class, message = "用户主键不能为空")
     private Long id;
 
     /**
@@ -42,11 +46,18 @@ public class User implements Serializable {
     /**
      * 用户名
      */
+    @NotBlank(message = "用户名不能为空")
     private String username;
+
+    /**
+     * 是否为管理员
+     */
+    private Boolean isAdmin;
 
     /**
      * 密码
      */
+    @NotBlank(groups = Create.class, message = "密码不能为空")
     @JSONField(serialize = false)
     private String password;
 
@@ -71,16 +82,29 @@ public class User implements Serializable {
     private String motto;
 
     /**
-     * 创建时间
+     * 学校
      */
-    @JSONField(serialize = false)
-    private Date createTime;
+    private String school;
 
     /**
-     * 修改时间
+     * 专业
      */
-    @JSONField(serialize = false)
-    private Date modifyTime;
+    private String course;
+
+    /**
+     * github地址
+     */
+    private String github;
+
+    /**
+     * 博客地址
+     */
+    private String blog;
+
+    /**
+     * 头像地址
+     */
+    private String avatar;
 
     /**
      * 启用状态：1启用、2禁用
