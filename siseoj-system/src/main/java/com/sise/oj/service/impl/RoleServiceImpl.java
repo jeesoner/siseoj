@@ -1,25 +1,36 @@
 package com.sise.oj.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.sise.oj.base.BaseServiceImpl;
+import com.sise.oj.domain.Permission;
+import com.sise.oj.domain.Role;
 import com.sise.oj.domain.User;
+import com.sise.oj.domain.param.QueryParam;
+import com.sise.oj.exception.BadRequestException;
+import com.sise.oj.exception.DataExistException;
 import com.sise.oj.mapper.RoleMapper;
 import com.sise.oj.service.RoleService;
+import com.sise.oj.util.StringUtils;
+import com.sise.oj.util.ValidationUtils;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * 角色 服务实现类
+ * 角色服务 实现类
  *
  * @author Cijee
  * @version 1.0
  */
 @Service
-public class RoleServiceImpl implements RoleService {
+public class RoleServiceImpl extends BaseServiceImpl<RoleMapper, Role> implements RoleService {
 
     private final RoleMapper roleMapper;
 
@@ -42,6 +53,91 @@ public class RoleServiceImpl implements RoleService {
             return permissions.stream().map(SimpleGrantedAuthority::new)
                     .collect(Collectors.toList());
         }
-        return null;
+        // 用户角色集合
+        Set<Role> roles = roleMapper.findByUserId(user.getId());
+        // 获取该用户角色的id
+        List<Long> ids = roles.stream().map(Role::getId).collect(Collectors.toList());
+        // 无角色，权限为空
+        if (CollectionUtils.isEmpty(ids)) {
+            return new ArrayList<>();
+        }
+        // 获取角色的权限信息
+        permissions = roleMapper.findPermissionByIds(ids)
+                .stream().map(Permission::getPermission).collect(Collectors.toSet());
+        // 转换成List
+        return permissions.stream().map(SimpleGrantedAuthority::new)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void updateUserRole(Long uid, Set<Role> roles) {
+        roleMapper.deleteUserRoleById(uid);
+        if (!CollectionUtils.isEmpty(roles)) {
+            roleMapper.insertUserRole(uid, roles.stream().map(Role::getId).collect(Collectors.toList()));
+        }
+    }
+
+    @Override
+    public Page<Role> list(QueryParam param, Page<Role> page) {
+        LambdaQueryWrapper<Role> wrapper = new LambdaQueryWrapper<>();
+        String keyword = param.getKeyword();
+        if (StringUtils.isNoneBlank(keyword)) {
+            wrapper.like(Role::getName, keyword);
+        }
+        List<Date> time = param.getCreateTime();
+        if (param.getCreateTime() != null && !param.getCreateTime().isEmpty()) {
+            // 拼接开始时间
+            if (time.get(0) != null) {
+                wrapper.ge(Role::getCreateTime, time.get(0));
+            }
+            // 拼接结束时间
+            if (time.get(1) != null) {
+                wrapper.le(Role::getCreateTime, time.get(1));
+            }
+        }
+        return roleMapper.selectPage(page, wrapper);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void create(Role resources) {
+        // 创建用户前，先查看有没有重复的用户名
+        if (roleMapper.selectOne(Wrappers.lambdaQuery(Role.class).eq(Role::getName, resources.getName())) != null) {
+            throw new DataExistException("该角色名已存在");
+        }
+        roleMapper.insert(resources);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void update(Role resources) {
+        Role role = roleMapper.selectById(resources.getId());
+        ValidationUtils.isNull(role, "角色", "id", resources.getId());
+        Role role1 = roleMapper.selectOne(Wrappers.lambdaQuery(Role.class).eq(Role::getName, resources.getName()));
+        if (role1 != null && !role.getName().equals(role1.getName())) {
+            throw new DataExistException("该角色名已经被用过了");
+        }
+        role.setName(resources.getName());
+        role.setDescription(resources.getDescription());
+        roleMapper.updateById(role);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void delete(Set<Long> ids) {
+        roleMapper.deleteBatchIds(ids);
+    }
+
+    @Override
+    public void verification(Set<Long> ids) {
+        if (roleMapper.countByRoles(ids) > 0) {
+            throw new BadRequestException("所选角色存在用户关联，请解除关联再试！");
+        }
+    }
+
+    @Override
+    public List<Role> findByUserId(Long uid) {
+        return roleMapper.selectByUserId(uid);
     }
 }

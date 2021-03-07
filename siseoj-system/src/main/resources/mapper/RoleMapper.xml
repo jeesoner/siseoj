@@ -2,6 +2,43 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.sise.oj.mapper.RoleMapper">
     <select id="findByUserId" resultType="com.sise.oj.domain.Role">
-        select * from sys_role r, sys_users_roles u where r.id = u.role_id and u.user_id = #{id}
+        select r.* from sys_role r, sys_users_roles u where r.id = u.role_id and u.user_id = #{id}
+    </select>
+
+    <select id="findPermissionByIds" resultType="com.sise.oj.domain.Permission">
+        select p.* from sys_permission p, sys_roles_permissions rp where p.id = rp.permission_id and rp.role_id in
+        <choose>
+            <when test="ids != null and ids.size() > 0">
+                <foreach collection="ids" item="id" open="(" close=")" separator=",">
+                    #{id}
+                </foreach>
+            </when>
+            <otherwise>
+                (0)
+            </otherwise>
+        </choose>
+    </select>
+
+    <delete id="deleteUserRoleById">
+        delete from sys_users_roles where user_id = #{uid}
+    </delete>
+
+    <insert id="insertUserRole">
+        insert into sys_users_roles (user_id, role_id) values
+        <foreach collection="ids" item="id" separator=",">
+            (#{uid}, #{id})
+        </foreach>
+    </insert>
+
+    <select id="selectByUserId" resultType="com.sise.oj.domain.Role">
+        select r.* from sys_role r, sys_users_roles ur where r.id = ur.role_id and ur.user_id = #{uid}
+    </select>
+
+    <select id="countByRoles" resultType="java.lang.Integer">
+        select count(1) from sys_user u, sys_users_roles r
+        where u.id = r.user_id and r.role_id in
+        <foreach collection="ids" separator="," open="(" close=")" item="id">
+            #{id}
+        </foreach>
     </select>
 </mapper>
