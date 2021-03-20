@@ -72,12 +72,12 @@ public class TokenFilter extends OncePerRequestFilter {
     private String resolveToken(HttpServletRequest request) {
         // 获取请求头里的token
         String bearerToken = request.getHeader(properties.getHeader());
+        if (bearerToken == null) return null;
         if (StringUtils.hasText(bearerToken) && bearerToken.startsWith(properties.getTokenStartWith())) {
             // 去掉令牌前缀
             return bearerToken.replace(properties.getTokenStartWith(), "");
-        } else {
-            log.error("非法Token:{}", bearerToken);
         }
+        log.error("非法Token:{}", bearerToken);
         return null;
     }
 }
