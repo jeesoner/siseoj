@@ -1,7 +1,12 @@
 package com.sise.oj.test;
 
-import java.util.HashSet;
-import java.util.Set;
+import cn.hutool.core.date.DateUnit;
+import cn.hutool.core.date.DateUtil;
+import com.sise.oj.base.SysConstants;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * @author Cijee
@@ -9,27 +14,12 @@ import java.util.Set;
  */
 public class SetTest {
 
-    public static void main(String[] args) {
-        long time = System.currentTimeMillis();
-        Set<String> set1 = new HashSet<String>() {{
-            add("aa");
-            add("bb");
-            add("cc");
-            add(null);
-        }};
-        Set<String> set2 = new HashSet<String>() {{
-        }};
-        Set<String> result = new HashSet<>();
-        result.addAll(set1);
-        result.removeAll(set2);
-        long time2 = System.currentTimeMillis();
-        System.out.println("差集" + result + (time2 - time));
-
-        result.clear();
-        result.addAll(set2);
-        result.removeAll(set1);
-        System.out.println("差集" + result);
-
+    public static void main(String[] args) throws ParseException {
+        SimpleDateFormat sd = new SimpleDateFormat(SysConstants.TIME_PATTERN);
+        String a1 = "2020-03-15 15:00:00", a2 = "2020-03-15 19:30:00";
+        Date date1 = sd.parse(a1);
+        Date date2 = sd.parse(a2);
+        System.out.println(DateUtil.between(date1, date2, DateUnit.HOUR));
     }
 
 }
