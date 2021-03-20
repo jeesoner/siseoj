@@ -1,6 +1,8 @@
 package com.sise.oj.judge.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 提交到判题机的参数
@@ -9,6 +11,8 @@ import lombok.Data;
  * @version 1.0
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class JudgeSubmitParam {
 
     private String type;

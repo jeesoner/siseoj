@@ -1,8 +1,10 @@
 package com.sise.oj.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.sise.oj.base.BaseService;
 import com.sise.oj.domain.Judge;
 import com.sise.oj.domain.dto.JudgeDto;
+import com.sise.oj.domain.param.SubmissionQueryParam;
 
 /**
  * JudgeStatusService
@@ -12,19 +14,18 @@ import com.sise.oj.domain.dto.JudgeDto;
  */
 public interface JudgeService extends BaseService<Judge> {
 
-    /**
-     * 创建新的评测记录
-     *
-     * @param judgeStatus 评测参数Dto
-     * @return 新的评测记录
-     */
-    Judge create(JudgeDto judgeStatus);
 
+    Page<Judge> list(SubmissionQueryParam param, Page<Judge> page);
 
     /**
-     * 记录评测的异常信息
+     * 提交题目判题
      *
-     * @param judge -
+     * @param judgeDto 判题Dto
      */
-    void error(Judge judge);
+    Judge submitProblemJudge(JudgeDto judgeDto);
+
+    /**
+     * 异步查询评测机的判题结果，并写入数据库
+     */
+    void getJudgeStatus(Long submitId) throws Exception;
 }

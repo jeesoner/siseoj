@@ -12,7 +12,7 @@ import java.util.List;
  * @version 1.0
  */
 @Data
-public class ResultInfo implements Serializable {
+public class JudgeResult implements Serializable {
 
     private String type;
     private List<CaseResult> caseResults;

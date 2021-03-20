@@ -2,6 +2,7 @@ package com.sise.oj.domain.dto;
 
 import lombok.Data;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -13,44 +14,23 @@ import javax.validation.constraints.NotNull;
 @Data
 public class JudgeDto {
 
-    /**
-     * 题目表主键
-     */
     @NotNull(message = "题目ID不能为空")
     private Long pid;
 
-    /**
-     * 用户名
-     */
-    @NotNull(message = "用户名不能为空")
-    private String username;
+    @NotNull(message = "提交的比赛id所属不能为空，若并非比赛提交，请设置为0")
+    private Long cid;
 
-    /**
-     * 提交的代码
-     */
-    @NotNull(message = "提交的代码不能为空")
+    @NotBlank(message = "提交的代码不能为空")
     private String code;
 
-    /**
-     * 评测的语言 C/C++
-     */
-    @NotNull(message = "评测语言不能为空")
+    @NotNull(message = "代码语言不能为空")
     private Integer language;
 
-    /**
-     * 时间限制
-     */
     @NotNull(message = "时间限制不能为空")
     private Integer timeLimit;
 
-    /**
-     * 空间限制
-     */
     @NotNull(message = "空间限制不能为空")
     private Integer memoryLimit;
 
-    /**
-     * 比赛表主键
-     */
-    private Long cid;
+    private String contestPassword; // 比赛密码
 }

@@ -1,5 +1,6 @@
 package com.sise.oj.domain;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.sise.oj.base.BaseEntity;
 import lombok.Data;
@@ -22,6 +23,7 @@ public class Judge extends BaseEntity implements Serializable {
     /**
      * 评测表主键
      */
+    @TableId
     private Long id;
 
     /**
@@ -39,6 +41,11 @@ public class Judge extends BaseEntity implements Serializable {
      * 用户表外键
      */
     private Long uid;
+
+    /**
+     * 比赛题目外键
+     */
+    private Long contestPid;
 
     /**
      * 用户名

@@ -1,7 +1,10 @@
 package com.sise.oj.domain;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.Data;
+import com.sise.oj.base.BaseEntity;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 
@@ -11,13 +14,15 @@ import java.io.Serializable;
  * @author Cijee
  * @version 1.0
  */
-@Data
+@Getter
+@Setter
 @TableName("oj_judge_case")
-public class JudgeCase implements Serializable {
+public class JudgeCase extends BaseEntity implements Serializable {
 
     /**
      * 评测样例表主键
      */
+    @TableId
     private Long id;
 
     /**
