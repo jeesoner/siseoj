@@ -1,11 +1,11 @@
 package com.sise.oj.controller;
 
+import com.sise.oj.annotation.rest.AnonymousGetMapping;
 import com.sise.oj.base.ResultJson;
 import com.sise.oj.domain.Tag;
 import com.sise.oj.service.TagService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,7 +29,7 @@ public class TagController {
     }
 
     @ApiOperation("查询所有标签")
-    @GetMapping("/all")
+    @AnonymousGetMapping("/all")
     public ResultJson<List<Tag>> queryAll() {
         return ResultJson.success(tagService.list());
     }
