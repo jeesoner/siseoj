@@ -1,5 +1,6 @@
 package com.sise.oj.domain;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.sise.oj.base.BaseEntity;
@@ -7,6 +8,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * sys_menu
@@ -23,7 +26,10 @@ public class Menu extends BaseEntity implements Serializable {
      * 主键
      */
     @TableId
-    private Long menuId;
+    private Long id;
+
+    @TableField(exist = false)
+    private List<Menu> menus;
 
     /**
      * 上级菜单ID
@@ -89,4 +95,33 @@ public class Menu extends BaseEntity implements Serializable {
      * 权限
      */
     private String permission;
+
+    public Boolean getHasChildren() {
+        return subCount > 0;
+    }
+
+    public Boolean getLeaf() {
+        return subCount <= 0;
+    }
+
+    public String getLabel() {
+        return title;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Menu menu = (Menu) o;
+        return Objects.equals(id, menu.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sise.oj.mapper.MenuMapper">
+
+    <select id="findByRoleIdsAndTypeNot" resultType="com.sise.oj.domain.Menu">
+        SELECT m.* FROM sys_menu m, sys_roles_menus r
+        WHERE m.id = r.menu_id AND r.role_id IN
+        <foreach collection="roleIds" open="(" close=")" separator="," item="id">
+            #{id}
+        </foreach>
+        AND type != #{type} order by m.menu_sort asc
+    </select>
+</mapper>
