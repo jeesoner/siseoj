@@ -63,4 +63,11 @@ public class SecurityUtils {
         UserDetails userDetails = getCurrentUser();
         return new JSONObject(new JSONObject(userDetails).get("user")).get("id", Long.class);
     }
+
+    /**
+     * 判断是否超级管理员
+     */
+    public static boolean isSuperAdmin() {
+        return "root".equals(getCurrentUsername());
+    }
 }

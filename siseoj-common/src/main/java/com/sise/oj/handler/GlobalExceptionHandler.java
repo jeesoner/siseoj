@@ -156,10 +156,10 @@ public class GlobalExceptionHandler {
     }
 
     /**
-     * 500 - internal_server_error 处理自定义 ServiceException 的异常！
+     * 500 - internal_server_error 处理自定义 BusinessException 的异常！
      */
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    @ExceptionHandler(ServiceException.class)
+    @ExceptionHandler(BusinessException.class)
     public ResultJson<String> handleServiceException(BadRequestException e) {
         // 打印堆栈信息
         log.error("业务逻辑异常", e);
@@ -177,9 +177,9 @@ public class GlobalExceptionHandler {
     }
 
     /**
-     * 500 - Data not found 数据不存在
+     * 404 - Data not found 数据不存在
      */
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(DataNotFoundException.class)
     public ResultJson<String> handleDataNotFoundException(DataNotFoundException e) {
         log.error("数据不存在-------------->{}", e.getMessage());
