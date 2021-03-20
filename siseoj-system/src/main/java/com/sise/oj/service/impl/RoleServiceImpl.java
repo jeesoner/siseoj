@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.sise.oj.base.BaseServiceImpl;
-import com.sise.oj.domain.Permission;
+import com.sise.oj.domain.Menu;
 import com.sise.oj.domain.Role;
 import com.sise.oj.domain.User;
 import com.sise.oj.domain.param.QueryParam;
@@ -55,15 +55,16 @@ public class RoleServiceImpl extends BaseServiceImpl<RoleMapper, Role> implement
         }
         // 用户角色集合
         Set<Role> roles = roleMapper.findByUserId(user.getId());
-        // 获取该用户角色的id
-        List<Long> ids = roles.stream().map(Role::getId).collect(Collectors.toList());
         // 无角色，权限为空
-        if (CollectionUtils.isEmpty(ids)) {
+        if (CollectionUtils.isEmpty(roles)) {
             return new ArrayList<>();
         }
+        //permissions = roleMapper.findPermissionByIds(ids)
+        //        .stream().map(Permission::getPermission).collect(Collectors.toSet());
         // 获取角色的权限信息
-        permissions = roleMapper.findPermissionByIds(ids)
-                .stream().map(Permission::getPermission).collect(Collectors.toSet());
+        permissions = roles.stream().flatMap(role -> role.getMenus().stream())
+                .filter(menu -> StringUtils.isNotBlank(menu.getPermission()))
+                .map(Menu::getPermission).collect(Collectors.toSet());
         // 转换成List
         return permissions.stream().map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toList());

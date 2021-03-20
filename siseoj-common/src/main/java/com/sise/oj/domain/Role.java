@@ -38,6 +38,12 @@ public class Role extends BaseEntity implements Serializable {
     private Set<User> users;
 
     /**
+     * 菜单集合
+     */
+    @TableField(exist = false)
+    private Set<Menu> menus;
+
+    /**
      * 角色名称
      */
     @NotBlank(message = "角色名称不能为空")

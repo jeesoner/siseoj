@@ -1,7 +1,7 @@
 package com.sise.oj.mapper;
 
 import com.sise.oj.base.BaseMapper;
-import com.sise.oj.domain.Permission;
+import com.sise.oj.domain.Menu;
 import com.sise.oj.domain.Role;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -25,12 +25,12 @@ public interface RoleMapper extends BaseMapper<Role> {
     Set<Role> findByUserId(Long id);
 
     /**
-     * 获取角色关联的所有权限
+     * 根据角色ID获取菜单
      *
-     * @param ids id集合不可为空
-     * @return 权限集合
+     * @param id 角色id
+     * @return Menu
      */
-    Set<Permission> findPermissionByIds(@Param("ids") List<Long> ids);
+    Menu getRoleMenu(Long id);
 
     /**
      * 删除用户关联角色
