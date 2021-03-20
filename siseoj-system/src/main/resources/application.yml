@@ -5,7 +5,7 @@ spring:
   datasource:
     # 如果存在多个数据源，监控的时候可以通过名字来区分开来
     name: mysql
-    url: jdbc:mysql://localhost/siseoj_test?serverTimezone=UTC
+    url: jdbc:mysql://localhost/siseoj_test?serverTimezone=Asia/Shanghai
     username: root
     password: 1234,abcd
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -49,6 +49,30 @@ spring:
     port: 6379
     password: 1234,abcd
     timeout: 5000
+    jedis:
+      pool:
+        min-idle: 10
+        max-idle: 20
+        max-active: 50
+  # 邮寄配置
+  mail:
+    # smtp主机
+    host: smtp.qq.com
+    # 服务协议
+    protocol: smtp
+    default-encoding: UTF-8
+    # 发送邮箱的账户
+    username: saykuray@qq.com
+    # 授权码
+    password: vmjpsysytpdweagg
+    test-connection: true
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
 
 # mybatis-plus
 mybatis-plus:
@@ -61,11 +85,15 @@ mybatis-plus:
       # 下划线转换
       table-underline: true
   mapper-locations: classpath:/mapper/*.xml
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 logging:
   config: classpath:config/logback-spring.xml
+
+#邮箱验证有效时间/分钟
+code:
+  expire: 10
 
 # 登录相关配置
 login:
