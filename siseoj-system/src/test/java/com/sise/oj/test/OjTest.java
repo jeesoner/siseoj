@@ -1,7 +1,7 @@
 package com.sise.oj.test;
 
 import com.sise.oj.judge.client.OnlineJudgeHttpClient;
-import com.sise.oj.judge.entity.ServerResultDto;
+import com.sise.oj.judge.entity.JudgeResult;
 import com.sise.oj.judge.entity.JudgeSubmitParam;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,10 +29,10 @@ public class OjTest {
         param.setCode("#include<iostream>\n using namespace std; int main() {int a, b; cin >> a >> b; cout << a + b << endl;}");
         param.setLanguage(1);
 
-        ServerResultDto submit = onlineJudgeHttpClient.submit(param);
+        boolean submit = onlineJudgeHttpClient.submit(param);
         System.out.println(submit);
         Thread.sleep(5000);
-        ServerResultDto result = onlineJudgeHttpClient.result(1L);
+        JudgeResult result = onlineJudgeHttpClient.result(1L);
         System.out.println(result);
     }
 }
