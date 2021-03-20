@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sise.oj.mapper.DiscussMapper">
+
+    <select id="list" resultType="com.sise.oj.domain.dto.DiscussDto">
+        select d.*, u.username, u.nickname, u.avatar from discuss d, sys_user u
+        where d.uid = u.id and u.enabled = true and d.enable = true
+        <if test="title != null and title != ''">
+            and title like concat('%',#{title},'%')
+        </if>
+        order by d.priority asc, d.create_time desc
+    </select>
+    <select id="findById" resultType="com.sise.oj.domain.dto.DiscussDto">
+        select d.*, u.username, u.nickname, u.avatar from discuss d, sys_user u
+        where d.uid = u.id and u.enabled = true and d.enable = true and d.id = #{id}
+    </select>
+</mapper>
