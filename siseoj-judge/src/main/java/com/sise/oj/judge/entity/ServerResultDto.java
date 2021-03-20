@@ -15,5 +15,5 @@ public class ServerResultDto implements Serializable {
 
     private Integer status;
     private String msg;
-    private ResultInfo data;
+    private JudgeResult data;
 }

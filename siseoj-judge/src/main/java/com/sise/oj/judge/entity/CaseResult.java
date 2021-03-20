@@ -17,8 +17,8 @@ public class CaseResult implements Serializable {
     @JSONField(name = "case")
     private String caseId;
     private String result;
-    private Long time;
-    private Long memory;
-    private Long runtime;
+    private Integer time;
+    private Integer memory;
+    private Integer runtime;
     private Integer score;
 }

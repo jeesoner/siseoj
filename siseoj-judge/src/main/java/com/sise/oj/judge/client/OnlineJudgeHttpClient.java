@@ -1,7 +1,9 @@
 package com.sise.oj.judge.client;
 
-import com.sise.oj.judge.entity.ServerResultDto;
+import com.sise.oj.exception.BusinessException;
+import com.sise.oj.judge.entity.JudgeResult;
 import com.sise.oj.judge.entity.JudgeSubmitParam;
+import com.sise.oj.judge.entity.ServerResultDto;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -45,7 +47,7 @@ public class OnlineJudgeHttpClient {
      * @param param 请求参数
      * @return JudgeResultDto
      */
-    public ServerResultDto submit(JudgeSubmitParam param) {
+    public boolean submit(JudgeSubmitParam param) {
         MultiValueMap<String, Object> map = new LinkedMultiValueMap<>();
         map.add("type", "submit");
         map.add("pid", param.getPid());
@@ -55,7 +57,11 @@ public class OnlineJudgeHttpClient {
         map.add("code", param.getCode());
         map.add("language", param.getLanguage());
         HttpEntity<MultiValueMap<String, Object>> request = new HttpEntity<>(map, headers);
-        return responseParser.getResponseBody(restTemplate.postForEntity(serverUrl, request, ServerResultDto.class));
+        ServerResultDto body = responseParser.getResponseBody(restTemplate.postForEntity(serverUrl, request, ServerResultDto.class));
+        if (!body.getStatus().equals(200)) {
+            throw new BusinessException(body.getMsg());
+        }
+        return true;
     }
 
     /**
@@ -64,11 +70,12 @@ public class OnlineJudgeHttpClient {
      * @param rid 评测表主键
      * @return JudgeResultDto
      */
-    public ServerResultDto result(Long rid) {
+    public JudgeResult result(Long rid) {
         MultiValueMap<String, Object> map = new LinkedMultiValueMap<>();
         map.add("type", "result");
         map.add("rid", rid);
         HttpEntity<MultiValueMap<String, Object>> request = new HttpEntity<>(map, headers);
-        return responseParser.getResponseBody(restTemplate.postForEntity(serverUrl, request, ServerResultDto.class));
+        ServerResultDto body = responseParser.getResponseBody(restTemplate.postForEntity(serverUrl, request, ServerResultDto.class));
+        return body.getData();
     }
 }
