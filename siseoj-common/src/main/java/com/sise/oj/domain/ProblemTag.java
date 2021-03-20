@@ -1,6 +1,7 @@
 package com.sise.oj.domain;
 
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.sise.oj.base.BaseEntity;
 import lombok.Getter;
@@ -22,6 +23,7 @@ public class ProblemTag extends BaseEntity implements Serializable {
     /**
      * 主键
      */
+    @TableId
     private Long id;
 
     /**

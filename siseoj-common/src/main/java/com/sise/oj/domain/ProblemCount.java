@@ -1,9 +1,11 @@
 package com.sise.oj.domain;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.sise.oj.base.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 
@@ -15,12 +17,14 @@ import java.io.Serializable;
  */
 @Getter
 @Setter
+@Accessors(chain = true)
 @TableName("pb_problem_count")
 public class ProblemCount extends BaseEntity implements Serializable {
 
     /**
      * 题目统计表主键
      */
+    @TableId
     private Long id;
 
     /**

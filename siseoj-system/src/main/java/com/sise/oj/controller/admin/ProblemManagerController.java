@@ -54,10 +54,7 @@ public class ProblemManagerController {
     @ApiOperation("查询题目详细信息")
     @GetMapping("/{id}")
     public ResultJson<ProblemInfoVo> getInfo(@PathVariable Long id) {
-        long start = System.currentTimeMillis();
         ProblemInfoVo problemInfo = problemService.getInfo(id);
-        long end = System.currentTimeMillis();
-        System.out.println("耗时==========" + (end - start));
         return ResultJson.success(problemInfo);
     }
 

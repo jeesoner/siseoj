@@ -11,7 +11,7 @@ import com.sise.oj.domain.vo.ProblemInfoVo;
 import com.sise.oj.domain.vo.ProblemVo;
 import com.sise.oj.enums.ResultCode;
 import com.sise.oj.exception.BadRequestException;
-import com.sise.oj.exception.ServiceException;
+import com.sise.oj.exception.BusinessException;
 import com.sise.oj.judge.client.FileSystemHttpClient;
 import com.sise.oj.mapper.ProblemMapper;
 import com.sise.oj.service.*;
@@ -153,7 +153,7 @@ public class ProblemServiceImpl extends BaseServiceImpl<ProblemMapper, Problem> 
                 fileSystemHttpClient.submitSpj(pid, resources.getProblem().getSpecialCode());
             }
         } else {
-            throw new ServiceException("插入题目失败");
+            throw new BusinessException("插入题目失败");
         }
     }
 
@@ -175,10 +175,10 @@ public class ProblemServiceImpl extends BaseServiceImpl<ProblemMapper, Problem> 
          */
         // 前端提交的题目标签集合
         List<Tag> tags = resources.getTags();
-        if (!CollectionUtils.isEmpty(tags)) {
-            boolean addTagResult = true, delTagResult = true;
-            // 前端的标签id集合
-            Set<Long> newTagIds = new HashSet<>();
+        boolean addTagResult = true, delTagResult = true;
+        // 前端的标签id集合
+        Set<Long> newTagIds = new HashSet<>();
+        if (tags != null) {
             for (Tag tag : tags) {
                 // 处理新增的标签
                 if (tag.getId() == null) {
@@ -190,31 +190,31 @@ public class ProblemServiceImpl extends BaseServiceImpl<ProblemMapper, Problem> 
                     newTagIds.add(tag.getId());
                 }
             }
-            // 原有的标签id集合
-            Set<Long> oldTagIds = problemTagService.list(Wrappers.lambdaQuery(ProblemTag.class).eq(ProblemTag::getPid, pid))
-                    .stream().map(ProblemTag::getTid).collect(Collectors.toSet());
-            // 需要删除的id集合
-            Set<Long> resultIds = new HashSet<>(oldTagIds);
-            resultIds.removeAll(newTagIds);
-            if (resultIds.size() > 0) {
-                delTagResult = problemTagService.remove(Wrappers.lambdaQuery(ProblemTag.class)
-                        .eq(ProblemTag::getPid, pid)
-                        .in(ProblemTag::getTid, resultIds));
+        }
+        // 原有的标签id集合
+        Set<Long> oldTagIds = problemTagService.list(Wrappers.lambdaQuery(ProblemTag.class).eq(ProblemTag::getPid, pid))
+                .stream().map(ProblemTag::getTid).collect(Collectors.toSet());
+        // 需要删除的id集合
+        Set<Long> resultIds = new HashSet<>(oldTagIds);
+        resultIds.removeAll(newTagIds);
+        if (resultIds.size() > 0) {
+            delTagResult = problemTagService.remove(Wrappers.lambdaQuery(ProblemTag.class)
+                    .eq(ProblemTag::getPid, pid)
+                    .in(ProblemTag::getTid, resultIds));
+        }
+        // 需要新增的id集合
+        List<ProblemTag> addProblemTag = new LinkedList<>();
+        resultIds.clear();
+        resultIds.addAll(newTagIds);
+        resultIds.removeAll(oldTagIds);
+        if (resultIds.size() > 0) {
+            for (Long resultId : resultIds) {
+                addProblemTag.add(new ProblemTag(pid, resultId));
             }
-            // 需要新增的id集合
-            List<ProblemTag> addProblemTag = new LinkedList<>();
-            resultIds.clear();
-            resultIds.addAll(newTagIds);
-            resultIds.removeAll(oldTagIds);
-            if (resultIds.size() > 0) {
-                for (Long resultId : resultIds) {
-                    addProblemTag.add(new ProblemTag(pid, resultId));
-                }
-                addTagResult = problemTagService.saveBatch(addProblemTag);
-            }
-            if (!addTagResult || !delTagResult) {
-                throw new ServiceException("增加题目标签错误");
-            }
+            addTagResult = problemTagService.saveBatch(addProblemTag);
+        }
+        if (!addTagResult || !delTagResult) {
+            throw new BusinessException("增加题目标签错误");
         }
 
         /*
@@ -280,7 +280,7 @@ public class ProblemServiceImpl extends BaseServiceImpl<ProblemMapper, Problem> 
                 }
             }
         } else {
-            throw new ServiceException("更新题目失败");
+            throw new BusinessException("更新题目失败");
         }
     }
 
