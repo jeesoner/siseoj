@@ -21,5 +21,7 @@ public class QueryParam {
 
     private Boolean enabled;
 
+    private Integer status;
+
     private List<Date> createTime;
 }
