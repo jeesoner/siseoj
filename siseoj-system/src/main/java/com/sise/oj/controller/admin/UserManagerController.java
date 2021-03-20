@@ -54,9 +54,7 @@ public class UserManagerController {
     @PutMapping
     public ResultJson<String> update(@Validated(User.Update.class) @RequestBody User user) {
         // 更新用户
-        userService.update(user);
-        // 更新权限信息
-        userService.grantAuthorization(user);
+        userService.adminUpdate(user);
         return ResultJson.success("更新用户成功");
     }
 

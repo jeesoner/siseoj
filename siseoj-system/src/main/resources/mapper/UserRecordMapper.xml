@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sise.oj.mapper.UserRecordMapper">
+
+    <select id="getRatingRank" resultType="com.sise.oj.domain.dto.RankDto">
+        select r.uid, u.username, u.nickname, u.motto, r.rating, r.submissions,
+        (select count(pid) from sys_user_accept where uid = r.uid) as accept,
+        (select count(distinct pid) from sys_user_accept where uid = r.uid) as solved
+        from sys_user u, sys_user_record r
+        where u.id = r.uid and u.enabled = true
+        <if test="username != null and username != ''">
+            and u.username like concat('%',#{username},'%')
+        </if>
+        order by r.rating desc, accept desc
+    </select>
+
+    <select id="getAcRank" resultType="com.sise.oj.domain.dto.RankDto">
+        select r.uid, u.username, u.nickname, u.motto, r.rating, r.submissions,
+        (select count(pid) from sys_user_accept where uid = r.uid) as accept,
+        (select count(distinct pid) from sys_user_accept where uid = r.uid) as solved
+        from sys_user u, sys_user_record r
+        where u.id = r.uid and u.enabled = true
+        <if test="username != null and username != ''">
+            and u.username like concat('%',#{username},'%')
+        </if>
+        order by accept desc, accept desc
+    </select>
+</mapper>

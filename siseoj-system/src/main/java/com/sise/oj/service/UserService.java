@@ -49,11 +49,11 @@ public interface UserService extends BaseService<User> {
     void create(User resources);
 
     /**
-     * 授予用户角色
+     * 管理员更新用户
      *
      * @param resources 用户实体
      */
-    void grantAuthorization(User resources);
+    void adminUpdate(User resources);
 
     /**
      * 更新用户
