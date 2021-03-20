@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sise.oj.mapper.ContestMapper">
+
+    <select id="getProblemList" resultType="com.sise.oj.domain.Problem">
+        select p.* from pb_problem p
+        inner join (select pid, display_id from ct_contest_problem where cid = #{cid}) as c
+        on p.pid = c.pid
+        <if test="keyword != null and keyword != ''">
+            and (
+            p.pid like concat('%',#{keyword},'%') or p.title like concat('%',#{keyword},'%')
+            )
+        </if>
+        order by c.display_id asc
+    </select>
+</mapper>

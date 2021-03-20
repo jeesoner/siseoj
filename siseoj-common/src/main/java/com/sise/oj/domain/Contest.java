@@ -1,8 +1,15 @@
 package com.sise.oj.domain;
 
+import com.alibaba.fastjson.annotation.JSONField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.Data;
+import com.sise.oj.base.BaseEntity;
+import lombok.Getter;
+import lombok.Setter;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -12,13 +19,17 @@ import java.util.Date;
  * @author Cijee
  * @version 1.0
  */
-@Data
+@Getter
+@Setter
 @TableName("ct_contest")
-public class Contest implements Serializable {
+public class Contest extends BaseEntity implements Serializable {
 
     /**
      * 比赛表主键
      */
+    @TableId
+    @Null(groups = Create.class, message = "存在主键")
+    @NotNull(groups = Update.class, message = "主键不能为空")
     private Long id;
 
     /**
@@ -34,10 +45,11 @@ public class Contest implements Serializable {
     /**
      * 比赛标题
      */
+    @NotBlank(message = "比赛标题不能为空")
     private String title;
 
     /**
-     * 比赛类型：1普通比赛，2rating比赛
+     * 比赛类型：0普通比赛，1rating比赛
      */
     private Integer type;
 
@@ -54,26 +66,31 @@ public class Contest implements Serializable {
     /**
      * 0为公开赛，1为私有赛（访问有密）
      */
+    @NotNull(groups = Update.class)
     private Integer auth;
 
     /**
      * 比赛密码
      */
+    @JSONField(serialize = false)
     private String password;
 
     /**
      * 开始时间
      */
+    @NotNull(message = "开始时间不能为空")
     private Date startTime;
 
     /**
      * 结束时间
      */
+    @NotNull(message = "结束时间不能为空")
     private Date endTime;
 
     /**
      * 比赛时长(s)
      */
+    @NotNull(message = "比赛时长不能为空")
     private Integer duration;
 
     /**
@@ -90,14 +107,4 @@ public class Contest implements Serializable {
      * 比赛状态：-1未开始，0进行中，1已结束
      */
     private Integer status;
-
-    /**
-     * 创建时间
-     */
-    private Date createTime;
-
-    /**
-     * 修改时间
-     */
-    private Date modifyTime;
 }
