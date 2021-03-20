@@ -1,7 +1,6 @@
 package com.sise.oj.config;
 
 import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.alibaba.fastjson.serializer.ValueFilter;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import org.springframework.context.annotation.Bean;
@@ -71,16 +70,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 SerializerFeature.WriteNullStringAsEmpty,
                 SerializerFeature.WriteDateUseDateFormat,
                 SerializerFeature.WriteMapNullValue);
-        // 将 data: null 转化为 data: ""
-        fastJsonConfig.setSerializeFilters(new ValueFilter() {
-            @Override
-            public Object process(Object object, String name, Object value) {
-                if (value == null) {
-                    return "";
-                }
-                return value;
-            }
-        });
         //4、在convert中添加配置信息
         fastConverter.setFastJsonConfig(fastJsonConfig);
         //5、解决中文乱码
