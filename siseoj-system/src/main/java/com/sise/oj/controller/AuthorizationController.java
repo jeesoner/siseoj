@@ -1,7 +1,9 @@
 package com.sise.oj.controller;
 
 import cn.hutool.core.util.IdUtil;
+import com.sise.oj.annotation.rest.AnonymousDeleteMapping;
 import com.sise.oj.annotation.rest.AnonymousGetMapping;
+import com.sise.oj.annotation.rest.AnonymousPostMapping;
 import com.sise.oj.base.ResultJson;
 import com.sise.oj.config.RsaProperties;
 import com.sise.oj.domain.User;
@@ -51,6 +53,7 @@ public class AuthorizationController {
 
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
     private final OnlineUserService onlineUserService;
+    private final PasswordEncoder passwordEncoder;
     private final TokenProvider tokenProvider;
     private final SecurityProperties properties;
     private final RsaProperties rsaProperties;
@@ -60,7 +63,7 @@ public class AuthorizationController {
     private LoginProperties loginProperties;
 
     @ApiOperation("管理员登录授权")
-    @PostMapping("/admin-login")
+    @AnonymousPostMapping("/admin-login")
     public ResultJson<Object> adminLogin(@Validated @RequestBody AuthUserDto authUser, HttpServletRequest request) throws Exception {
         // 判断是否为管理员
         String username = authUser.getUsername();
@@ -75,7 +78,7 @@ public class AuthorizationController {
     }
 
     @ApiOperation("登录授权")
-    @PostMapping("/login")
+    @AnonymousPostMapping("/login")
     public ResultJson<Object> login(@Validated @RequestBody AuthUserDto authUser, HttpServletRequest request) throws Exception {
         // 获取密码
         String password = RsaUtils.decryptByPrivateKey(rsaProperties.getPrivateKey(), authUser.getPassword());
@@ -111,6 +114,16 @@ public class AuthorizationController {
         return ResultJson.success(authInfo);
     }
 
+    @ApiOperation("注册用户")
+    @AnonymousPostMapping("/register")
+    public ResultJson<String> register(@Validated(User.Create.class) @RequestBody User user) {
+        // 密码加密
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setEnabled(true);
+        userService.create(user);
+        return ResultJson.success("注册成功");
+    }
+
     @ApiOperation("获取用户信息")
     @GetMapping("/info")
     public ResultJson<UserDetails> getUserInfo() {
@@ -138,7 +151,7 @@ public class AuthorizationController {
     }
 
     @ApiOperation("退出登录")
-    @DeleteMapping("/logout")
+    @AnonymousDeleteMapping("/logout")
     public ResultJson<?> logout(HttpServletRequest request) {
         onlineUserService.logout(tokenProvider.getToken(request));
         return ResultJson.success(null);
