@@ -14,8 +14,23 @@ import com.sise.oj.domain.param.SubmissionQueryParam;
  */
 public interface JudgeService extends BaseService<Judge> {
 
-
+    /**
+     * 分页查询提交记录
+     *
+     * @param param 查询参数
+     * @param page 分页参数
+     * @return Page
+     */
     Page<Judge> list(SubmissionQueryParam param, Page<Judge> page);
+
+    /**
+     * 分页查询比赛提交记录
+     *
+     * @param param 查询参数
+     * @param page 分页参数
+     * @return Page
+     */
+    Page<Judge> getContestSubmissionList(Page<Judge> page, Long cid, SubmissionQueryParam param);
 
     /**
      * 提交题目判题

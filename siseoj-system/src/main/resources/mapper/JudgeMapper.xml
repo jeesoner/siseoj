@@ -4,4 +4,39 @@
     <update id="updateStatusById">
         update oj_judge set status = #{status} where id = #{id}
     </update>
+    <select id="getContestJudgeList" resultType="com.sise.oj.domain.Judge">
+        select j.id, cp.display_id as pid, j.cid, j.uid, j.contest_pid, j.username,
+        j.status, j.error_message, j.language, j.code, j.score, j.time, j.memory,
+        j.submit_time, j.code_length, j.share, j.create_time, j.modify_time
+        from oj_judge j, ct_contest_problem cp
+        <where>
+            j.pid = cp.pid and j.cid = cp.cid
+            <if test="cid != null">
+                and j.cid = #{cid}
+            </if>
+            <if test="displayId != null">
+                and cp.display_id = #{displayId}
+            </if>
+            <if test="username != null and username != ''">
+                and j.username = #{username}
+            </if>
+            <if test="uid != null">
+                and j.uid = #{uid}
+            </if>
+            <if test="status != null">
+                and j.status = #{status}
+            </if>
+            <if test="beforeContestSubmit!=null and beforeContestSubmit==true">
+                and (select start_time from contest where id = #{cid}) > j.submit_time
+            </if>
+            <if test="beforeContestSubmit!=null and beforeContestSubmit==false">
+                and j.submit_time >= (select start_time from contest where id = #{cid})
+            </if>
+        </where>
+        order by j.submit_time DESC,j.id DESC
+    </select>
+
+    <select id="getTodayJudgeNum" resultType="int">
+        SELECT count(*) FROM oj_judge WHERE DATE(create_time) = CURDATE();
+    </select>
 </mapper>

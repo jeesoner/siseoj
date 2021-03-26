@@ -79,6 +79,7 @@ public class JudgeController {
     @ApiOperation("调用判题系统判题")
     public ResultJson<Judge> submitProblemJudge(@Validated @RequestBody JudgeDto judgeDto) throws Exception {
         Judge judge = judgeService.submitProblemJudge(judgeDto);
+        // 启动异步任务获取结果
         judgeService.getJudgeStatus(judge.getId());
         return ResultJson.success(judge);
     }

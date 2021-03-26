@@ -1,9 +1,11 @@
 package com.sise.oj.domain;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.sise.oj.base.BaseEntity;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -11,11 +13,12 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * oj_judge
+ * oj_judge 评测记录表
  *
  * @author Cijee
  * @version 1.0
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 @TableName("oj_judge")
 public class Judge extends BaseEntity implements Serializable {
@@ -61,6 +64,7 @@ public class Judge extends BaseEntity implements Serializable {
     /**
      * 错误信息
      */
+    @JSONField(serialize = false)
     private String error_message;
 
     /**
@@ -73,6 +77,7 @@ public class Judge extends BaseEntity implements Serializable {
      * 提交的代码
      */
     @NotBlank(message = "提交的代码不能为空")
+    @JSONField(serialize = false)
     private String code;
 
     /**
@@ -103,5 +108,6 @@ public class Judge extends BaseEntity implements Serializable {
     /**
      * 0：仅自己可见，1：所有人可见
      */
+    @JSONField(serialize = false)
     private Boolean share;
 }
