@@ -2,6 +2,7 @@ package com.sise.oj.domain;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.Version;
 import com.sise.oj.base.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -41,4 +42,10 @@ public class ProblemCount extends BaseEntity implements Serializable {
      * 通过次数
      */
     private Integer accept;
+
+    /**
+     * 版本号
+     */
+    @Version
+    private Long version;
 }
