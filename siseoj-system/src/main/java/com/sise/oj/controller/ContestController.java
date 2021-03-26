@@ -1,25 +1,27 @@
 package com.sise.oj.controller;
 
-/**
- * @author Cijee
- * @version 1.0
- */
-
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.sise.oj.annotation.rest.AnonymousGetMapping;
 import com.sise.oj.base.ResultJson;
 import com.sise.oj.domain.Contest;
+import com.sise.oj.domain.Judge;
 import com.sise.oj.domain.param.QueryParam;
+import com.sise.oj.domain.param.SubmissionQueryParam;
 import com.sise.oj.domain.vo.ContestProblemVo;
+import com.sise.oj.domain.vo.ContestRankVo;
 import com.sise.oj.domain.vo.ProblemInfoVo;
 import com.sise.oj.service.ContestProblemService;
+import com.sise.oj.service.ContestRecordService;
 import com.sise.oj.service.ContestService;
-import com.sise.oj.service.ProblemService;
+import com.sise.oj.service.JudgeService;
 import com.sise.oj.util.SecurityUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -35,7 +37,8 @@ public class ContestController {
 
     private final ContestService contestService;
     private final ContestProblemService contestProblemService;
-    private final ProblemService problemService;
+    private final ContestRecordService contestRecordService;
+    private final JudgeService judgeService;
 
     @ApiOperation("分页查询比赛")
     //@GetMapping
@@ -83,5 +86,27 @@ public class ContestController {
         contestService.checkContestAuth(contest, currentUserId, isRoot);
         // 根据display_id和cid获取题目信息
         return ResultJson.success(contestService.getContestProblemDetails(contest, displayId));
+    }
+
+    @ApiOperation("获取指定比赛的评测记录")
+    @GetMapping("/{cid}/submissions")
+    public ResultJson<Page<Judge>> listContestSubmissions(@PathVariable Long cid,
+                                                          Page<Judge> page,
+                                                          SubmissionQueryParam param) {
+        return ResultJson.success(judgeService.getContestSubmissionList(page, cid, param));
+    }
+
+    @ApiOperation("获取指定比赛的排行情况")
+    @GetMapping("/{cid}/rank")
+    public ResultJson<Page<ContestRankVo>> getContestRank(@PathVariable Long cid,
+                                                          Page<ContestRankVo> page) {
+        // 获取当前的用户
+        Long currentUserId = SecurityUtils.getCurrentUserId();
+        boolean isRoot = SecurityUtils.isSuperAdmin();
+        // 获取本场比赛
+        Contest contest = contestService.findById(cid);
+        // 检查是否有权限查看该比赛
+        contestService.checkContestAuth(contest, currentUserId, isRoot);
+        return ResultJson.success(contestRecordService.getContestACMRank(page, cid));
     }
 }

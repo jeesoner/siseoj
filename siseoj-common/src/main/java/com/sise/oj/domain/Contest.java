@@ -4,6 +4,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.sise.oj.base.BaseEntity;
+import com.sise.oj.enums.Constants;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -107,4 +108,20 @@ public class Contest extends BaseEntity implements Serializable {
      * 比赛状态：-1未开始，0进行中，1已结束
      */
     private Integer status;
+
+    /**
+     * 获取比赛状态
+     *
+     * @return -
+     */
+    public Integer getStatus() {
+        Date currentDate = new Date();
+        if (currentDate.before(startTime)) {
+            return Constants.Contest.STATUS_SCHEDULED.getCode();
+        } else if (currentDate.after(endTime)) {
+            return Constants.Contest.STATUS_ENDED.getCode();
+        } else {
+            return Constants.Contest.STATUS_RUNNING.getCode();
+        }
+    }
 }

@@ -21,15 +21,20 @@ import java.util.Date;
 public class ContestRecord extends BaseEntity implements Serializable {
 
     /**
-     * 比赛id
+     * 主键
      */
     @TableId
-    private Long cid;
+    private Long id;
 
     /**
      * 评测id
      */
     private Long judgeId;
+
+    /**
+     * 比赛id
+     */
+    private Long cid;
 
     /**
      * 用户id

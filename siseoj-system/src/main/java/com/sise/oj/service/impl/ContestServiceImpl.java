@@ -9,6 +9,7 @@ import com.sise.oj.domain.*;
 import com.sise.oj.domain.param.QueryParam;
 import com.sise.oj.domain.vo.ProblemInfoVo;
 import com.sise.oj.enums.Constants;
+import com.sise.oj.enums.ResultCode;
 import com.sise.oj.exception.BadRequestException;
 import com.sise.oj.exception.BusinessException;
 import com.sise.oj.exception.DataExistException;
@@ -62,7 +63,7 @@ public class ContestServiceImpl extends BaseServiceImpl<ContestMapper, Contest> 
         if (isRoot || contest.getUid().equals(uid)) return ;
         // 判断比赛状态，比赛未开始，不可访问
         if (contest.getStatus().intValue() == Constants.Contest.STATUS_SCHEDULED.getCode()) {
-            throw new BusinessException("比赛还未开始，您无权访问该比赛！");
+            throw new BadRequestException(ResultCode.FORBIDDEN, "比赛还未开始，您无权访问该比赛！");
         }
         // 比赛正在进行阶段，需要判断该场比赛是否为私有赛，私有赛需要判断该用户是否已注册
         if (contest.getStatus().intValue() == Constants.Contest.STATUS_RUNNING.getCode() &&
@@ -167,7 +168,7 @@ public class ContestServiceImpl extends BaseServiceImpl<ContestMapper, Contest> 
         ProblemInfoVo problemInfoVo = new ProblemInfoVo();
         Problem problem = problemService.getById(contestProblem.getPid());
         if (problem == null) {
-            throw new DataNotFoundException("该题目不存在ID: " + problem.getPid());
+            throw new DataNotFoundException("该题目不存在ID: " + contestProblem.getPid());
         }
         problem.setPid(contestProblem.getDisplayId().longValue());
         problem.setTitle(contestProblem.getDisplayTitle());
