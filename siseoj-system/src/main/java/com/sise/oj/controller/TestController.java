@@ -1,12 +1,10 @@
 package com.sise.oj.controller;
 
-import com.sise.oj.base.ResultJson;
-import com.sise.oj.domain.User;
+import com.sise.oj.service.ProblemCountService;
 import com.sise.oj.service.UserService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
@@ -14,30 +12,10 @@ import javax.validation.Valid;
 public class TestController {
 
     private final UserService userService;
+    private final ProblemCountService problemCountService;
 
-    public TestController(UserService userService) {
+    public TestController(UserService userService, ProblemCountService problemCountService) {
         this.userService = userService;
-    }
-
-    @RequestMapping
-    public String oj() {
-        return "hello oj";
-    }
-
-    @PostMapping("/user")
-    public ResultJson<String> register(@Valid @RequestBody User user) {
-        System.out.println(user.getUsername());
-        return ResultJson.success("成功");
-    }
-
-    @GetMapping("/{id}")
-    public ResultJson<User> get(@PathVariable Long id) {
-        User user = userService.getById(id);
-        return ResultJson.success(user);
-    }
-
-    @PostMapping("/post")
-    public String testPost() {
-        return "post";
+        this.problemCountService = problemCountService;
     }
 }
