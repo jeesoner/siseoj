@@ -25,7 +25,7 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
     private static boolean addCallback = true;
 
     /**
-     * 针对 某些初始化方法，在SpringContextHolder 未初始化时 提交回调方法。
+     * 针对某些初始化方法，在SpringContextHolder 未初始化时 提交回调方法。
      * 在SpringContextHolder 初始化后，进行回调使用
      *
      * @param callBack 回调函数
@@ -34,13 +34,18 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
         if (addCallback) {
             SpringContextHolder.CALL_BACKS.add(callBack);
         } else {
+            // applicationContext已初始化
             log.warn("CallBack：{} 已无法添加！立即执行", callBack.getCallBackName());
             callBack.executor();
         }
     }
 
     /**
-     * 从静态变量applicationContext中取得Bean, 自动转型为所赋值对象的类型.
+     * 从静态变量applicationContext中取得Bean, 自动转型为所赋值对象的类型
+     *
+     * @param name bean名称
+     * @param <T> 泛型
+     * @return bean
      */
     @SuppressWarnings("unchecked")
     public static <T> T getBean(String name) {
@@ -49,7 +54,11 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
     }
 
     /**
-     * 从静态变量applicationContext中取得Bean, 自动转型为所赋值对象的类型.
+     * 从静态变量applicationContext中取得Bean, 自动转型为所赋值对象的类型
+     *
+     * @param requiredType Class类型
+     * @param <T> 泛型
+     * @return bean
      */
     public static <T> T getBean(Class<T> requiredType) {
         assertContextInjected();
@@ -65,8 +74,10 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
      * @return /
      */
     public static <T> T getProperties(String property, T defaultValue, Class<T> requiredType) {
+        // 设置默认值
         T result = defaultValue;
         try {
+            // 获取当前环境对应的配置文件
             result = getBean(Environment.class).getProperty(property, requiredType);
         } catch (Exception ignored) {}
         return result;
@@ -98,7 +109,7 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
      */
     private static void assertContextInjected() {
         if (applicationContext == null) {
-            throw new IllegalStateException("applicaitonContext属性未注入, 请在applicationContext" +
+            throw new IllegalStateException("applicationContext属性未注入, 请在applicationContext" +
                     ".xml中定义SpringContextHolder或在SpringBoot启动类中注册SpringContextHolder.");
         }
     }
@@ -129,6 +140,7 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
             }
             CALL_BACKS.clear();
         }
+        // 初始化后，将回调设置为false，即立即执行回调
         SpringContextHolder.addCallback = false;
     }
 }

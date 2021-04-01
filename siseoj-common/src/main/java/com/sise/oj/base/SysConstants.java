@@ -15,4 +15,14 @@ public class SysConstants {
     public static final String WIN = "win";
 
     public static final String OS = "os";
+
+    /**
+     * 用于IP定位转换
+     */
+    public static final String REGION = "内网IP|内网IP";
+
+    public static class Url {
+        // IP归属地查询
+        public static final String IP_URL = "http://whois.pconline.com.cn/ipJson.jsp?ip=%s&json=true";
+    }
 }
