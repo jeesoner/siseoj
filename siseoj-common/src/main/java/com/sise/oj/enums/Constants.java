@@ -142,7 +142,7 @@ public class Constants {
      * 比赛相关的常量
      */
     public enum Contest {
-        TYPE_GENERAL(0, "general"),
+        TYPE_GENERAL(0, "acm"),
         TYPE_RATING(1, "rating"),
 
         STATUS_SCHEDULED(-1, "Scheduled"),
