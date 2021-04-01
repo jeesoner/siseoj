@@ -10,6 +10,7 @@ import com.sise.oj.service.DiscussService;
 import com.sise.oj.util.SecurityUtils;
 import com.sise.oj.util.ValidationUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -34,6 +35,7 @@ public class DiscussServiceImpl extends BaseServiceImpl<DiscussMapper, Discuss> 
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void create(DiscussDto resources) {
         Discuss discuss = new Discuss();
         discuss.setUid(SecurityUtils.getCurrentUserId());
@@ -53,6 +55,7 @@ public class DiscussServiceImpl extends BaseServiceImpl<DiscussMapper, Discuss> 
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void update(DiscussDto resources) {
         Discuss discuss = discussMapper.selectById(resources.getId());
         ValidationUtils.isNull(discuss, "帖子", "ID", resources.getId());
@@ -63,6 +66,7 @@ public class DiscussServiceImpl extends BaseServiceImpl<DiscussMapper, Discuss> 
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void delete(Long id) {
         discussMapper.deleteById(id);
     }

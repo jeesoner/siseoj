@@ -13,6 +13,5 @@ import org.springframework.stereotype.Service;
  * @version 1.0
  */
 @Service
-public class JudgeCaseServiceImpl extends BaseServiceImpl<JudgeCaseMapper, JudgeCase>
-        implements JudgeCaseService {
+public class JudgeCaseServiceImpl extends BaseServiceImpl<JudgeCaseMapper, JudgeCase> implements JudgeCaseService {
 }

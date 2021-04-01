@@ -292,16 +292,8 @@ public class JudgeServiceImpl extends BaseServiceImpl<JudgeMapper, Judge> implem
                 TimeUnit.SECONDS.sleep(timeStep);
             }
         }
-        if (judge.getCid() == 0) { // 不是比赛提交
-            // 如果AC了该题目，更新user_accept表
-            if ("AC".equals(status)) {
-                userAcceptService.save(new UserAccept()
-                        .setPid(judge.getPid())
-                        .setUid(judge.getUid())
-                        .setJudgeId(judge.getId())
-                );
-            }
-        } else {
+        // 比赛提交
+        if (judge.getCid() != 0) {
             Contest contest = contestService.getById(judge.getCid());
             if (contest == null) {
                 throw new BusinessException("判题服务出错----------->该比赛不存在");
@@ -316,6 +308,14 @@ public class JudgeServiceImpl extends BaseServiceImpl<JudgeMapper, Judge> implem
                 }
                 contestRecordService.update(judge.getUid(), contestProblem.getScore(), judge.getStatus(), submitId, judge.getCid());
             }
+        }
+        // 如果AC了该题目，更新user_accept表
+        if ("AC".equals(status)) {
+            userAcceptService.save(new UserAccept()
+                    .setPid(judge.getPid())
+                    .setUid(judge.getUid())
+                    .setJudgeId(judge.getId())
+            );
         }
         // 更新该题目的统计数据
         Long pid = judge.getPid();

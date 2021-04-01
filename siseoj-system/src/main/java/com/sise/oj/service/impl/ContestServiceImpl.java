@@ -20,6 +20,7 @@ import com.sise.oj.util.StringUtils;
 import com.sise.oj.util.ValidationUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -112,11 +113,13 @@ public class ContestServiceImpl extends BaseServiceImpl<ContestMapper, Contest> 
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void insert(Contest resources) {
         contestMapper.insert(resources);
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void update(Contest resources) {
         Contest contest = contestMapper.selectById(resources.getId());
         ValidationUtils.isNull(contest, "比赛", "ID", resources.getId());
@@ -136,6 +139,7 @@ public class ContestServiceImpl extends BaseServiceImpl<ContestMapper, Contest> 
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void delete(Long id) {
         Contest contest = contestMapper.selectById(id);
         ValidationUtils.isNull(contest, "比赛", "ID", id);
@@ -202,6 +206,7 @@ public class ContestServiceImpl extends BaseServiceImpl<ContestMapper, Contest> 
      * @param cid 比赛ID
      */
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void updateContestProblemList(List<ContestProblem> resources, Long cid) {
         Contest contest = contestMapper.selectById(cid);
         ValidationUtils.isNull(contest, "比赛", "ID", cid);

@@ -12,6 +12,7 @@ import com.sise.oj.enums.Constants;
 import com.sise.oj.mapper.ContestRecordMapper;
 import com.sise.oj.service.ContestRecordService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -41,6 +42,7 @@ public class ContestRecordServiceImpl extends BaseServiceImpl<ContestRecordMappe
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void update(Long uid, Integer score, Integer status, Long submitId, Long cid) {
         LambdaUpdateWrapper<ContestRecord> wrapper = Wrappers.lambdaUpdate(ContestRecord.class);
         // 如果AC

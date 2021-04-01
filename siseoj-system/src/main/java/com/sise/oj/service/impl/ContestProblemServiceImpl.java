@@ -9,6 +9,7 @@ import com.sise.oj.mapper.ContestProblemMapper;
 import com.sise.oj.service.ContestProblemService;
 import com.sise.oj.service.ProblemService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
@@ -57,6 +58,7 @@ public class ContestProblemServiceImpl extends BaseServiceImpl<ContestProblemMap
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void insert(ContestProblem resources) {
         ContestProblem contestProblem = contestProblemMapper.selectOne(Wrappers.lambdaQuery(ContestProblem.class)
                 .eq(ContestProblem::getCid, resources.getCid())
@@ -68,6 +70,7 @@ public class ContestProblemServiceImpl extends BaseServiceImpl<ContestProblemMap
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void deleteByContestIdAndPid(Long cid, Long pid) {
         contestProblemMapper.delete(Wrappers.lambdaQuery(ContestProblem.class)
                 .eq(ContestProblem::getCid, cid)
