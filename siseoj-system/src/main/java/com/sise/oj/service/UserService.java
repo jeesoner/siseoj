@@ -5,7 +5,9 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.sise.oj.base.BaseService;
 import com.sise.oj.domain.User;
 import com.sise.oj.domain.param.QueryParam;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -68,4 +70,28 @@ public interface UserService extends BaseService<User> {
      * @param ids 用户主键集合
      */
     void delete(Set<Long> ids);
+
+    /**
+     * 更新密码
+     *
+     * @param username 用户名
+     * @param encodePassword 编码后的密码
+     */
+    void updatePassword(String username, String encodePassword);
+
+    /**
+     * 更新邮箱
+     *
+     * @param username 用户名
+     * @param newEmail 新的邮箱
+     */
+    void updateEmail(String username, String newEmail);
+
+    /**
+     * 更新头像
+     *
+     * @param avatar 头像
+     * @return Map
+     */
+    Map<String, String> updateAvatar(MultipartFile avatar);
 }

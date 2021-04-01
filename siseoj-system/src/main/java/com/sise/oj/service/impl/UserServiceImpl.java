@@ -1,7 +1,9 @@
 package com.sise.oj.service.impl;
 
+import cn.hutool.core.io.FileUtil;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.sise.oj.base.BaseServiceImpl;
+import com.sise.oj.config.FileProperties;
 import com.sise.oj.domain.User;
 import com.sise.oj.domain.UserRecord;
 import com.sise.oj.domain.param.QueryParam;
@@ -11,13 +13,18 @@ import com.sise.oj.service.OnlineUserService;
 import com.sise.oj.service.RoleService;
 import com.sise.oj.service.UserRecordService;
 import com.sise.oj.service.UserService;
+import com.sise.oj.util.FileUtils;
+import com.sise.oj.util.SecurityUtils;
+import com.sise.oj.util.StringUtils;
 import com.sise.oj.util.ValidationUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.util.List;
-import java.util.Set;
+import javax.validation.constraints.NotBlank;
+import java.io.File;
+import java.util.*;
 
 /**
  * 用户服务实现类
@@ -36,6 +43,8 @@ public class UserServiceImpl extends BaseServiceImpl<UserMapper, User> implement
     private final RoleService roleService;
 
     private final OnlineUserService onlineUserService;
+
+    private final FileProperties fileProperties;
 
     @Override
     public User findByName(String username) {
@@ -123,5 +132,49 @@ public class UserServiceImpl extends BaseServiceImpl<UserMapper, User> implement
     @Transactional(rollbackFor = Exception.class)
     public void delete(Set<Long> ids) {
         userMapper.deleteBatchIds(ids);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void updatePassword(String username, String encodePassword) {
+        User user = userMapper.selectByName(username);
+        ValidationUtils.isNull(user, "用户", "用户名", username);
+        // 设置新密码
+        user.setPassword(encodePassword);
+        // 更新
+        userMapper.updateById(user);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void updateEmail(String username, String newEmail) {
+        User user = userMapper.selectByName(username);
+        ValidationUtils.isNull(user, "用户", "用户名", username);
+        // 设置新邮箱
+        user.setEmail(newEmail);
+        // 更新
+        userMapper.updateById(user);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public Map<String, String> updateAvatar(MultipartFile avatar) {
+        User user = userMapper.selectByName(SecurityUtils.getCurrentUsername());
+        // 获取头像的真实路径
+        String oldPath = user.getAvatarPath();
+        // 将二进制数据保存到头像文件中
+        File file = FileUtils.upload(avatar, fileProperties.getPath().getAvatar());
+        user.setAvatar(Objects.requireNonNull(file).getName());
+        user.setAvatarPath(Objects.requireNonNull(file).getPath());
+        userMapper.updateById(user);
+        // 删除旧的头像
+        if (StringUtils.isNotBlank(oldPath)) {
+            FileUtil.del(oldPath);
+        }
+        @NotBlank String username = user.getUsername();
+        // 返回头像地址
+        return new HashMap<String, String>(1) {{
+            put("avatar", file.getName());
+        }};
     }
 }

@@ -17,6 +17,7 @@
         <result column="github" property="github"/>
         <result column="blog" property="blog"/>
         <result column="avatar" property="avatar"/>
+        <result column="avatar_path" property="avatarPath"/>
         <result column="enabled" property="enabled"/>
         <result column="last_login_time" property="lastLoginTime"/>
         <result column="unlock_time" property="unlockTime"/>
