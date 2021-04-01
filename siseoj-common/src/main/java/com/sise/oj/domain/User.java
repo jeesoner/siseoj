@@ -12,6 +12,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -38,6 +39,18 @@ public class User extends BaseEntity implements Serializable {
      */
     @TableField(exist = false)
     private Set<Role> roles;
+
+    /**
+     * 用户题目记录表
+     */
+    @TableField(exist = false)
+    private List<UserAccept> userAccepts;
+
+    /**
+     * 用户记录表
+     */
+    @TableField(exist = false)
+    private UserRecord userRecord;
 
     /**
      * 昵称
@@ -106,6 +119,12 @@ public class User extends BaseEntity implements Serializable {
      * 头像地址
      */
     private String avatar;
+
+    /**
+     * 头像真实路径
+     */
+    @JSONField(serialize = false)
+    private String avatarPath;
 
     /**
      * 启用状态：1启用、2禁用
