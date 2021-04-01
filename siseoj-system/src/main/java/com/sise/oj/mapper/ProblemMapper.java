@@ -77,8 +77,8 @@ public interface ProblemMapper extends BaseMapper<Problem> {
 
     /**
      * 查找该题目号的所有标签主键
-     * @param pid
-     * @return
+     * @param pid -
+     * @return -
      */
     Set<Long> selectTagIdByPid(Long pid);
 }
