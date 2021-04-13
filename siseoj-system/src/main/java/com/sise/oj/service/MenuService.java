@@ -1,8 +1,10 @@
 package com.sise.oj.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.sise.oj.base.BaseService;
 import com.sise.oj.domain.Menu;
 import com.sise.oj.domain.param.MenuQueryParam;
+import com.sise.oj.domain.vo.MenuVo;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -14,6 +16,14 @@ import java.util.Set;
  * @version 1.0
  */
 public interface MenuService extends BaseService<Menu> {
+
+    /**
+     * 分页查询菜单
+     *
+     * @param page 分页参数
+     * @param param 查询参数
+     */
+    Page<Menu> list(Page<Menu> page, MenuQueryParam param);
 
     /**
      * 查询全部数据
@@ -52,7 +62,8 @@ public interface MenuService extends BaseService<Menu> {
     Set<Menu> getChildMenus(List<Menu> menuList, Set<Menu> menuSet);
 
     /**
-     * 构建菜单树
+     * 构建菜单树（给buildMenus使用）
+     *
      * @param menus 原始数据
      * @return /
      */
@@ -60,10 +71,11 @@ public interface MenuService extends BaseService<Menu> {
 
     /**
      * 构建菜单树
+     *
      * @param menus /
      * @return /
      */
-    Object buildMenus(List<Menu> menus);
+    List<MenuVo> buildMenus(List<Menu> menus);
 
     /**
      * 根据ID查询
@@ -96,10 +108,10 @@ public interface MenuService extends BaseService<Menu> {
     /**
      * 根据ID获取同级与上级数据
      * @param menu /
-     * @param objects /
+     * @param getSuperior /
      * @return /
      */
-    List<Menu> getSuperior(Menu menu, List<Menu> objects);
+    List<Menu> getSuperior(Menu menu, List<Menu> getSuperior);
 
     /**
      * 根据当前用户获取菜单
