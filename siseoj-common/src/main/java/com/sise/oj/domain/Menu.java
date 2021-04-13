@@ -54,7 +54,12 @@ public class Menu extends BaseEntity implements Serializable {
     /**
      * 组件名称
      */
-    private String name;
+    private String componentName;
+
+    /**
+     * 重定向路径
+     */
+    private String redirect;
 
     /**
      * 组件
