@@ -7,8 +7,8 @@
         (select count(*) from oj_judge where contest_pid=cp.id and cid=cp.cid and pid =cp.pid and
         submit_time >= #{startTime}) as total,
         (select count(*) from oj_judge where contest_pid=cp.id and cid=cp.cid and pid =cp.pid and
-        status=0 and submit_time >= #{startTime}) as accept
+        status=1 and submit_time >= #{startTime}) as accept
         from ct_contest_problem cp
-        where cp.cid = #{cid} order by cp.display_id asc
+        where cp.cid = #{cid} order by cp.display_id
     </select>
 </mapper>
