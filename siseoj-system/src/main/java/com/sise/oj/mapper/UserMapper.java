@@ -51,4 +51,12 @@ public interface UserMapper extends BaseMapper<User> {
      * @return User
      */
     User selectByEmail(String email);
+
+    /**
+     * 根据角色id查询用户
+     *
+     * @param id 角色id
+     * @return List
+     */
+    List<User> selectByRoleId(Long id);
 }

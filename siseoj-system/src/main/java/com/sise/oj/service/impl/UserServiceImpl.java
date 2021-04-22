@@ -20,6 +20,7 @@ import com.sise.oj.util.ValidationUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.constraints.NotBlank;
@@ -98,6 +99,9 @@ public class UserServiceImpl extends BaseServiceImpl<UserMapper, User> implement
         user.setEmail(resources.getEmail());
         user.setPhone(resources.getPhone());
         user.setEnabled(resources.getEnabled());
+        if (!CollectionUtils.isEmpty(resources.getRoles())) {
+            user.setIsAdmin(true);
+        }
         // 更新权限
         roleService.updateUserRole(user.getId(), resources.getRoles());
         // 如果用户被禁用，则清除用户登录信息

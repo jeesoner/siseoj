@@ -51,4 +51,10 @@
     <select id="getUserRole" resultType="com.sise.oj.domain.Role">
         select r.* from sys_role r, sys_users_roles ur where r.id = ur.role_id and ur.user_id = #{id}
     </select>
+
+    <!-- 根据角色id查询用户 -->
+    <select id="selectByRoleId" resultType="com.sise.oj.domain.User">
+        select * from sys_user u, sys_users_roles ur
+        where u.id = ur.user_id and ur.role_id = #{id}
+    </select>
 </mapper>
