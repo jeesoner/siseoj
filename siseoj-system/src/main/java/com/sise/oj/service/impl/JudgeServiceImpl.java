@@ -75,7 +75,7 @@ public class JudgeServiceImpl extends BaseServiceImpl<JudgeMapper, Judge> implem
         } else if (StringUtils.isNotBlank(param.getUsername())) {
             wrapper.like(Judge::getUsername, param.getUsername());
         }
-        wrapper.ne(Judge::getCid, 0);
+        wrapper.eq(Judge::getCid, 0);
         // 按照提交ID逆序排列
         wrapper.orderByDesc(Judge::getId);
         return judgeMapper.selectPage(page, wrapper);
