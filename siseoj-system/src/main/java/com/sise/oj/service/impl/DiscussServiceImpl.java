@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author Cijee
@@ -62,12 +63,12 @@ public class DiscussServiceImpl extends BaseServiceImpl<DiscussMapper, Discuss> 
         discuss.setTitle(resources.getTitle());
         discuss.setDescription(resources.getDescription());
         discuss.setContent(resources.getContent());
-        discussMapper.insert(discuss);
+        discussMapper.updateById(discuss);
     }
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void delete(Long id) {
-        discussMapper.deleteById(id);
+    public void delete(Set<Long> ids) {
+        discussMapper.deleteBatchIds(ids);
     }
 }

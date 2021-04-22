@@ -6,6 +6,8 @@ import com.sise.oj.domain.Discuss;
 import com.sise.oj.domain.dto.DiscussDto;
 import com.sise.oj.domain.param.QueryParam;
 
+import java.util.Set;
+
 /**
  * @author Cijee
  * @version 1.0
@@ -38,5 +40,5 @@ public interface DiscussService extends BaseService<Discuss> {
     /**
      * 删除帖子
      */
-    void delete(Long id);
+    void delete(Set<Long> ids);
 }

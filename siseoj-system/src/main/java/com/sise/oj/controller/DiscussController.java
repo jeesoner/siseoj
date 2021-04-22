@@ -14,6 +14,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Set;
+
 /**
  * @author Cijee
  * @version 1.0
@@ -57,8 +59,8 @@ public class DiscussController {
 
     @ApiOperation("删除帖子")
     @DeleteMapping
-    public ResultJson<String> delete(@RequestBody Long id) {
-        discussService.delete(id);
+    public ResultJson<String> delete(@RequestBody Set<Long> ids) {
+        discussService.delete(ids);
         return ResultJson.success(null);
     }
 }
