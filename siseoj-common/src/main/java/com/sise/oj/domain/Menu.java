@@ -7,6 +7,8 @@ import com.sise.oj.base.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
@@ -26,6 +28,8 @@ public class Menu extends BaseEntity implements Serializable {
      * 主键
      */
     @TableId
+    @Null(groups = Create.class, message = "新增的菜单ID必须为null")
+    @NotNull(groups = Update.class, message = "更新的菜单ID不能为null")
     private Long id;
 
     @TableField(exist = false)
