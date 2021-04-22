@@ -5,7 +5,7 @@ spring:
   datasource:
     # 如果存在多个数据源，监控的时候可以通过名字来区分开来
     name: mysql
-    url: jdbc:mysql://localhost/siseoj_test?serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://${DB_HOST:localhost}/siseoj_test?serverTimezone=Asia/Shanghai
     username: root
     password: 1234,abcd
     driver-class-name: com.mysql.cj.jdbc.Driver

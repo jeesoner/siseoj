@@ -36,4 +36,28 @@ public class LockTest {
             }).start();
         }
     }
+
+    public static void main(String[] args) {
+        int a = 4;
+        Integer b = new Integer(10);
+        String c = "20";
+        setValue(a);
+        System.out.println(a);
+        setValue(b);
+        System.out.println(b);
+        setValue(c);
+        System.out.println(c);
+    }
+
+    public static void setValue(int value) {
+        value = 100;
+    }
+
+    public static void setValue(Integer value) {
+        value = 100;
+    }
+
+    public static void setValue(String value) {
+        value = "100";
+    }
 }
