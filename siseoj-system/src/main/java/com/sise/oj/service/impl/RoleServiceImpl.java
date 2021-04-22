@@ -1,6 +1,5 @@
 package com.sise.oj.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.sise.oj.base.BaseServiceImpl;
@@ -20,7 +19,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -81,23 +83,17 @@ public class RoleServiceImpl extends BaseServiceImpl<RoleMapper, Role> implement
 
     @Override
     public Page<Role> list(QueryParam param, Page<Role> page) {
-        LambdaQueryWrapper<Role> wrapper = new LambdaQueryWrapper<>();
-        String keyword = param.getKeyword();
-        if (StringUtils.isNoneBlank(keyword)) {
-            wrapper.like(Role::getName, keyword);
-        }
-        List<Date> time = param.getCreateTime();
-        if (param.getCreateTime() != null && !param.getCreateTime().isEmpty()) {
-            // 拼接开始时间
-            if (time.get(0) != null) {
-                wrapper.ge(Role::getCreateTime, time.get(0));
-            }
-            // 拼接结束时间
-            if (time.get(1) != null) {
-                wrapper.le(Role::getCreateTime, time.get(1));
-            }
-        }
-        return roleMapper.selectPage(page, wrapper);
+        List<Role> roles = roleMapper.findByPage(page, param.getKeyword());
+        page.setRecords(roles);
+        return page;
+    }
+
+    @Override
+    public Role findById(Long id) {
+        Role role = roleMapper.selectById(id);
+        Set<Menu> menus = roleMapper.getRoleMenu(id);
+        role.setMenus(menus);
+        return role;
     }
 
     @Override
@@ -138,7 +134,28 @@ public class RoleServiceImpl extends BaseServiceImpl<RoleMapper, Role> implement
     }
 
     @Override
-    public List<Role> findByUserId(Long uid) {
-        return roleMapper.selectByUserId(uid);
+    public Set<Role> findByUserId(Long uid) {
+        return roleMapper.findByUserId(uid);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void updateMenu(Role resources, Role role) {
+        roleMapper.untiedMenuByRoleId(role.getId());
+        // 更新角色菜单信息
+        if (role.getId() != null) {
+            // 解绑菜单
+            roleMapper.untiedMenuByRoleId(role.getId());
+        }
+        // 绑定菜单
+        Set<Long> ids = resources.getMenus().stream().map(Menu::getId).collect(Collectors.toSet());
+        roleMapper.bindMenuByRoleId(role.getId(), ids);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void untiedMenu(Long menuId) {
+        // 更新菜单
+        roleMapper.untiedMenu(menuId);
     }
 }

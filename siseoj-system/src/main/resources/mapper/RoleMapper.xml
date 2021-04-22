@@ -12,6 +12,21 @@
         <collection property="menus" ofType="com.sise.oj.domain.Menu" select="getRoleMenu" column="id"/>
     </resultMap>
 
+    <!-- 分页查询 -->
+    <select id="findByPage" resultMap="roleMap">
+        select * from sys_role
+        <where>
+            <if test="keyword != null and keyword != ''">
+                name like concat('%',#{keyword},'%')
+            </if>
+        </where>
+    </select>
+
+    <select id="selectByUserId" resultType="com.sise.oj.domain.Role">
+        select r.* from sys_role r, sys_users_roles ur
+        where r.id = ur.role_id and ur.user_id = #{uid}
+    </select>
+
     <!-- 主查询 -->
     <select id="findByUserId" resultMap="roleMap">
         select r.* from sys_role r, sys_users_roles u
@@ -21,7 +36,7 @@
     <!-- 子查询 -->
     <select id="getRoleMenu" resultType="com.sise.oj.domain.Menu">
         select m.* from sys_menu m, sys_roles_menus rm
-        where m.pid = rm.menu_id and rm.role_id = #{id}
+        where m.id = rm.menu_id and rm.role_id = #{id}
     </select>
 
     <delete id="deleteUserRoleById">
@@ -35,9 +50,13 @@
         </foreach>
     </insert>
 
-    <select id="selectByUserId" resultType="com.sise.oj.domain.Role">
-        select r.* from sys_role r, sys_users_roles ur where r.id = ur.role_id and ur.user_id = #{uid}
-    </select>
+    <!-- 绑定菜单 -->
+    <insert id="bindMenuByRoleId">
+        insert into sys_roles_menus (menu_id, role_id) values
+        <foreach collection="ids" item="id" separator=",">
+            (#{id}, #{rid})
+        </foreach>
+    </insert>
 
     <select id="countByRoles" resultType="java.lang.Integer">
         select count(1) from sys_user u, sys_users_roles r
@@ -46,4 +65,13 @@
             #{id}
         </foreach>
     </select>
+
+    <delete id="untiedMenu">
+        delete from sys_roles_menus where menu_id = #{id}
+    </delete>
+
+    <!-- 根据角色id解绑菜单 -->
+    <delete id="untiedMenuByRoleId">
+        delete from sys_roles_menus where role_id = #{id}
+    </delete>
 </mapper>

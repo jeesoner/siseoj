@@ -32,7 +32,7 @@ public interface RoleService extends BaseService<Role> {
     void updateUserRole(Long uid, Set<Role> roles);
 
     /**
-     * 分页查询
+     * 分页查询角色
      *
      * @param param 查询参数
      * @param page 分页参数
@@ -41,21 +41,29 @@ public interface RoleService extends BaseService<Role> {
     Page<Role> list(QueryParam param, Page<Role> page);
 
     /**
-     * 创建
+     * 根据id查询角色
+     *
+     * @param id 角色id
+     * @return Role
+     */
+    Role findById(Long id);
+
+    /**
+     * 创建角色
      *
      * @param resources Role
      */
     void create(Role resources);
 
     /**
-     * 更新
+     * 更新角色
      *
      * @param resources Role
      */
     void update(Role resources);
 
     /**
-     * 删除
+     * 删除角色
      *
      * @param ids id集合
      */
@@ -69,10 +77,25 @@ public interface RoleService extends BaseService<Role> {
     void verification(Set<Long> ids);
 
     /**
-     * 根据用户id查询
+     * 根据用户id查询角色
      *
      * @param uid 用户id
      * @return List
      */
-    List<Role> findByUserId(Long uid);
+    Set<Role> findByUserId(Long uid);
+
+    /**
+     * 更新角色菜单
+     *
+     * @param resources 旧角色
+     * @param role 新角色
+     */
+    void updateMenu(Role resources, Role role);
+
+    /**
+     *解绑角色菜单
+     *
+     * @param menuId 菜单id
+     */
+    void untiedMenu(Long menuId);
 }
