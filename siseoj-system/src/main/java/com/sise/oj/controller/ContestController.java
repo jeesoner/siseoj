@@ -1,28 +1,27 @@
 package com.sise.oj.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.sise.oj.annotation.rest.AnonymousGetMapping;
 import com.sise.oj.base.ResultJson;
 import com.sise.oj.domain.Contest;
+import com.sise.oj.domain.ContestRegister;
 import com.sise.oj.domain.Judge;
+import com.sise.oj.domain.param.ContestRegisterParam;
 import com.sise.oj.domain.param.QueryParam;
 import com.sise.oj.domain.param.SubmissionQueryParam;
 import com.sise.oj.domain.vo.ContestProblemVo;
 import com.sise.oj.domain.vo.ContestRankVo;
 import com.sise.oj.domain.vo.ProblemInfoVo;
-import com.sise.oj.service.ContestProblemService;
-import com.sise.oj.service.ContestRecordService;
-import com.sise.oj.service.ContestService;
-import com.sise.oj.service.JudgeService;
+import com.sise.oj.exception.BadRequestException;
+import com.sise.oj.service.*;
 import com.sise.oj.util.SecurityUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -38,10 +37,10 @@ public class ContestController {
     private final ContestService contestService;
     private final ContestProblemService contestProblemService;
     private final ContestRecordService contestRecordService;
+    private final ContestRegisterService contestRegisterService;
     private final JudgeService judgeService;
 
     @ApiOperation("分页查询比赛")
-    //@GetMapping
     @AnonymousGetMapping
     public ResultJson<Page<Contest>> list(Page<Contest> page, QueryParam param) {
         return ResultJson.success(contestService.list(page, param));
@@ -108,5 +107,49 @@ public class ContestController {
         // 检查是否有权限查看该比赛
         contestService.checkContestAuth(contest, currentUserId, isRoot);
         return ResultJson.success(contestRecordService.getContestACMRank(page, cid));
+    }
+
+    @ApiOperation("注册比赛")
+    @PostMapping("/register")
+    public ResultJson<Object> toRegisterContest(@RequestBody ContestRegisterParam param) {
+        // 获取当前登录的用户
+        Long uid = SecurityUtils.getCurrentUserId();
+
+        Contest contest = contestService.getById(param.getCid());
+
+        // 密码不对
+        if (!contest.getPassword().equals(param.getPassword())) {
+            throw new BadRequestException("比赛密码错误");
+        }
+
+        QueryWrapper<ContestRegister> wrapper = new QueryWrapper<ContestRegister>().eq("cid", param.getCid())
+                .eq("uid", uid);
+        if (contestRegisterService.getOne(wrapper) != null) {
+            throw new BadRequestException("您已注册过该比赛，请勿重复注册！");
+        }
+
+        ContestRegister contestRegister = new ContestRegister();
+        contestRegister.setCid(param.getCid());
+        contestRegister.setUid(uid);
+        boolean result = contestRegisterService.saveOrUpdate(contestRegister);
+
+        if (!result) {
+            throw new BadRequestException("校验比赛密码失败，请稍后再试");
+        }
+        return ResultJson.success(null);
+    }
+
+    @ApiOperation("获得指定私有比赛的访问权限或保护比赛的提交权限")
+    @GetMapping("/access")
+    public ResultJson<Object> getContestAccess(@RequestParam(value = "cid") Long cid) {
+        // 获取当前登录的用户
+        Long uid = SecurityUtils.getCurrentUserId();
+
+        QueryWrapper<ContestRegister> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("cid", cid).eq("uid", uid);
+        ContestRegister contestRegister = contestRegisterService.getOne(queryWrapper);
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("access", contestRegister != null);
+        return ResultJson.success(result);
     }
 }

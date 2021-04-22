@@ -84,7 +84,7 @@ public interface ContestService extends BaseService<Contest> {
     /**
      * 获取比赛题目的详情信息
      *
-     * @param cid 比赛ID
+     * @param contest 比赛
      * @param displayId 题目显示的ID
      * @return ProblemInfoVo
      */
