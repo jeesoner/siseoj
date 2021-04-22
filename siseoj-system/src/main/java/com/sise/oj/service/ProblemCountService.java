@@ -18,4 +18,8 @@ public interface ProblemCountService extends BaseService<ProblemCount> {
      * @param accept 是否通过
      */
     void updateCount(Long pid, boolean accept);
+
+    int acceptCount();
+
+    int totalCount();
 }

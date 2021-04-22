@@ -12,4 +12,8 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface ProblemCountMapper extends BaseMapper<ProblemCount> {
+
+    int acceptCount();
+
+    int totalCount();
 }

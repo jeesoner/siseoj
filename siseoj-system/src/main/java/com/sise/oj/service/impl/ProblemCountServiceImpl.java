@@ -47,4 +47,14 @@ public class ProblemCountServiceImpl extends BaseServiceImpl<ProblemCountMapper,
             throw new TryAgainException("插入数据库失败，系统开始重试....");
         }
     }
+
+    @Override
+    public int acceptCount() {
+        return problemCountMapper.acceptCount();
+    }
+
+    @Override
+    public int totalCount() {
+        return problemCountMapper.totalCount();
+    }
 }

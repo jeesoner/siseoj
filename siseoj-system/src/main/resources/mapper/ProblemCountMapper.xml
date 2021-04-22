@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sise.oj.mapper.ProblemCountMapper">
+    <select id="acceptCount" resultType="java.lang.Integer">
+        select sum(accept) from pb_problem_count
+    </select>
+    <select id="totalCount" resultType="java.lang.Integer">
+        select sum(total) from pb_problem_count
+    </select>
+</mapper>
