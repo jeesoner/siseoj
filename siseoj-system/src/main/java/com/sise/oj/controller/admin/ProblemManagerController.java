@@ -14,6 +14,7 @@ import com.sise.oj.service.ProblemCaseService;
 import com.sise.oj.service.ProblemService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -42,7 +43,7 @@ public class ProblemManagerController {
         this.problemCaseService = problemCaseService;
     }
 
-    // @PreAuthorize("@el.check('problem:list')")
+    @PreAuthorize("@el.check('problem:list')")
     @ApiOperation("查询题目")
     @GetMapping
     public ResultJson<Page<Problem>> query(ProblemQueryParam param, Page<Problem> problemPage) {
@@ -50,7 +51,7 @@ public class ProblemManagerController {
         return ResultJson.success(problemService.adminList(param, problemPage));
     }
 
-    // @PreAuthorize("@el.check('problem:get')")
+    @PreAuthorize("@el.check('problem:list')")
     @ApiOperation("查询题目详细信息")
     @GetMapping("/{id}")
     public ResultJson<ProblemInfoVo> getInfo(@PathVariable Long id) {
@@ -58,6 +59,7 @@ public class ProblemManagerController {
         return ResultJson.success(problemInfo);
     }
 
+    @PreAuthorize("@el.check('problem:list')")
     @ApiOperation("查询题目样例信息")
     @GetMapping("/case")
     public ResultJson<List<ProblemCase>> listProblemCase(@Valid @RequestParam("pid") Long pid) {
@@ -67,7 +69,7 @@ public class ProblemManagerController {
         return ResultJson.success(problemCases);
     }
 
-    // @PreAuthorize("@el.check('problem:save')")
+    @PreAuthorize("@el.check('problem:add')")
     @ApiOperation("新增题目")
     @PostMapping
     public ResultJson<String> save(@Validated @RequestBody ProblemDto problemDto) {
@@ -78,7 +80,7 @@ public class ProblemManagerController {
         return ResultJson.success("新增题目成功");
     }
 
-    // PreAuthorize("@el.check('problem:update')")
+    @PreAuthorize("@el.check('problem:edit')")
     @ApiOperation("更新题目")
     @PutMapping
     public ResultJson<String> update(@Validated @RequestBody ProblemDto problemDto) {
@@ -89,6 +91,7 @@ public class ProblemManagerController {
         return ResultJson.success("更新题目成功");
     }
 
+    @PreAuthorize("@el.check('problem:edit')")
     @ApiOperation("更新题目权限")
     @PutMapping("/auth")
     public ResultJson<String> updateAuth(@RequestBody Problem problem) {
@@ -96,7 +99,7 @@ public class ProblemManagerController {
         return ResultJson.success("更新题目权限成功");
     }
 
-    // @PreAuthorize("@el.check('problem:del')")
+    @PreAuthorize("@el.check('problem:del')")
     @ApiOperation("删除题目")
     @DeleteMapping
     public ResultJson<String> delete(@RequestBody Set<Long> ids) {

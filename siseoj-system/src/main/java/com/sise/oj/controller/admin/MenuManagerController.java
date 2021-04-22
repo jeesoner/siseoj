@@ -11,6 +11,8 @@ import com.sise.oj.util.SecurityUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -28,6 +30,7 @@ public class MenuManagerController {
 
     private final MenuService menuService;
 
+    @PreAuthorize("@el.check('menu:list')")
     @GetMapping
     @ApiOperation("分页查询菜单")
     public ResultJson<Page<Menu>> queryAll(Page<Menu> page, MenuQueryParam param) {
@@ -37,8 +40,13 @@ public class MenuManagerController {
     @GetMapping("/build")
     @ApiOperation("获取用户所需的菜单")
     public ResultJson<List<MenuVo>> buildMenus() {
+        List<Menu> menus;
         // 获取用户的菜单
-        List<Menu> menus = menuService.findByUser(SecurityUtils.getCurrentUserId());
+        if ("root".equals(SecurityUtils.getCurrentUsername())) {
+            menus = menuService.list();
+        } else {
+            menus = menuService.findByUser(SecurityUtils.getCurrentUserId());
+        }
         // 将菜单列表构建成菜单树,用于构建前端菜单
         List<Menu> menuList = menuService.buildTree(menus);
         return ResultJson.success(menuService.buildMenus(menuList));
@@ -61,11 +69,11 @@ public class MenuManagerController {
         return ResultJson.success(ids);
     }
 
-    @PostMapping("/superior")
     @ApiOperation("查询菜单:根据ID获取同级与上级数据")
+    @PostMapping("/superior")
     public ResultJson<Set<Menu>> getSuperior(@RequestBody List<Long> ids) {
         Set<Menu> menus = new LinkedHashSet<>();
-        if(CollectionUtil.isNotEmpty(ids)){
+        if (CollectionUtil.isNotEmpty(ids)) {
             for (Long id : ids) {
                 Menu menu = menuService.findById(id);
                 menus.addAll(menuService.getSuperior(menu, new ArrayList<>()));
@@ -73,5 +81,29 @@ public class MenuManagerController {
             return ResultJson.success(menus);
         }
         return ResultJson.success(menus);
+    }
+
+    @PreAuthorize("@el.check('menu:add')")
+    @ApiOperation("新增菜单")
+    @PostMapping
+    public ResultJson<String> create(@Validated(Menu.Create.class) @RequestBody Menu menu) {
+        menuService.create(menu);
+        return ResultJson.success(null);
+    }
+
+    @PreAuthorize("@el.check('menu:edit')")
+    @ApiOperation("编辑菜单")
+    @PutMapping
+    public ResultJson<String> edit(@Validated(Menu.Update.class) @RequestBody Menu menu) {
+        menuService.update(menu);
+        return ResultJson.success(null);
+    }
+
+    @PreAuthorize("@el.check('menu:del')")
+    @ApiOperation("删除菜单")
+    @DeleteMapping
+    public ResultJson<String> delete(@RequestBody Set<Long> ids) {
+        menuService.delete(ids);
+        return ResultJson.success(null);
     }
 }

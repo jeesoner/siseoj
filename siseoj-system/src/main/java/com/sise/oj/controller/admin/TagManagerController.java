@@ -7,6 +7,7 @@ import com.sise.oj.domain.param.QueryParam;
 import com.sise.oj.service.TagService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,18 +31,21 @@ public class TagManagerController {
         this.tagService = tagService;
     }
 
+    @PreAuthorize("@el.check('tag:list')")
     @ApiOperation("查询标签")
     @GetMapping
     public ResultJson<Page<Tag>> query(QueryParam param, Page<Tag> page) {
         return ResultJson.success(tagService.query(param, page));
     }
 
+    @PreAuthorize("@el.check('tag:list')")
     @ApiOperation("查询所有标签")
     @GetMapping("/all")
     public ResultJson<List<Tag>> queryAll() {
         return ResultJson.success(tagService.list());
     }
 
+    @PreAuthorize("@el.check('tag:add')")
     @ApiOperation("新增标签")
     @PostMapping
     public ResultJson<String> create(@Validated @RequestBody Tag tag) {
@@ -49,6 +53,7 @@ public class TagManagerController {
         return ResultJson.success("新增标签成功");
     }
 
+    @PreAuthorize("@el.check('tag:edit')")
     @ApiOperation("修改标签")
     @PutMapping
     public ResultJson<String> update(@Validated(Tag.Update.class) @RequestBody Tag tag) {
@@ -56,6 +61,7 @@ public class TagManagerController {
         return ResultJson.success("更新标签成功");
     }
 
+    @PreAuthorize("@el.check('tag:del')")
     @ApiOperation("删除标签")
     @DeleteMapping
     public ResultJson<String> delete(@RequestBody Set<Long> ids) {

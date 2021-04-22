@@ -8,6 +8,7 @@ import com.sise.oj.enums.ResultCode;
 import com.sise.oj.service.SourceService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.util.CollectionUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -32,18 +33,21 @@ public class SourceManagerController {
         this.sourceService = sourceService;
     }
 
+    @PreAuthorize("@el.check('source:list')")
     @ApiOperation("查询所有来源OJ")
     @GetMapping("/all")
     public ResultJson<List<Source>> query() {
         return ResultJson.success(sourceService.list());
     }
 
+    @PreAuthorize("@el.check('source:list')")
     @ApiOperation("查询题目来源")
     @GetMapping
     public ResultJson<Page<Source>> query(QueryParam param, Page<Source> page) {
         return ResultJson.success(sourceService.query(param, page));
     }
 
+    @PreAuthorize("@el.check('source:add')")
     @ApiOperation("新增题目来源")
     @PostMapping
     public ResultJson<Source> create(@Validated @RequestBody Source source) {
@@ -51,6 +55,7 @@ public class SourceManagerController {
         return ResultJson.success(null);
     }
 
+    @PreAuthorize("@el.check('source:edit')")
     @ApiOperation("修改题目来源")
     @PutMapping
     public ResultJson<Source> update(@Validated(Source.Update.class) @RequestBody Source source) {
@@ -58,6 +63,7 @@ public class SourceManagerController {
         return ResultJson.success(null);
     }
 
+    @PreAuthorize("@el.check('source:del')")
     @ApiOperation("删除题目来源")
     @DeleteMapping
     public ResultJson<Source> delete(@RequestBody Set<Long> ids) {
