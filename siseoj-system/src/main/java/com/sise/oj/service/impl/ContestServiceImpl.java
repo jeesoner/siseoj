@@ -44,7 +44,7 @@ public class ContestServiceImpl extends BaseServiceImpl<ContestMapper, Contest> 
     @Override
     public Page<Contest> list(Page<Contest> page, QueryParam param) {
         LambdaQueryWrapper<Contest> wrapper = Wrappers.lambdaQuery(Contest.class);
-        if (StringUtils.isNoneBlank(param.getKeyword())) {
+        if (StringUtils.isNotBlank(param.getKeyword())) {
             wrapper.like(Contest::getTitle, param.getKeyword());
         }
         if (param.getStatus() != null) {
@@ -133,6 +133,7 @@ public class ContestServiceImpl extends BaseServiceImpl<ContestMapper, Contest> 
         contest.setEndTime(resources.getEndTime());
         contest.setDuration(resources.getDuration());
         contest.setSealRank(resources.getSealRank());
+        contest.setPassword(resources.getPassword());
         contest.setSealRankTime(resources.getSealRankTime());
 
         contestMapper.updateById(contest);
@@ -219,6 +220,9 @@ public class ContestServiceImpl extends BaseServiceImpl<ContestMapper, Contest> 
             ContestProblem contestProblem = resources.get(i);
             contestProblem.setDisplayId(i);
             contestProblem.setCid(cid);
+            if (StringUtils.isBlank(contestProblem.getDisplayTitle())) {
+                contestProblem.setDisplayTitle("" + (char) (i + 65));
+            }
         }
         // 查询数据库里的比赛题目
         List<ContestProblem> contestProblemList = contestProblemService.findByContestId(cid);
