@@ -70,8 +70,8 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .description("一个比赛、刷题功能的在线评测系统")
-                .title("SISE-OJ 接口文档")
+                .description("一个具有题库、比赛、刷题功能的在线评测系统")
+                .title("NiuCode 接口文档")
                 .version("1.0")
                 .build();
     }
