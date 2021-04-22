@@ -6,8 +6,6 @@ import com.sise.oj.domain.Menu;
 import com.sise.oj.domain.param.MenuQueryParam;
 import com.sise.oj.domain.vo.MenuVo;
 
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.List;
 import java.util.Set;
 
@@ -26,29 +24,23 @@ public interface MenuService extends BaseService<Menu> {
     Page<Menu> list(Page<Menu> page, MenuQueryParam param);
 
     /**
-     * 查询全部数据
-     * @param param 条件
-     * @param isQuery /
-     * @throws Exception /
-     * @return /
-     */
-    List<Menu> queryAll(MenuQueryParam param, Boolean isQuery) throws Exception;
-
-    /**
      * 根据ID查询
+     *
      * @param id /
      * @return /
      */
     Menu findById(long id);
 
     /**
-     * 创建
-     * @param resources /
+     * 创建菜单
+     *
+     * @param resources 前端数据
      */
     void create(Menu resources);
 
     /**
-     * 编辑
+     * 编辑菜单
+     *
      * @param resources /
      */
     void update(Menu resources);
@@ -79,27 +71,22 @@ public interface MenuService extends BaseService<Menu> {
 
     /**
      * 根据ID查询
+     *
      * @param id /
      * @return /
      */
     Menu findOne(Long id);
 
     /**
-     * 删除
-     * @param menuSet /
+     * 删除菜单
+     *
+     * @param ids id集合
      */
-    void delete(Set<Menu> menuSet);
-
-    /**
-     * 导出
-     * @param queryAll 待导出的数据
-     * @param response /
-     * @throws IOException /
-     */
-    void download(List<Menu> queryAll, HttpServletResponse response) throws IOException;
+    void delete(Set<Long> ids);
 
     /**
      * 懒加载菜单数据
+     *
      * @param pid /
      * @return /
      */
@@ -107,6 +94,7 @@ public interface MenuService extends BaseService<Menu> {
 
     /**
      * 根据ID获取同级与上级数据
+     *
      * @param menu /
      * @param getSuperior /
      * @return /
@@ -115,6 +103,7 @@ public interface MenuService extends BaseService<Menu> {
 
     /**
      * 根据当前用户获取菜单
+     *
      * @param currentUserId /
      * @return /
      */

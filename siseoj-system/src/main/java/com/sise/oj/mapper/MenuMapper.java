@@ -41,4 +41,38 @@ public interface MenuMapper extends BaseMapper<Menu> {
      * @return -
      */
     LinkedHashSet<Menu> findByRoleIdsAndTypeNot(@Param("roleIds") Set<Long> roleIds, @Param("type") int type);
+
+    /**
+     * 根据菜单名查询菜单
+     *
+     * @param title 菜单名称
+     * @return Menu
+     */
+    @Select("select * from sys_menu where title = #{title}")
+    Menu findByTitle(String title);
+
+    /**
+     * 根据组件名查询菜单
+     *
+     * @param componentName 组件名
+     * @return Menu
+     */
+    @Select("select * from sys_menu where component_name = #{componentName}")
+    Menu findByComponentName(String componentName);
+
+    /**
+     * 获取节点的数量
+     *
+     * @param menuId 菜单ID
+     * @return int
+     */
+    int countByPid(Long menuId);
+
+    /**
+     * 更新子节点数量
+     *
+     * @param count 子节点数量
+     * @param menuId 菜单ID
+     */
+    void updateSubCntById(@Param("count") int count, @Param("menuId") Long menuId);
 }

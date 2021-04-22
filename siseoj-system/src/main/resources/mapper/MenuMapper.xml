@@ -8,6 +8,14 @@
         <foreach collection="roleIds" open="(" close=")" separator="," item="id">
             #{id}
         </foreach>
-        AND type != #{type} order by m.menu_sort asc
+        AND type != #{type} order by m.menu_sort
     </select>
+
+    <select id="countByPid" resultType="java.lang.Integer">
+        select count(*) from sys_menu where pid = #{menuId}
+    </select>
+
+    <update id="updateSubCntById">
+        update sys_menu set sub_count = #{count} where id = #{menuId}
+    </update>
 </mapper>

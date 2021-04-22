@@ -10,6 +10,8 @@ import com.sise.oj.domain.Role;
 import com.sise.oj.domain.param.MenuQueryParam;
 import com.sise.oj.domain.vo.MenuMetaVo;
 import com.sise.oj.domain.vo.MenuVo;
+import com.sise.oj.exception.BadRequestException;
+import com.sise.oj.exception.DataExistException;
 import com.sise.oj.mapper.MenuMapper;
 import com.sise.oj.service.MenuService;
 import com.sise.oj.service.RoleService;
@@ -17,9 +19,8 @@ import com.sise.oj.util.StringUtils;
 import com.sise.oj.util.ValidationUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -38,9 +39,12 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuMapper, Menu> implement
     public Page<Menu> list(Page<Menu> page, MenuQueryParam param) {
         LambdaQueryWrapper<Menu> wrapper = Wrappers.lambdaQuery(Menu.class);
         if (StringUtils.isNotBlank(param.getKeyword())) {
-            wrapper.like(Menu::getComponentName, param.getKeyword());
+            wrapper.like(Menu::getTitle, param.getKeyword());
+            if (Objects.isNull(param.getPid())) {
+                wrapper.isNull(Menu::getPid);
+            }
         }
-        if (Objects.nonNull(param.getPid())) {
+        if (Objects.nonNull(param.getPid())) { // 父节点不为空
             wrapper.like(Menu::getPid, param.getPid());
             page.setSize(999);
         } else {
@@ -51,11 +55,6 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuMapper, Menu> implement
     }
 
     @Override
-    public List<Menu> queryAll(MenuQueryParam param, Boolean isQuery) throws Exception {
-        return null;
-    }
-
-    @Override
     public Menu findById(long id) {
         Menu menu = menuMapper.selectById(id);
         ValidationUtils.isNull(menu, "Menu", "id", id);
@@ -63,13 +62,81 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuMapper, Menu> implement
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void create(Menu resources) {
-
+        if (menuMapper.findByTitle(resources.getTitle()) != null) {
+            throw new DataExistException(Menu.class, "title", resources.getTitle());
+        }
+        if (StringUtils.isNotBlank(resources.getComponentName())) {
+            if (menuMapper.findByComponentName(resources.getComponentName()) != null) {
+                throw new DataExistException(Menu.class, "componentName", resources.getComponentName());
+            }
+        }
+        if (resources.getPid().equals(0L)) {
+            resources.setPid(null);
+        }
+        // 外链格式校验
+        if (resources.getIFrame()) {
+            String http = "http://", https = "https://";
+            if (!resources.getPath().toLowerCase().startsWith(http) || !resources.getPath().toLowerCase().startsWith(https)) {
+                throw new BadRequestException("外链必须以http://或者https://开头");
+            }
+        }
+        resources.setSubCount(0);
+        menuMapper.insert(resources);
+        // 计算子节点的数量
+        updateSubCnt(resources.getPid());
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void update(Menu resources) {
+        if (resources.getId().equals(resources.getPid())) {
+            throw new BadRequestException("上级不能为自己");
+        }
+        Menu menu = menuMapper.selectById(resources.getId());
+        ValidationUtils.isNull(menu, "菜单", "ID", menu.getId());
 
+        Menu menu1 = menuMapper.findByTitle(resources.getTitle());
+        if (menu1 != null && !menu1.getId().equals(menu.getId())) {
+            throw new DataExistException(Menu.class, "title", resources.getTitle());
+        }
+        if (StringUtils.isNotBlank(resources.getComponentName())) {
+            menu1 = menuMapper.findByComponentName(resources.getComponentName());
+            if (menu1 != null && !menu1.getId().equals(menu.getId())) {
+                throw new DataExistException(Menu.class, "componentName", resources.getComponentName());
+            }
+        }
+        if (resources.getPid().equals(0L)) {
+            resources.setPid(null);
+        }
+        // 外链格式校验
+        if (resources.getIFrame()) {
+            String http = "http://", https = "https://";
+            if (!resources.getPath().toLowerCase().startsWith(http) || !resources.getPath().toLowerCase().startsWith(https)) {
+                throw new BadRequestException("外链必须以http://或者https://开头");
+            }
+        }
+        // 记录的父节点ID
+        Long oldPid = menu.getPid();
+        Long newPid = resources.getPid();
+
+        menu.setTitle(resources.getTitle());
+        menu.setComponent(resources.getComponent());
+        menu.setPath(resources.getPath());
+        menu.setIcon(resources.getIcon());
+        menu.setIFrame(resources.getIFrame());
+        menu.setPid(resources.getPid());
+        menu.setMenuSort(resources.getMenuSort());
+        menu.setCache(resources.getCache());
+        menu.setHidden(resources.getHidden());
+        menu.setComponentName(resources.getComponentName());
+        menu.setPermission(resources.getPermission());
+        menu.setType(resources.getType());
+        menuMapper.updateById(menu);
+        // 计算父级菜单节点数目
+        updateSubCnt(oldPid);
+        updateSubCnt(newPid);
     }
 
     @Override
@@ -175,13 +242,8 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuMapper, Menu> implement
     }
 
     @Override
-    public void delete(Set<Menu> menuSet) {
-
-    }
-
-    @Override
-    public void download(List<Menu> queryAll, HttpServletResponse response) throws IOException {
-
+    public void delete(Set<Long> ids) {
+        menuMapper.deleteBatchIds(ids);
     }
 
     @Override
@@ -209,9 +271,19 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuMapper, Menu> implement
 
     @Override
     public List<Menu> findByUser(Long currentUserId) {
-        List<Role> roles = roleService.findByUserId(currentUserId);
+        Set<Role> roles = roleService.findByUserId(currentUserId);
         Set<Long> roleIds = roles.stream().map(Role::getId).collect(Collectors.toSet());
         LinkedHashSet<Menu> menus = menuMapper.findByRoleIdsAndTypeNot(roleIds, 2);
         return new ArrayList<>(menus);
+    }
+
+    /**
+     * 更新子节点的数量
+     */
+    public void updateSubCnt(Long menuId) {
+        if (menuId != null) {
+            int count = menuMapper.countByPid(menuId);
+            menuMapper.updateSubCntById(count, menuId);
+        }
     }
 }
